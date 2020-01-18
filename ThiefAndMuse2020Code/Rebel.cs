@@ -29,4 +29,17 @@
     public int Luck { get; set; }
     public LeatherVest Apparel { get; set; }
     public Sword Weapon { get; set; }
+
+    public void Attack()
+    {
+
+    }
+    public void BoostInjection()
+    {
+
+    }
+    public void Kamakaze()
+    {
+
+    }
 }

@@ -29,5 +29,19 @@
     public int Luck { get; set; }
     public HeavyJacket Apparel { get; set; }
     public TwentyShot Weapon { get; set; }
+
+    public void HeavyAttack()
+    {
+
+    }
+    public void StunAttack()
+    {
+
+    }
+
+    public void ShockArmor()
+    {
+
+    }
 }
 

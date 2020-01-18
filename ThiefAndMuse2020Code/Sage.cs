@@ -29,5 +29,19 @@
     public int Luck { get; set; }
     public CottonRobe Apparel { get; set; }
     public Staff Weapon { get; set; }
+
+    public void ChiHeal()
+    {
+
+    }
+    public void ChiBooster()
+    {
+
+    }
+
+    public void ChiBolt()
+    {
+
+    }
 }
 

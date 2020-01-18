@@ -5,5 +5,26 @@
 
     public int ArmorRating { get; set; }
     public int WeaponDamage { get; set; }
+
+    public void VerticalSlash()
+    {
+
+    }
+
+    public void HorizontalSlash()
+    {
+
+
+    }
+
+    public void Stab()
+    {
+
+    }
+
+    public void Parry()
+    {
+
+    }
 }
 

@@ -29,5 +29,19 @@
     public int Luck { get; set; }
     public LeatherVest Apparel { get; set; }
     public Dagger Weapon { get; set; }
+
+    public void Steal()
+    {
+
+    }
+    public void Attack()
+    {
+
+    }
+    public void Dodge()
+    {
+
+    }
+        
 }
 

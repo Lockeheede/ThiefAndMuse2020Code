@@ -29,5 +29,18 @@
     public int Luck { get; set; }
     public PartyDress Apparel { get; set; }
     public Oil Weapon { get; set; }
+
+    public void ChiBlast()
+    {
+
+    }
+    public void ChiShield()
+    {
+
+    }
+    public void ConsumeOil()
+    {
+
+    }
 }
 

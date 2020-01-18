@@ -28,6 +28,12 @@ class EntryPoint
          * WeaponDamage 
          *
         */
+
+        //Make skills for each class. Create them as methods. Make 1 offensive, 1 defensive, and 1 support skill each
+        //This includes the apparel, items and weapons as well
+        //Example Thief can Attack, Dodge, Steal
+        //Twenty Shot can Shoot, Cover, Reload
+        //Not all items, weapons, etc need three skills.
         }
     }
 

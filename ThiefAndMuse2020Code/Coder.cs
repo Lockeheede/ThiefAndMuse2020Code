@@ -29,5 +29,18 @@
     public int Luck { get; set; }
     public LeatherVest Apparel { get; set; }
     public CPU Weapon { get; set; }
+
+    public void Hack()
+    {
+
+    }
+    public void Program()
+    {
+
+    }
+    public void Virus()
+    {
+
+    }
 }
 
