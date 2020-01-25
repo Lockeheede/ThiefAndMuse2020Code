@@ -43,30 +43,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CottonRobe.cs" />
-    <Compile Include="Padlocke.cs" />
-    <Compile Include="CPU.cs" />
-    <Compile Include="Club.cs" />
-    <Compile Include="SpellBook.cs" />
-    <Compile Include="Oil.cs" />
-    <Compile Include="Staff.cs" />
-    <Compile Include="TwentyShot.cs" />
-    <Compile Include="Dagger.cs" />
-    <Compile Include="Sword.cs" />
-    <Compile Include="PartyDress.cs" />
-    <Compile Include="LeatherVest.cs" />
-    <Compile Include="BodyGuard.cs" />
-    <Compile Include="HeavyJacket.cs" />
-    <Compile Include="Rebel.cs" />
-    <Compile Include="Sage.cs" />
+    <Compile Include="Apparel\Light\CottonRobe.cs" />
+    <Compile Include="Weapons\Cyber\Padlocke.cs" />
+    <Compile Include="Weapons\Cyber\CPU.cs" />
+    <Compile Include="Weapons\Rena\Club.cs" />
+    <Compile Include="Weapons\Rena\SpellBook.cs" />
+    <Compile Include="Weapons\Modern\Oil.cs" />
+    <Compile Include="Weapons\Rena\Staff.cs" />
+    <Compile Include="Weapons\Modern\TwentyShot.cs" />
+    <Compile Include="Weapons\Rena\Dagger.cs" />
+    <Compile Include="Weapons\Rena\Sword.cs" />
+    <Compile Include="Apparel\Light\PartyDress.cs" />
+    <Compile Include="Apparel\Medium\LeatherVest.cs" />
+    <Compile Include="Characters\Body\BodyGuard.cs" />
+    <Compile Include="Apparel\Heavy\HeavyJacket.cs" />
+    <Compile Include="Characters\Body\Rebel.cs" />
+    <Compile Include="Characters\Spirit\Sage.cs" />
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="Coder.cs" />
+    <Compile Include="Characters\Mind\Coder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Muse.cs" />
-    <Compile Include="Thief.cs" />
+    <Compile Include="Characters\Spirit\Muse.cs" />
+    <Compile Include="Characters\Body\Thief.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

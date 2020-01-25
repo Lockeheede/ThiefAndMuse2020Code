@@ -34,6 +34,11 @@ class EntryPoint
         //Example Thief can Attack, Dodge, Steal
         //Twenty Shot can Shoot, Cover, Reload
         //Not all items, weapons, etc need three skills.
+
+        ///Note on validation of the classes
+        ///Levels should be 1 to 100. WeaponDamage and ArmorRating cannot be 0 or negative
+        ///Faction must be a Reggie, Coder, Rebel, Sage or unRealistic
+
         }
     }
 
