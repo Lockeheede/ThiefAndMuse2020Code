@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Important note: See the classes.sln in order to see the notes made for this project. 
+//More than likely you should know how things work anyway, but if you ever get lost, 
+//that is the project to look for (Class.sln)
+using System;
 class EntryPoint
     {
         static void Main()

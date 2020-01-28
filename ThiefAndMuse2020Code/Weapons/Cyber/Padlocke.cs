@@ -18,19 +18,19 @@ public class Dagger
     {
         get
         {
-            return armorRating;
+            return this.armorRating;
         }
         set
         {
             {
                 if (value < 0)
                 {
-                    System.Console.WriteLine("Inappropriate value! Armor Rating cannot be less than 0. Default set to 0.");
-                    armorRating = 0;
+                    Console.WriteLine("Inappropriate value! Armor Rating cannot be less than 0. Default set to 0.");
+                    this.armorRating = 0;
                 }
                 else
                 {
-                    armorRating = value;
+                    this.armorRating = value;
                 }
             }
         }
@@ -39,18 +39,18 @@ public class Dagger
     {
         get
         {
-            return weaponRating;
+            return this.weaponRating;
         }
         set
         {
             if (value < 0)
             {
-                System.Console.WriteLine("Inappropriate value! Weapon Rating cannot be less than 0. Default set to 0.");
-                weaponRating = 0;
+                Console.WriteLine("Inappropriate value! Weapon Rating cannot be less than 0. Default set to 0.");
+                this.weaponRating = 0;
             }
             else
             {
-                weaponRating = value;
+                this.weaponRating = value;
             }
         }
     }
@@ -58,18 +58,18 @@ public class Dagger
     {
         get
         {
-            return magickRating;
+            return this.magickRating;
         }
         set
         {
             if (value < 0)
             {
-                System.Console.WriteLine("Inappropriate value! Magick Rating cannot be less than 0. Default set to 0.");
-                magickRating = 0;
+                Console.WriteLine("Inappropriate value! Magick Rating cannot be less than 0. Default set to 0.");
+                this.magickRating = 0;
             }
             else
             {
-                magickRating = value;
+                this.magickRating = value;
             }
         }
 
@@ -78,18 +78,18 @@ public class Dagger
     {
         get
         {
-            return weaponDamage;
+            return this.weaponDamage;
         }
         set
         {
             if (value < 0)
             {
-                System.Console.WriteLine("Inappropriate value! Weapon Damage cannot be less than 0. Default set to 0.");
-                weaponDamage = 0;
+                Console.WriteLine("Inappropriate value! Weapon Damage cannot be less than 0. Default set to 0.");
+                this.weaponDamage = 0;
             }
             else
             {
-                weaponDamage = value;
+                this.weaponDamage = value;
             }
         }
     }
@@ -97,18 +97,18 @@ public class Dagger
     {
         get
         {
-            return weaponDefense;
+            return this.weaponDefense;
         }
         set
         {
             if (value < 0)
             {
-                System.Console.WriteLine("Inappropriate value! Weapon Defense cannot be less than 0. Default set to 0.");
-                weaponDefense = 0;
+                Console.WriteLine("Inappropriate value! Weapon Defense cannot be less than 0. Default set to 0.");
+                this.weaponDefense = 0;
             }
             else
             {
-                weaponDefense = value;
+                this.weaponDefense = value;
             }
         }
     }
@@ -116,18 +116,18 @@ public class Dagger
     {
         get
         {
-            return magickDamage;
+            return this.magickDamage;
         }
         set
         {
             if (value < 0)
             {
-                System.Console.WriteLine("Inappropriate value! Magick Damage cannot be less than 0. Default set to 0.");
-                magickDamage = 0;
+                Console.WriteLine("Inappropriate value! Magick Damage cannot be less than 0. Default set to 0.");
+                this.magickDamage = 0;
             }
             else
             {
-                magickDamage = value;
+                this.magickDamage = value;
             }
         }
     }
@@ -135,18 +135,18 @@ public class Dagger
     {
         get
         {
-            return magickDefense;
+            return this.magickDefense;
         }
         set
         {
             if (value < 0)
             {
-                System.Console.WriteLine("Inappropriate value! Magick Defense cannot be less than 0. Default set to 0.");
-                magickDefense = 0;
+                Console.WriteLine("Inappropriate value! Magick Defense cannot be less than 0. Default set to 0.");
+                this.magickDefense = 0;
             }
             else
             {
-                magickDefense = value;
+                this.magickDefense = value;
             }
         }
     }
@@ -154,32 +154,32 @@ public class Dagger
     {
         get
         {
-            return weaponSpeed;
+            return this.weaponSpeed;
         }
         set
         {
             if (value < 0)
             {
-                System.Console.WriteLine("Inappropriate value! Weapon Speed cannot be less than 0. Default set to 0.");
-                weaponSpeed = 0;
+                Console.WriteLine("Inappropriate value! Weapon Speed cannot be less than 0. Default set to 0.");
+                this.weaponSpeed = 0;
             }
             else
             {
-                weaponSpeed = value;
+                this.weaponSpeed = value;
             }
         }
     }
 
     public Dagger(int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
     {
-        ArmorRating = armorRating;
-        WeaponRating = weaponRating;
-        MagickRating = magickRating;
-        WeaponDamage = weaponRating * weaponDamage;
-        WeaponDefense = armorRating * weaponDefense;
-        MagickDamage = magickRating * magickDamage;
-        MagickDefense = magickRating * magickDefense;
-        WeaponSpeed = weaponRating * weaponSpeed;
+        this.ArmorRating = armorRating;
+        this.WeaponRating = weaponRating;
+        this.MagickRating = magickRating;
+        this.WeaponDamage = weaponRating * weaponDamage;
+        this.WeaponDefense = armorRating * weaponDefense;
+        this.MagickDamage = magickRating * magickDamage;
+        this.MagickDefense = magickRating * magickDefense;
+        this.WeaponSpeed = weaponRating * weaponSpeed;
     }
     public void Sensor()
     {

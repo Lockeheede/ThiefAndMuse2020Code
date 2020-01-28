@@ -33,18 +33,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return name;
+                return this.name;
             }
             set
             {
                 if (value.Length < 2)
                 {
-                    System.Console.WriteLine("The name cannot have less than two characters! Default set to Dumb...");
-                    name = "Dumb";
+                    Console.WriteLine("The name cannot have less than two characters! Default set to Dumb...");
+                    this.name = "Dumb";
                 }
                 else
                 {
-                    name = value;
+                    this.name = value;
                 }
             }
         }
@@ -52,18 +52,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return level;
+                return this.level;
             }
             set
             {
-                if (level >= 1 && level <= 100)
+                if (value >= 1 && value <= 100)
                 {
-                    level = value;
+                    this.level = value;
                 }
                 else
                 {
-                    System.Console.WriteLine("Inappropriate level value. Default set to 1");
-                    level = 1;
+                    Console.WriteLine("Inappropriate level value. Default set to 1");
+                    this.level = 1;
                 }
             }
         }
@@ -71,18 +71,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return healthPoints;
+                return this.healthPoints;
             }
             set
             {
-                if (healthPoints <= 0)
+                if (value <= 0)
                 {
-                    System.Console.WriteLine("Health Points cannot be 0 or less! Default set to 100.");
-                    healthPoints = 100;
+                    Console.WriteLine("Health Points cannot be 0 or less! Default set to 100.");
+                    this.healthPoints = 100;
                 }
                 else
                 {
-                    healthPoints = value;
+                    this.healthPoints = value;
                 }
             }
         }
@@ -90,18 +90,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return chiPoints;
+                return this.chiPoints;
             }
             set
             {
-                if (chiPoints < 0)
+                if (value < 0)
                 {
-                    System.Console.WriteLine("Chi Points cannot be negative. Default set to 0");
-                    chiPoints = 0;
+                    Console.WriteLine("Chi Points cannot be negative. Default set to 0");
+                    this.chiPoints = 0;
                 }
                 else
                 {
-                    chiPoints = value;
+                    this.chiPoints = value;
                 }
             }
         }
@@ -109,18 +109,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return faction;
+                return this.faction;
             }
             set
             {
-                if (faction != "Reggie" || faction != "Coder" || faction != "Sage" || faction != "unRealistic" || faction != "Rebel")
+                if (value != "Reggie" || value != "Coder" || value != "Sage" || value != "unRealistic" || value != "Rebel")
                 {
-                    System.Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    faction = "Reggie";
+                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
+                    this.faction = "Reggie";
                 }
                 else
                 {
-                    faction = value;
+                    this.faction = value;
                 }
             }
         }
@@ -128,18 +128,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return strength;
+                return this.strength;
             }
             set
             {
-                if (strength < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Strength must be at least 1. Default set to 1.");
-                    strength = 1;
+                    Console.WriteLine("Strength must be at least 1. Default set to 1.");
+                    this.strength = 1;
                 }
                 else
                 {
-                    strength = value;
+                    this.strength = value;
                 }
             }
         }
@@ -147,18 +147,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return perception;
+                return this.perception;
             }
             set
             {
-                if (perception < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Perception must be at least 1. Default set to 1.");
-                    perception = 1;
+                    Console.WriteLine("Perception must be at least 1. Default set to 1.");
+                    this.perception = 1;
                 }
                 else
                 {
-                    perception = value;
+                    this.perception = value;
                 }
             }
         }
@@ -166,18 +166,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return endurance;
+                return this.endurance;
             }
             set
             {
-                if (endurance < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Endurance must be at least 1. Default set to 1.");
-                    endurance = 1;
+                    Console.WriteLine("Endurance must be at least 1. Default set to 1.");
+                    this.endurance = 1;
                 }
                 else
                 {
-                    endurance = value;
+                    this.endurance = value;
                 }
             }
         }
@@ -185,18 +185,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return charisma;
+                return this.charisma;
             }
             set
             {
-                if (charisma < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Charisma must be at least 1. Default set to 1.");
-                    charisma = 1;
+                    Console.WriteLine("Charisma must be at least 1. Default set to 1.");
+                    this.charisma = 1;
                 }
                 else
                 {
-                    charisma = value;
+                    this.charisma = value;
                 }
             }
         }
@@ -204,18 +204,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return intelligence;
+                return this.intelligence;
             }
             set
             {
-                if (intelligence < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Intelligence must be at least 1. Default set to 1.");
-                    intelligence = 1;
+                    Console.WriteLine("Intelligence must be at least 1. Default set to 1.");
+                    this.intelligence = 1;
                 }
                 else
                 {
-                    intelligence = value;
+                    this.intelligence = value;
                 }
             }
         }
@@ -223,18 +223,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return agility;
+                return this.agility;
             }
             set
             {
-                if (agility < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Agility must be at least 1. Default set to 1.");
-                    agility = 1;
+                    Console.WriteLine("Agility must be at least 1. Default set to 1.");
+                    this.agility = 1;
                 }
                 else
                 {
-                    agility = value;
+                    this.agility = value;
                 }
             }
         }
@@ -242,18 +242,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return luck;
+                return this.luck;
             }
             set
             {
-                if (luck < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Luck must be at least 1. Default set to 1.");
-                    luck = 1;
+                    Console.WriteLine("Luck must be at least 1. Default set to 1.");
+                    this.luck = 1;
                 }
                 else
                 {
-                    luck = value;
+                    this.luck = value;
                 }
             }
         }
@@ -261,11 +261,11 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return apparel;
+                return this.apparel;
             }
             set
             {
-                apparel = value;
+                this.apparel = value;
             }
         }
         public Sword Weapon
@@ -284,18 +284,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return damage;
+                return this.damage;
             }
             set
             {
-                if (damage < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Damage must be at least 1. Default set to 1.");
-                    damage = 1;
+                    Console.WriteLine("Damage must be at least 1. Default set to 1.");
+                    this.damage = 1;
                 }
                 else
                 {
-                    damage = value;
+                    this.damage = value;
                 }
             }
         }
@@ -303,18 +303,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return defense;
+                return this.defense;
             }
             set
             {
-                if (defense < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Defense must be at least 1. Default set to 1.");
-                    defense = 1;
+                    Console.WriteLine("Defense must be at least 1. Default set to 1.");
+                    this.defense = 1;
                 }
                 else
                 {
-                    defense = value;
+                    this.defense = value;
                 }
             }
         }
@@ -322,18 +322,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return speed;
+                return this.speed;
             }
             set
             {
-                if (speed < 1)
+                if (value < 1)
                 {
-                    System.Console.WriteLine("Speed must be at least 1. Default set to 1.");
-                    speed = 1;
+                    Console.WriteLine("Speed must be at least 1. Default set to 1.");
+                    this.speed = 1;
                 }
                 else
                 {
-                    speed = value;
+                    this.speed = value;
                 }
             }
         }
@@ -341,18 +341,18 @@ namespace ThiefAndMuses2020Code.Characters.Body
         {
             get
             {
-                return magick;
+                return this.magick;
             }
             set
             {
-                if (magick < 0)
+                if (value < 0)
                 {
-                    System.Console.WriteLine("Magick must be at least 0. Default set to 0.");
-                    magick = 0;
+                    Console.WriteLine("Magick must be at least 0. Default set to 0.");
+                    this.magick = 0;
                 }
                 else
                 {
-                    magick = value;
+                    this.magick = value;
                 }
             }
         }
