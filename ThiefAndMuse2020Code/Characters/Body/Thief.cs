@@ -110,14 +110,15 @@
             }
             set
             {
-                if (value != "Reggie" || value != "Coder" || value != "Sage" || value != "unRealistic" || value != "Rebel")
+                
+                if (value == "Reggie" || value == "Coder" || value == "Sage" || value == "unRealistic" || value == "Rebel")
                 {
-                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    this.faction = "Reggie";
+                    this.faction = value;
                 }
                 else
                 {
-                    this.faction = value;
+                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
+                    this.faction = "Reggie";
                 }
             }
         }
@@ -355,30 +356,29 @@
         }
 
         public Thief(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck, LeatherVest apparel, Dagger weapon,
-          int damage, int defense, int speed, int magick)
+          int perception, int endurance, int charisma, int intelligence, int agility, int luck)
         {
-            Level = level;
-            Name = name;
-            HealthPoints = (level * healthPoints) + (level * endurance);
-            ChiPoints = (level * chiPoints) + (level * intelligence);
-            Faction = faction;
+            this.Level = level;
+            this.Name = name;
+            this.HealthPoints = (level * healthPoints * endurance);
+            this.ChiPoints = (level * chiPoints * intelligence);
+            this.Faction = faction;
 
-            Strength = level * strength;
-            Perception = level * perception;
-            Endurance = level * endurance;
-            Charisma = level * charisma;
-            Intelligence = level * intelligence;
-            Agility = level * agility;
-            Luck = level * luck;
+            this.Strength = level * strength;
+            this.Perception = level * perception;
+            this.Endurance = level * endurance;
+            this.Charisma = level * charisma;
+            this.Intelligence = level * intelligence;
+            this.Agility = level * agility;
+            this.Luck = level * luck;
 
-            Apparel = apparel;
-            Weapon = weapon;
+            this.Apparel = new LeatherVest(1, 0, 10, 10);
+            this.Weapon = new Dagger(1, 0, 5, 0, 10);
 
-            Damage = (level * damage) + (level * strength);
-            Defense = (level * defense) + (level * endurance);
-            Speed = (level * speed) + (level * agility);
-            Magick = (level * intelligence) + (level * perception);
+            this.Damage = (level * strength * this.Weapon.WeaponDamage);
+            this.Defense = (level * endurance * this.Apparel.ArmorRating);
+            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
+            this.Magick = (level * intelligence) + (level * perception);
         }
 
         public void Steal()
