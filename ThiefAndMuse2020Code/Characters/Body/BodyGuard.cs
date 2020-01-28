@@ -358,6 +358,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
 
 
 
+
         public BodyGuard(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
             int perception, int endurance, int charisma, int intelligence, int agility, int luck, HeavyJacket apparel, TwentyShot weapon,
             int damage, int defense, int speed, int magick)

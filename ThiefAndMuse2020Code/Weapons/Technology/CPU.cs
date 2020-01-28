@@ -1,41 +1,16 @@
 ﻿using System;
 
-namespace ThiefAndMuses2020Code.Weapons.Rena
+namespace ThiefAndMuses2020Code.Weapons.Technology
 {
-    public class Staff
+    public class CPU
     {
-        private int armorRating;
         private int weaponRating;
         private int magickRating;
         private int weaponDamage;
-        private int weaponDefense;
         private int magickDamage;
-        private int magickDefense;
         private int weaponSpeed;
 
 
-
-        public int ArmorRating
-        {
-            get
-            {
-                return this.armorRating;
-            }
-            set
-            {
-                {
-                    if (value < 0)
-                    {
-                        Console.WriteLine("Inappropriate value! Armor Rating cannot be less than 0. Default set to 0.");
-                        this.armorRating = 0;
-                    }
-                    else
-                    {
-                        this.armorRating = value;
-                    }
-                }
-            }
-        }
         public int WeaponRating
         {
             get
@@ -94,25 +69,6 @@ namespace ThiefAndMuses2020Code.Weapons.Rena
                 }
             }
         }
-        public int WeaponDefense
-        {
-            get
-            {
-                return this.weaponDefense;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Inappropriate value! Weapon Defense cannot be less than 0. Default set to 0.");
-                    this.weaponDefense = 0;
-                }
-                else
-                {
-                    this.weaponDefense = value;
-                }
-            }
-        }
         public int MagickDamage
         {
             get
@@ -132,25 +88,7 @@ namespace ThiefAndMuses2020Code.Weapons.Rena
                 }
             }
         }
-        public int MagickDefense
-        {
-            get
-            {
-                return this.magickDefense;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Inappropriate value! Magick Defense cannot be less than 0. Default set to 0.");
-                    this.magickDefense = 0;
-                }
-                else
-                {
-                    this.magickDefense = value;
-                }
-            }
-        }
+
         public int WeaponSpeed
         {
             get
@@ -170,26 +108,23 @@ namespace ThiefAndMuses2020Code.Weapons.Rena
                 }
             }
         }
-
-
-        public Staff(int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
+        public CPU(int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
         {
-            this.ArmorRating = armorRating;
             this.WeaponRating = weaponRating;
             this.MagickRating = magickRating;
             this.WeaponDamage = weaponRating * weaponDamage;
-            this.WeaponDefense = armorRating * weaponDefense;
             this.MagickDamage = magickRating * magickDamage;
-            this.MagickDefense = magickRating * magickDefense;
             this.WeaponSpeed = weaponRating * weaponSpeed;
         }
-        public void HealTeam()
+        public void Program()
         {
             throw new NotImplementedException();
         }
-        public void SpellAttackEnemyTeam()
+
+        public void Hack()
         {
             throw new NotImplementedException();
         }
     }
+
 }

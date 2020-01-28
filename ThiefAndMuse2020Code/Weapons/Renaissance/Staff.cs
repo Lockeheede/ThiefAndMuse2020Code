@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ThiefAndMuses2020Code.Weapons.Rena
+namespace ThiefAndMuses2020Code.Weapons.Renaissance
 {
-    public class Sword
+    public class Staff
     {
         private int armorRating;
         private int weaponRating;
@@ -12,7 +12,6 @@ namespace ThiefAndMuses2020Code.Weapons.Rena
         private int magickDamage;
         private int magickDefense;
         private int weaponSpeed;
-
 
 
 
@@ -173,7 +172,7 @@ namespace ThiefAndMuses2020Code.Weapons.Rena
         }
 
 
-        public Sword(int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
+        public Staff(int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
         {
             this.ArmorRating = armorRating;
             this.WeaponRating = weaponRating;
@@ -184,25 +183,13 @@ namespace ThiefAndMuses2020Code.Weapons.Rena
             this.MagickDefense = magickRating * magickDefense;
             this.WeaponSpeed = weaponRating * weaponSpeed;
         }
-        public void VerticalSlash()
+        public void HealTeam()
         {
             throw new NotImplementedException();
         }
-
-        public void HorizontalSlash()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Stab()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Parry()
+        public void SpellAttackEnemyTeam()
         {
             throw new NotImplementedException();
         }
     }
 }
-

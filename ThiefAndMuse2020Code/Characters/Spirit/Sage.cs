@@ -2,7 +2,7 @@
 {
     using System;
     using ThiefAndMuses2020Code.Apparel.Light;
-    using ThiefAndMuses2020Code.Weapons.Rena;
+    using ThiefAndMuses2020Code.Weapons.Renaissance;
     public class Sage
     {
         private string name;

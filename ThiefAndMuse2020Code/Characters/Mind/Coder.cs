@@ -2,7 +2,7 @@
 {
     using System;
     using ThiefAndMuses2020Code.Apparel.Medium;
-    using ThiefAndMuses2020Code.Weapons.Cyber;
+    using ThiefAndMuses2020Code.Weapons.Technology;
 
     public class Coder
     {

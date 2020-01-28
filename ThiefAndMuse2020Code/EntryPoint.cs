@@ -41,6 +41,8 @@ class EntryPoint
         ///Note on validation of the classes
         ///Levels should be 1 to 100. WeaponDamage and ArmorRating cannot be 0 or negative
         ///Faction must be a Reggie, Coder, Rebel, Sage or unRealistic
+        ///
+        ///Note for later: Simplify the code required for armor and weapons
 
         }
     }

@@ -4,7 +4,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
 {
     using System;
     using ThiefAndMuses2020Code.Apparel.Medium;
-    using ThiefAndMuses2020Code.Weapons.Rena;
+    using ThiefAndMuses2020Code.Weapons.Renaissance;
     public class Rebel
     {
         private string name;

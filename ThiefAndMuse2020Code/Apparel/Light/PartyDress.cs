@@ -5,13 +5,9 @@ namespace ThiefAndMuses2020Code.Apparel.Light
     public class PartyDress
     {
         private int armorRating;
-        private int weaponRating;
         private int magickRating;
-        private int weaponDamage;
         private int weaponDefense;
-        private int magickDamage;
         private int magickDefense;
-        private int weaponSpeed;
 
 
 
@@ -36,25 +32,6 @@ namespace ThiefAndMuses2020Code.Apparel.Light
                 }
             }
         }
-        public int WeaponRating
-        {
-            get
-            {
-                return this.weaponRating;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Inappropriate value! Weapon Rating cannot be less than 0. Default set to 0.");
-                    this.weaponRating = 0;
-                }
-                else
-                {
-                    this.weaponRating = value;
-                }
-            }
-        }
         public int MagickRating
         {
             get
@@ -75,25 +52,6 @@ namespace ThiefAndMuses2020Code.Apparel.Light
             }
 
         }
-        public int WeaponDamage
-        {
-            get
-            {
-                return this.weaponDamage;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Inappropriate value! Weapon Damage cannot be less than 0. Default set to 0.");
-                    this.weaponDamage = 0;
-                }
-                else
-                {
-                    this.weaponDamage = value;
-                }
-            }
-        }
         public int WeaponDefense
         {
             get
@@ -110,25 +68,6 @@ namespace ThiefAndMuses2020Code.Apparel.Light
                 else
                 {
                     this.weaponDefense = value;
-                }
-            }
-        }
-        public int MagickDamage
-        {
-            get
-            {
-                return this.magickDamage;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Inappropriate value! Magick Damage cannot be less than 0. Default set to 0.");
-                    this.magickDamage = 0;
-                }
-                else
-                {
-                    this.magickDamage = value;
                 }
             }
         }
@@ -151,36 +90,13 @@ namespace ThiefAndMuses2020Code.Apparel.Light
                 }
             }
         }
-        public int WeaponSpeed
-        {
-            get
-            {
-                return this.weaponSpeed;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Inappropriate value! Weapon Speed cannot be less than 0. Default set to 0.");
-                    this.weaponSpeed = 0;
-                }
-                else
-                {
-                    this.weaponSpeed = value;
-                }
-            }
-        }
 
-        public PartyDress(int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
+        public PartyDress(int armorRating, int magickRating, int weaponDefense, int magickDefense)
         {
             this.ArmorRating = armorRating;
-            this.WeaponRating = weaponRating;
             this.MagickRating = magickRating;
-            this.WeaponDamage = weaponRating * weaponDamage;
             this.WeaponDefense = armorRating * weaponDefense;
-            this.MagickDamage = magickRating * magickDamage;
             this.MagickDefense = magickRating * magickDefense;
-            this.WeaponSpeed = weaponRating * weaponSpeed;
         }
         public void Vanish()
         {

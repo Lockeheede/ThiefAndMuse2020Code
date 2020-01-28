@@ -45,15 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apparel\Light\CottonRobe.cs" />
-    <Compile Include="Weapons\Cyber\Padlocke.cs" />
-    <Compile Include="Weapons\Cyber\CPU.cs" />
-    <Compile Include="Weapons\Rena\Club.cs" />
-    <Compile Include="Weapons\Rena\SpellBook.cs" />
+    <Compile Include="Weapons\Technology\Padlocke.cs" />
+    <Compile Include="Weapons\Technology\CPU.cs" />
+    <Compile Include="Weapons\Renaissance\Club.cs" />
+    <Compile Include="Weapons\Renaissance\SpellBook.cs" />
     <Compile Include="Weapons\Modern\Oil.cs" />
-    <Compile Include="Weapons\Rena\Staff.cs" />
+    <Compile Include="Weapons\Renaissance\Staff.cs" />
     <Compile Include="Weapons\Modern\TwentyShot.cs" />
-    <Compile Include="Weapons\Rena\Dagger.cs" />
-    <Compile Include="Weapons\Rena\Sword.cs" />
+    <Compile Include="Weapons\Renaissance\Dagger.cs" />
+    <Compile Include="Weapons\Renaissance\Sword.cs" />
     <Compile Include="Apparel\Light\PartyDress.cs" />
     <Compile Include="Apparel\Medium\LeatherVest.cs" />
     <Compile Include="Characters\Body\BodyGuard.cs" />

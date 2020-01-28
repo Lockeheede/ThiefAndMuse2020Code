@@ -1,8 +1,8 @@
-﻿using System;
-using ThiefAndMuses2020Code.Apparel.Medium;
-
-namespace ThiefAndMuses2020Code.Characters.Body
+﻿namespace ThiefAndMuses2020Code.Characters.Body
 {
+    using System;
+    using ThiefAndMuses2020Code.Apparel.Medium;
+    using ThiefAndMuses2020Code.Weapons.Renaissance;
     public class Thief
     {
         private string name;
