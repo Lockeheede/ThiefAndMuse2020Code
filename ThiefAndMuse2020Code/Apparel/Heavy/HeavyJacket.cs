@@ -4,15 +4,32 @@ namespace ThiefAndMuses2020Code.Apparel.Heavy
 {
     public class HeavyJacket
     {
-    
-
+        private string armorName;
         private int armorRating;      
         private int weaponDefense;
         private int magickRating;
         private int magickDefense;
         
 
-
+        public string ArmorName
+        {
+            get
+            {
+                return this.armorName;
+            }
+            set
+            {
+                if (value.Length < 2)
+                {
+                    this.armorName = "Heavy Jacket";
+                    Console.WriteLine($"Invalid value! Weapon name default to: " + this.armorName);
+                }
+                else
+                {
+                    this.armorName = value;
+                }
+            }
+        }
         public int ArmorRating 
         {
             get 
@@ -93,11 +110,12 @@ namespace ThiefAndMuses2020Code.Apparel.Heavy
         }
         
 
-        public HeavyJacket(int armorRating, int weaponDefense, int magickDefense)
+        public HeavyJacket(string armorName, int armorRating, int weaponDefense, int magickDefense)
         {
+            this.ArmorName = armorName;
             this.ArmorRating = armorRating;
             this.WeaponDefense = armorRating * weaponDefense;
-            this.MagickDefense = magickRating * magickDefense;
+            this.MagickDefense = magickDefense;
         }
 
         public void Constitution()

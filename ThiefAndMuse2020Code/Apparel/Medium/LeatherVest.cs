@@ -4,12 +4,32 @@ namespace ThiefAndMuses2020Code.Apparel.Medium
 {
     public class LeatherVest
     {
+        private string armorName;
         private int armorRating;
         private int magickRating;
         private int weaponDefense;
         private int magickDefense;
 
 
+        public string ArmorName
+        {
+            get
+            {
+                return this.armorName;
+            }
+            set
+            {
+                if (value.Length < 2)
+                {
+                    this.armorName = "Leather Vest";
+                    Console.WriteLine($"Invalid value! Weapon name default to: " + this.armorName);
+                }
+                else
+                {
+                    this.armorName = value;
+                }
+            }
+        }
         public int ArmorRating
         {
             get
@@ -91,12 +111,12 @@ namespace ThiefAndMuses2020Code.Apparel.Medium
         }
 
 
-        public LeatherVest(int armorRating, int magickRating, int weaponDefense, int magickDefense)
+        public LeatherVest(string armorName, int armorRating, int weaponDefense, int magickDefense)
         {
+            this.ArmorName = armorName;
             this.ArmorRating = armorRating;
-            this.MagickRating = magickRating;
             this.WeaponDefense = armorRating * weaponDefense;
-            this.MagickDefense = magickRating * magickDefense;
+            this.MagickDefense = armorRating * magickDefense;
         }
         public void Quickness()
         {

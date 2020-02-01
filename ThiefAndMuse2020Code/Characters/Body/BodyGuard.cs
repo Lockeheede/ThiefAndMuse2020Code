@@ -113,14 +113,15 @@ namespace ThiefAndMuses2020Code.Characters.Body
             }
             set
             {
-                if (value != "Reggie" || value != "Coder" || value != "Sage" || value != "unRealistic" || value != "Rebel")
+
+                if (value == "Reggie" || value == "Coder" || value == "Sage" || value == "unRealistic" || value == "Rebel")
                 {
-                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    this.faction = "Reggie";
+                    this.faction = value;
                 }
                 else
                 {
-                    this.faction = value;
+                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
+                    this.faction = "Reggie";
                 }
             }
         }
@@ -383,6 +384,31 @@ namespace ThiefAndMuses2020Code.Characters.Body
             this.Damage = (level * damage) + (level * strength);
             this.Defense = (level * defense) + (level * endurance);
             this.Speed = (level * speed) + (level * agility);
+            this.Magick = (level * intelligence) + (level * perception);
+        }
+
+        public BodyGuard(string name, int level, string faction)
+        {
+            this.Level = level;
+            this.Name = name;
+            this.HealthPoints = (level * 200);
+            this.ChiPoints = (level * 0);
+            this.Faction = faction;
+
+            this.Strength = level * 7;
+            this.Perception = level * 3;
+            this.Endurance = level * 7;
+            this.Charisma = level * 2;
+            this.Intelligence = level * 2;
+            this.Agility = level * 3;
+            this.Luck = level * 4;
+
+            this.Apparel = new HeavyJacket("Flak Jacket", 5, 10, 0);
+            this.Weapon = new TwentyShot("Hand Cannon", 5, 1, 7, 3, 10);
+
+            this.Damage = (level * strength * this.Weapon.WeaponDamage);
+            this.Defense = (level * endurance * this.Apparel.ArmorRating);
+            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
             this.Magick = (level * intelligence) + (level * perception);
         }
 

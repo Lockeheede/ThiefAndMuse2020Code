@@ -4,6 +4,7 @@ namespace ThiefAndMuses2020Code.Weapons.Renaissance
 {
     public class Staff
     {
+        private string weaponName;
         private int armorRating;
         private int weaponRating;
         private int magickRating;
@@ -14,7 +15,25 @@ namespace ThiefAndMuses2020Code.Weapons.Renaissance
         private int weaponSpeed;
 
 
-
+        public string WeaponName
+        {
+            get
+            {
+                return this.weaponName;
+            }
+            set
+            {
+                if (value.Length < 2)
+                {
+                    this.weaponName = "Staff";
+                    Console.WriteLine($"Invalid value! Weapon name default to: " + this.weaponName);
+                }
+                else
+                {
+                    this.weaponName = value;
+                }
+            }
+        }
         public int ArmorRating
         {
             get
@@ -172,8 +191,9 @@ namespace ThiefAndMuses2020Code.Weapons.Renaissance
         }
 
 
-        public Staff(int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
+        public Staff(string weaponName, int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
         {
+            this.WeaponName = weaponName;
             this.ArmorRating = armorRating;
             this.WeaponRating = weaponRating;
             this.MagickRating = magickRating;

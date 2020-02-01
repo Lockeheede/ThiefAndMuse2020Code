@@ -113,14 +113,15 @@ namespace ThiefAndMuses2020Code.Characters.Body
             }
             set
             {
-                if (value != "Reggie" || value != "Coder" || value != "Sage" || value != "unRealistic" || value != "Rebel")
+
+                if (value == "Reggie" || value == "Coder" || value == "Sage" || value == "unRealistic" || value == "Rebel")
                 {
-                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    this.faction = "Reggie";
+                    this.faction = value;
                 }
                 else
                 {
-                    this.faction = value;
+                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
+                    this.faction = "Reggie";
                 }
             }
         }
@@ -382,6 +383,30 @@ namespace ThiefAndMuses2020Code.Characters.Body
             Defense = (level * defense) + (level * endurance);
             Speed = (level * speed) + (level * agility);
             Magick = (level * intelligence) + (level * perception);
+        }
+        public Rebel(string name, int level, string faction)
+        {
+            this.Level = level;
+            this.Name = name;
+            this.HealthPoints = (level * 100);
+            this.ChiPoints = (level * 0);
+            this.Faction = faction;
+
+            this.Strength = level * 5;
+            this.Perception = level * 5;
+            this.Endurance = level * 5;
+            this.Charisma = level * 5;
+            this.Intelligence = level * 5;
+            this.Agility = level * 5;
+            this.Luck = level * 5;
+
+            this.Apparel = new LeatherVest("Rebellion Coat", 5, 10, 10);
+            this.Weapon = new Sword("Steel Sword", 5, 1, 7, 3, 10);
+
+            this.Damage = (level * strength * this.Weapon.WeaponDamage);
+            this.Defense = (level * endurance * this.Apparel.ArmorRating);
+            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
+            this.Magick = (level * intelligence) + (level * perception);
         }
 
         public void Attack()

@@ -11,8 +11,7 @@ class EntryPoint
         //Classes to make
         //Characters - Thief, Muse, Coder, BodyGuard, Sage, Rebel
         //Apparel - HeavyJacket, LeatherVest, PartyDress, CottonRobe
-        //Weapons - TwentyShot, Dagger, Sword, Club, Staff, SpellBook
-        //Items/Gear - Padlocke, CPU, Oil
+        //Weapons - TwentyShot, Dagger, Sword, Club, Staff, SpellBook, Padlocke, CPU, Oil
         /*Normal Statistics
          * Name
          * Level
@@ -55,7 +54,9 @@ class EntryPoint
         //To calcuate action stats, I will need to make some stats for the weapons and apparel
         //The action stats are damage, speed, magick and defense. Effected by normal stats, items and character level
         Thief playerOne = new Thief("Lockes The Thief", 1, 50, 0, "Reggie", 3, 5, 2, 7, 5, 5, 6);
-        Console.WriteLine(playerOne.Name);
+        Console.WriteLine(playerOne.Faction);
         }
     }
 
+//Things to do: Make the default constructors for the other classes.
+//Finished defaults: Thief, Bodyguard, Rebel, Sword, Dagger, HeavyJacket, TwentyShot, LeatherVest

@@ -5,14 +5,33 @@ namespace ThiefAndMuses2020Code.Weapons.Technology
 {
 
     public class Padlocke
-    {
+    { 
+        private string weaponName;
         private int weaponRating;
         private int magickRating;
         private int weaponDamage;
         private int magickDamage;
         private int weaponSpeed;
 
-
+        public string WeaponName
+        {
+            get
+            {
+                return this.weaponName;
+            }
+            set
+            {
+                if (value.Length < 2)
+                {
+                    this.weaponName = "The Padlocke";
+                    Console.WriteLine($"Invalid value! Weapon name default to: " + this.weaponName);
+                }
+                else
+                {
+                    this.weaponName = value;
+                }
+            }
+        }
         public int WeaponRating
         {
             get
@@ -110,8 +129,9 @@ namespace ThiefAndMuses2020Code.Weapons.Technology
             }
         }
 
-        public Padlocke(int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
+        public Padlocke(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
         {
+            this.WeaponName = weaponName;
             this.WeaponRating = weaponRating;
             this.MagickRating = magickRating;
             this.WeaponDamage = weaponRating * weaponDamage;

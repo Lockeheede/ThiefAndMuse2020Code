@@ -110,14 +110,15 @@
             }
             set
             {
-                if (value != "Reggie" || value != "Coder" || value != "Sage" || value != "unRealistic" || value != "Rebel")
+
+                if (value == "Reggie" || value == "Coder" || value == "Sage" || value == "unRealistic" || value == "Rebel")
                 {
-                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    this.faction = "Reggie";
+                    this.faction = value;
                 }
                 else
                 {
-                    this.faction = value;
+                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
+                    this.faction = "Reggie";
                 }
             }
         }

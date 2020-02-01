@@ -4,13 +4,32 @@ namespace ThiefAndMuses2020Code.Apparel.Light
 {
     public class PartyDress
     {
+        private string armorName;
         private int armorRating;
         private int magickRating;
         private int weaponDefense;
         private int magickDefense;
 
 
-
+        public string ArmorName
+        {
+            get
+            {
+                return this.armorName;
+            }
+            set
+            {
+                if (value.Length < 2)
+                {
+                    this.armorName = "Party Dress";
+                    Console.WriteLine($"Invalid value! Weapon name default to: " + this.armorName);
+                }
+                else
+                {
+                    this.armorName = value;
+                }
+            }
+        }
         public int ArmorRating
         {
             get
@@ -91,8 +110,9 @@ namespace ThiefAndMuses2020Code.Apparel.Light
             }
         }
 
-        public PartyDress(int armorRating, int magickRating, int weaponDefense, int magickDefense)
+        public PartyDress(string armorName, int armorRating, int magickRating, int weaponDefense, int magickDefense)
         {
+            this.ArmorName = armorName;
             this.ArmorRating = armorRating;
             this.MagickRating = magickRating;
             this.WeaponDefense = armorRating * weaponDefense;

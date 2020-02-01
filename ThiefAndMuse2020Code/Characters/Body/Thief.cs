@@ -360,8 +360,8 @@
         {
             this.Level = level;
             this.Name = name;
-            this.HealthPoints = (level * healthPoints * endurance);
-            this.ChiPoints = (level * chiPoints * intelligence);
+            this.HealthPoints = (level * healthPoints);
+            this.ChiPoints = (level * chiPoints);
             this.Faction = faction;
 
             this.Strength = level * strength;
@@ -372,8 +372,33 @@
             this.Agility = level * agility;
             this.Luck = level * luck;
 
-            this.Apparel = new LeatherVest(1, 0, 10, 10);
-            this.Weapon = new Dagger(1, 0, 5, 0, 10);
+            this.Apparel = new LeatherVest("Night Jacket", 1, 5, 5);
+            this.Weapon = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
+
+            this.Damage = (level * strength * this.Weapon.WeaponDamage);
+            this.Defense = (level * endurance * this.Apparel.ArmorRating);
+            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
+            this.Magick = (level * intelligence) + (level * perception);
+        }
+
+        public Thief(string name, int level, string faction)
+        {
+            this.Level = level;
+            this.Name = name;
+            this.HealthPoints = (level * 50);
+            this.ChiPoints = (level * 0);
+            this.Faction = faction;
+
+            this.Strength = level * 2;
+            this.Perception = level * 5;
+            this.Endurance = level * 6;
+            this.Charisma = level * 5;
+            this.Intelligence = level * 4;
+            this.Agility = level * 7;
+            this.Luck = level * 7;
+
+            this.Apparel = new LeatherVest("Night Jacket", 1, 5, 5);
+            this.Weapon = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
 
             this.Damage = (level * strength * this.Weapon.WeaponDamage);
             this.Defense = (level * endurance * this.Apparel.ArmorRating);
