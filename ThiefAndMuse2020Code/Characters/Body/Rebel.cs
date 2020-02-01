@@ -21,7 +21,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
         private int agility;
         private int luck;
 
-        private LeatherVest apparel;
+        private LeatherVest armor;
         private Sword weapon;
 
         private int damage;
@@ -258,15 +258,15 @@ namespace ThiefAndMuses2020Code.Characters.Body
                 }
             }
         }
-        public LeatherVest Apparel
+        public LeatherVest Armor
         {
             get
             {
-                return this.apparel;
+                return this.armor;
             }
             set
             {
-                this.apparel = value;
+                this.armor = value;
             }
         }
         public Sword Weapon
@@ -359,7 +359,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
         }
 
         public Rebel(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck, LeatherVest apparel, Sword weapon,
+          int perception, int endurance, int charisma, int intelligence, int agility, int luck, LeatherVest armor, Sword weapon,
           int damage, int defense, int speed, int magick)
         {
             Level = level;
@@ -376,7 +376,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
             Agility = level * agility;
             Luck = level * luck;
 
-            Apparel = apparel;
+            Armor = armor;
             Weapon = weapon;
 
             Damage = (level * damage) + (level * strength);
@@ -400,11 +400,11 @@ namespace ThiefAndMuses2020Code.Characters.Body
             this.Agility = level * 5;
             this.Luck = level * 5;
 
-            this.Apparel = new LeatherVest("Rebellion Coat", 5, 10, 10);
+            this.Armor = new LeatherVest("Rebellion Coat", 5, 10, 10);
             this.Weapon = new Sword("Steel Sword", 5, 1, 7, 3, 10);
 
             this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Apparel.ArmorRating);
+            this.Defense = (level * endurance * this.Armor.ArmorRating);
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
             this.Magick = (level * intelligence) + (level * perception);
         }

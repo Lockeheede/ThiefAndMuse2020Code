@@ -19,7 +19,7 @@
         private int agility;
         private int luck;
 
-        private LeatherVest apparel;
+        private LeatherVest armor;
         private Dagger weapon;
 
         private int damage;
@@ -255,15 +255,15 @@
                 }
             }
         }
-        public LeatherVest Apparel
+        public LeatherVest Armor
         {
             get
             {
-                return this.apparel;
+                return this.armor;
             }
             set
             {
-                this.apparel = value;
+                this.armor = value;
             }
         }
         public Dagger Weapon
@@ -372,11 +372,11 @@
             this.Agility = level * agility;
             this.Luck = level * luck;
 
-            this.Apparel = new LeatherVest("Night Jacket", 1, 5, 5);
+            this.Armor = new LeatherVest("Night Jacket", 1, 5, 5);
             this.Weapon = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
 
             this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Apparel.ArmorRating);
+            this.Defense = (level * endurance * this.Armor.ArmorRating);
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
             this.Magick = (level * intelligence) + (level * perception);
         }
@@ -397,11 +397,11 @@
             this.Agility = level * 7;
             this.Luck = level * 7;
 
-            this.Apparel = new LeatherVest("Night Jacket", 1, 5, 5);
+            this.Armor = new LeatherVest("Night Jacket", 1, 5, 5);
             this.Weapon = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
 
             this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Apparel.ArmorRating);
+            this.Defense = (level * endurance * this.Armor.ArmorRating);
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
             this.Magick = (level * intelligence) + (level * perception);
         }

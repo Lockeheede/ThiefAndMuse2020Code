@@ -19,7 +19,7 @@
         private int agility;
         private int luck;
 
-        private CottonRobe apparel;
+        private CottonRobe armor;
         private Staff weapon;
 
         private int damage;
@@ -256,15 +256,15 @@
                 }
             }
         }
-        public CottonRobe Apparel
+        public CottonRobe Armor
         {
             get
             {
-                return this.apparel;
+                return this.armor;
             }
             set
             {
-                this.apparel = value;
+                this.armor = value;
             }
         }
         public Staff Weapon
@@ -358,7 +358,7 @@
         }
 
         public Sage(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck, CottonRobe apparel, Staff weapon,
+          int perception, int endurance, int charisma, int intelligence, int agility, int luck, CottonRobe armor, Staff weapon,
           int damage, int defense, int speed, int magick)
         {
             Level = level;
@@ -375,7 +375,7 @@
             Agility = level * agility;
             Luck = level * luck;
 
-            Apparel = apparel;
+            Armor = armor;
             Weapon = weapon;
 
             Damage = (level * damage) + (level * strength);
@@ -383,6 +383,33 @@
             Speed = (level * speed) + (level * agility);
             Magick = (level * intelligence) + (level * perception);
         }
+
+
+        public Sage(string name, int level, string faction)
+        {
+            this.Level = level;
+            this.Name = name;
+            this.HealthPoints = (level * 25);
+            this.ChiPoints = (level * 10);
+            this.Faction = faction;
+
+            this.Strength = level * 2;
+            this.Perception = level * 6;
+            this.Endurance = level * 3;
+            this.Charisma = level * 6;
+            this.Intelligence = level * 6;
+            this.Agility = level * 4;
+            this.Luck = level * 5;
+
+            this.Armor = new CottonRobe("Silky Shirt", 1, 5, 0, 10);
+            this.Weapon = new Staff("Oak Staff", 1, 2, 5, 4, 2, 6, 6, 3);
+
+            this.Damage = (level * strength * this.Weapon.WeaponDamage);
+            this.Defense = (level * endurance * this.Armor.ArmorRating);
+            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
+            this.Magick = (level * intelligence) + (level * perception);
+        }
+
 
         public void ChiHeal()
         {

@@ -20,7 +20,7 @@
         private int agility;
         private int luck;
 
-        private LeatherVest apparel;
+        private LeatherVest armor;
         private CPU weapon;
 
         private int damage;
@@ -258,7 +258,7 @@
             }
         }
 
-        public LeatherVest Apparel { get => this.apparel; set => this.apparel = value; }
+        public LeatherVest Armor { get => this.armor; set => this.armor = value; }
         public CPU Weapon { get => this.weapon; set => this.weapon = value; }
         public int Damage
         {
@@ -340,7 +340,7 @@
 
 
         public Coder(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck, LeatherVest apparel, CPU weapon,
+          int perception, int endurance, int charisma, int intelligence, int agility, int luck, LeatherVest armor, CPU weapon,
           int damage, int defense, int speed, int magick)
         {
             Level = level;
@@ -357,7 +357,7 @@
             Agility = level * agility;
             Luck = level * luck;
 
-            Apparel = apparel;
+            Armor = armor;
             Weapon = weapon;
 
             Damage = (level * damage) + (level * strength);
@@ -365,6 +365,33 @@
             Speed = (level * speed) + (level * agility);
             Magick = (level * intelligence) + (level * perception);
         }
+
+
+        public Coder(string name, int level, string faction)
+        {
+            this.Level = level;
+            this.Name = name;
+            this.HealthPoints = (level * 25);
+            this.ChiPoints = (level * 0);
+            this.Faction = faction;
+
+            this.Strength = level * 1;
+            this.Perception = level * 7;
+            this.Endurance = level * 1;
+            this.Charisma = level * 3;
+            this.Intelligence = level * 7;
+            this.Agility = level * 1;
+            this.Luck = level * 7;
+
+            this.Armor = new LeatherVest("Hack-It Jacket", 3, 8, 10);
+            this.Weapon = new CPU("Intent I-9", 5, 3, 10, 5, 10);
+
+            this.Damage = (level * strength * this.Weapon.WeaponDamage);
+            this.Defense = (level * endurance * this.Armor.ArmorRating);
+            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
+            this.Magick = (level * intelligence) + (level * perception);
+        }
+
 
 
         public void Hack()

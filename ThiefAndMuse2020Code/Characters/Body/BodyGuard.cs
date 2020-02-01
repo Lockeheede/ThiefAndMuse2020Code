@@ -21,7 +21,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
         private int agility;
         private int luck;
 
-        private HeavyJacket apparel;
+        private HeavyJacket armor;
         private TwentyShot weapon;
 
         private int damage;
@@ -258,15 +258,15 @@ namespace ThiefAndMuses2020Code.Characters.Body
                 }
             }
         }
-        public HeavyJacket Apparel
+        public HeavyJacket Armor
         {
             get
             {
-                return this.apparel;
+                return this.armor;
             }
             set
             {
-                this.apparel = value;
+                this.armor = value;
             }
         }
         public TwentyShot Weapon
@@ -361,7 +361,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
 
 
         public BodyGuard(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
-            int perception, int endurance, int charisma, int intelligence, int agility, int luck, HeavyJacket apparel, TwentyShot weapon,
+            int perception, int endurance, int charisma, int intelligence, int agility, int luck, HeavyJacket armor, TwentyShot weapon,
             int damage, int defense, int speed, int magick)
         {
             this.Level = level;
@@ -378,7 +378,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
             this.Agility = level * agility;
             this.Luck = level * luck;
 
-            this.Apparel = apparel;
+            this.Armor = armor;
             this.Weapon = weapon;
 
             this.Damage = (level * damage) + (level * strength);
@@ -403,11 +403,11 @@ namespace ThiefAndMuses2020Code.Characters.Body
             this.Agility = level * 3;
             this.Luck = level * 4;
 
-            this.Apparel = new HeavyJacket("Flak Jacket", 5, 10, 0);
+            this.Armor = new HeavyJacket("Flak Jacket", 5, 10, 0);
             this.Weapon = new TwentyShot("Hand Cannon", 5, 1, 7, 3, 10);
 
             this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Apparel.ArmorRating);
+            this.Defense = (level * endurance * this.Armor.ArmorRating);
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
             this.Magick = (level * intelligence) + (level * perception);
         }

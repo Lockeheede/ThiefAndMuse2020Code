@@ -18,7 +18,7 @@
         private int intelligence;
         private int agility;
         private int luck;
-        private PartyDress apparel;
+        private PartyDress armor;
         private Oil weapon;
 
         private int damage;
@@ -256,15 +256,15 @@
             }
         }
 
-        public PartyDress Apparel
+        public PartyDress Armor
         {
             get
             {
-                return this.apparel;
+                return this.armor;
             }
             set
             {
-                this.apparel = value;
+                this.armor = value;
             }
         }
         public Oil Weapon
@@ -357,7 +357,7 @@
         }
 
         public Muse(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck, PartyDress apparel, Oil weapon,
+          int perception, int endurance, int charisma, int intelligence, int agility, int luck, PartyDress armor, Oil weapon,
           int damage, int defense, int speed, int magick)
         {
             Level = level;
@@ -374,7 +374,7 @@
             Agility = level * agility;
             Luck = level * luck;
 
-            Apparel = apparel;
+            Armor = armor;
             Weapon = weapon;
 
             Damage = (level * damage) + (level * strength);
@@ -382,6 +382,32 @@
             Speed = (level * speed) + (level * agility);
             Magick = (level * intelligence) + (level * perception);
         }
+
+        public Muse(string name, int level, string faction)
+        {
+            this.Level = level;
+            this.Name = name;
+            this.HealthPoints = (level * 50);
+            this.ChiPoints = (level * 50);
+            this.Faction = faction;
+
+            this.Strength = level * 4;
+            this.Perception = level * 7;
+            this.Endurance = level * 3;
+            this.Charisma = level * 7;
+            this.Intelligence = level * 7;
+            this.Agility = level * 3;
+            this.Luck = level * 7;
+
+            this.Armor = new PartyDress("Red Dress", 5, 5, 1, 10);
+            this.Weapon = new Oil("Frankincense", 5, 2, 5, 0, 10, 5, 10, 7);
+
+            this.Damage = (level * strength * this.Weapon.WeaponDamage);
+            this.Defense = (level * endurance * this.Armor.ArmorRating);
+            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
+            this.Magick = (level * intelligence) + (level * perception);
+        }
+
 
         public void ChiBlast()
         {

@@ -57,6 +57,3 @@ class EntryPoint
         Console.WriteLine(playerOne.Faction);
         }
     }
-
-//Things to do: Make the default constructors for the other classes.
-//Finished defaults: Thief, Bodyguard, Rebel, Sword, Dagger, HeavyJacket, TwentyShot, LeatherVest
