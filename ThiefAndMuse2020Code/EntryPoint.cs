@@ -57,3 +57,4 @@ class EntryPoint
         Console.WriteLine(playerOne.Faction);
         }
     }
+//TODO: Make the constants for the rest of the classes to make the default variables. 

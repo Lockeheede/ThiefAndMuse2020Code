@@ -7,6 +7,20 @@ namespace ThiefAndMuses2020Code.Characters.Body
     using ThiefAndMuses2020Code.Weapons.Modern;
     public class BodyGuard
     {
+        private const int DEFAULT_LEVEL = 10;
+        private const string DEFAULT_NAME = "Bodyguard";
+        private const int DEFAULT_HEALTH_POINTS = 200;
+        private const int DEFAULT_CHI_POINTS = 0;
+        private const string DEFAULT_FACTION = "Reggie";
+
+        private const int DEFAULT_STRENGTH = 7;
+        private const int DEFAULT_PERCEPTION = 3;
+        private const int DEFAULT_ENDURANCE = 7;
+        private const int DEFAULT_CHARISMA = 2;
+        private const int DEFAULT_INTELLIGENCE = 2;
+        private const int DEFAULT_AGILITY = 4;
+        private const int DEFAULT_LUCK = 4;
+
         private string name;
         private int level;
         private int healthPoints;
@@ -387,29 +401,33 @@ namespace ThiefAndMuses2020Code.Characters.Body
             this.Magick = (level * intelligence) + (level * perception);
         }
 
+       
+
+        private readonly HeavyJacket DEFAULT_ARMOR = new HeavyJacket("Flak Jacket", 5, 10, 0);
+        private readonly TwentyShot DEFAULT_WEAPON = new TwentyShot("Hand Cannon", 5, 1, 7, 3, 10);
         public BodyGuard(string name, int level, string faction)
         {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * 200);
-            this.ChiPoints = (level * 0);
-            this.Faction = faction;
+            this.Level = DEFAULT_LEVEL;
+            this.Name = DEFAULT_NAME;
+            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
+            this.ChiPoints = (level * DEFAULT_CHI_POINTS);
+            this.Faction = DEFAULT_FACTION;
 
-            this.Strength = level * 7;
-            this.Perception = level * 3;
-            this.Endurance = level * 7;
-            this.Charisma = level * 2;
-            this.Intelligence = level * 2;
-            this.Agility = level * 3;
-            this.Luck = level * 4;
+            this.Strength = level * DEFAULT_STRENGTH;
+            this.Perception = level * DEFAULT_PERCEPTION;
+            this.Endurance = level * DEFAULT_ENDURANCE;
+            this.Charisma = level * DEFAULT_CHARISMA;
+            this.Intelligence = level * DEFAULT_INTELLIGENCE;
+            this.Agility = level * DEFAULT_AGILITY;
+            this.Luck = level * DEFAULT_LUCK;
 
-            this.Armor = new HeavyJacket("Flak Jacket", 5, 10, 0);
-            this.Weapon = new TwentyShot("Hand Cannon", 5, 1, 7, 3, 10);
+            this.Armor = DEFAULT_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
 
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            this.Magick = (level * intelligence) + (level * perception);
+            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
+            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
+            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * DEFAULT_PERCEPTION);
         }
 
         public void HeavyAttack()

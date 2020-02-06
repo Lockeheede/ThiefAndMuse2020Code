@@ -366,30 +366,46 @@
             Magick = (level * intelligence) + (level * perception);
         }
 
+        private const int DEFAULT_LEVEL = 5;
+        private const string DEFAULT_NAME = "Coder";
+        private const int DEFAULT_HEALTH_POINTS = 25;
+        private const int DEFAULT_CHI_POINTS = 0;
+        private const string DEFAULT_FACTION = "Coder";
+
+        private const int DEFAULT_STRENGTH = 1;
+        private const int DEFAULT_PERCEPTION = 7;
+        private const int DEFAULT_ENDURANCE = 1;
+        private const int DEFAULT_CHARISMA = 3;
+        private const int DEFAULT_INTELLIGENCE = 7;
+        private const int DEFAULT_AGILITY = 1;
+        private const int DEFAULT_LUCK = 7;
+
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Hack-It Jacket", 3, 8, 10);
+        private readonly CPU DEFAULT_WEAPON = new CPU("Intent I-9", 5, 3, 10, 5, 10);
 
         public Coder(string name, int level, string faction)
         {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * 25);
-            this.ChiPoints = (level * 0);
-            this.Faction = faction;
+            this.Level = DEFAULT_LEVEL;
+            this.Name = DEFAULT_NAME;
+            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
+            this.ChiPoints = (level * DEFAULT_CHI_POINTS);
+            this.Faction = DEFAULT_FACTION;
 
-            this.Strength = level * 1;
-            this.Perception = level * 7;
-            this.Endurance = level * 1;
-            this.Charisma = level * 3;
-            this.Intelligence = level * 7;
-            this.Agility = level * 1;
-            this.Luck = level * 7;
+            this.Strength = level * DEFAULT_STRENGTH;
+            this.Perception = level * DEFAULT_PERCEPTION;
+            this.Endurance = level * DEFAULT_ENDURANCE;
+            this.Charisma = level * DEFAULT_CHARISMA;
+            this.Intelligence = level * DEFAULT_INTELLIGENCE;
+            this.Agility = level * DEFAULT_AGILITY;
+            this.Luck = level * DEFAULT_LUCK;
 
-            this.Armor = new LeatherVest("Hack-It Jacket", 3, 8, 10);
-            this.Weapon = new CPU("Intent I-9", 5, 3, 10, 5, 10);
+            this.Armor = DEFAULT_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
 
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            this.Magick = (level * intelligence) + (level * perception);
+            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
+            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
+            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * DEFAULT_PERCEPTION);
         }
 
 

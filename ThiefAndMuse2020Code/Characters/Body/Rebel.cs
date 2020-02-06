@@ -7,6 +7,23 @@ namespace ThiefAndMuses2020Code.Characters.Body
     using ThiefAndMuses2020Code.Weapons.Renaissance;
     public class Rebel
     {
+        private const int DEFAULT_LEVEL = 3;
+        private const string DEFAULT_NAME = "Rebel";
+        private const int DEFAULT_HEALTH_POINTS = 100;
+        private const int DEFAULT_CHI_POINTS = 0;
+        private const string DEFAULT_FACTION = "Rebel";
+
+        private const int DEFAULT_STRENGTH = 3;
+        private const int DEFAULT_PERCEPTION = 3;
+        private const int DEFAULT_ENDURANCE = 3;
+        private const int DEFAULT_CHARISMA = 3;
+        private const int DEFAULT_INTELLIGENCE = 3;
+        private const int DEFAULT_AGILITY = 3;
+        private const int DEFAULT_LUCK = 3;
+
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Rebellion Coat", 5, 10, 10);
+        private readonly Sword DEFAULT_WEAPON = new Sword("Steel Sword", 5, 1, 7, 3, 10);
+
         private string name;
         private int level;
         private int healthPoints;
@@ -384,29 +401,30 @@ namespace ThiefAndMuses2020Code.Characters.Body
             Speed = (level * speed) + (level * agility);
             Magick = (level * intelligence) + (level * perception);
         }
+      
         public Rebel(string name, int level, string faction)
         {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * 100);
-            this.ChiPoints = (level * 0);
-            this.Faction = faction;
+            this.Level = DEFAULT_LEVEL;
+            this.Name = DEFAULT_NAME;
+            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
+            this.ChiPoints = (level * DEFAULT_CHI_POINTS);
+            this.Faction = DEFAULT_FACTION;
 
-            this.Strength = level * 5;
-            this.Perception = level * 5;
-            this.Endurance = level * 5;
-            this.Charisma = level * 5;
-            this.Intelligence = level * 5;
-            this.Agility = level * 5;
-            this.Luck = level * 5;
+            this.Strength = level * DEFAULT_STRENGTH;
+            this.Perception = level * DEFAULT_PERCEPTION;
+            this.Endurance = level * DEFAULT_ENDURANCE;
+            this.Charisma = level * DEFAULT_CHARISMA;
+            this.Intelligence = level * DEFAULT_INTELLIGENCE;
+            this.Agility = level * DEFAULT_AGILITY;
+            this.Luck = level * DEFAULT_LUCK;
 
-            this.Armor = new LeatherVest("Rebellion Coat", 5, 10, 10);
-            this.Weapon = new Sword("Steel Sword", 5, 1, 7, 3, 10);
+            this.Armor = DEFAULT_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
 
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            this.Magick = (level * intelligence) + (level * perception);
+            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
+            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
+            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * DEFAULT_PERCEPTION);
         }
 
         public void Attack()

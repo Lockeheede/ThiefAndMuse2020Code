@@ -5,6 +5,23 @@
     using ThiefAndMuses2020Code.Weapons.Renaissance;
     public class Thief
     {
+        private const int DEFAULT_LEVEL = 5;
+        private const string DEFAULT_NAME = "Thief";
+        private const int DEFAULT_HEALTH_POINTS = 50;
+        private const int DEFAULT_CHI_POINTS = 0;
+        private const string DEFAULT_FACTION = "Reggie";
+
+        private const int DEFAULT_STRENGTH = 2;
+        private const int DEFAULT_PERCEPTION = 5;
+        private const int DEFAULT_ENDURANCE = 6;
+        private const int DEFAULT_CHARISMA = 5;
+        private const int DEFAULT_INTELLIGENCE = 4;
+        private const int DEFAULT_AGILITY = 7;
+        private const int DEFAULT_LUCK = 7;
+
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Night Jacket", 1, 5, 5);
+        private readonly Dagger DEFAULT_WEAPON = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
+
         private string name;
         private int level;
         private int healthPoints;
@@ -380,30 +397,30 @@
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
             this.Magick = (level * intelligence) + (level * perception);
         }
-
+       
         public Thief(string name, int level, string faction)
         {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * 50);
-            this.ChiPoints = (level * 0);
-            this.Faction = faction;
+            this.Level = DEFAULT_LEVEL;
+            this.Name = DEFAULT_NAME;
+            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
+            this.ChiPoints = (level * DEFAULT_CHI_POINTS);
+            this.Faction = DEFAULT_FACTION;
 
-            this.Strength = level * 2;
-            this.Perception = level * 5;
-            this.Endurance = level * 6;
-            this.Charisma = level * 5;
-            this.Intelligence = level * 4;
-            this.Agility = level * 7;
-            this.Luck = level * 7;
+            this.Strength = level * DEFAULT_STRENGTH;
+            this.Perception = level * DEFAULT_PERCEPTION;
+            this.Endurance = level * DEFAULT_ENDURANCE;
+            this.Charisma = level * DEFAULT_CHARISMA;
+            this.Intelligence = level * DEFAULT_INTELLIGENCE;
+            this.Agility = level * DEFAULT_AGILITY;
+            this.Luck = level * DEFAULT_LUCK;
 
-            this.Armor = new LeatherVest("Night Jacket", 1, 5, 5);
-            this.Weapon = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
+            this.Armor = DEFAULT_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
 
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            this.Magick = (level * intelligence) + (level * perception);
+            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
+            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
+            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * perception);
         }
 
         public void Steal()
