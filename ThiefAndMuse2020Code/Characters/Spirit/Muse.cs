@@ -1,15 +1,30 @@
 ﻿namespace ThiefAndMuses2020Code.Characters.Spirit
 {
     using System;
+    using ThiefAndMuse2020Code.Enumerations;
     using ThiefAndMuses2020Code.Apparel.Light;
     using ThiefAndMuses2020Code.Weapons.Modern;
     public class Muse
     {
+        private const int DEFAULT_LEVEL = 10;
+        private const string DEFAULT_NAME = "Muse";
+        private const int DEFAULT_HEALTH_POINTS = 50;
+        private const int DEFAULT_CHI_POINTS = 50;
+        private const string DEFAULT_FACTION = "Sage";
+
+        private const int DEFAULT_STRENGTH = 4;
+        private const int DEFAULT_PERCEPTION = 7;
+        private const int DEFAULT_ENDURANCE = 3;
+        private const int DEFAULT_CHARISMA = 7;
+        private const int DEFAULT_INTELLIGENCE = 7;
+        private const int DEFAULT_AGILITY = 4;
+        private const int DEFAULT_LUCK = 7;
+
         private string name;
         private int level;
         private int healthPoints;
         private int chiPoints;
-        private string faction;
+        private Factions faction;
 
         private int strength;
         private int perception;
@@ -102,7 +117,7 @@
                 }
             }
         }
-        public string Faction
+        public Factions Faction
         {
             get
             {
@@ -110,16 +125,7 @@
             }
             set
             {
-
-                if (value == "Reggie" || value == "Coder" || value == "Sage" || value == "unRealistic" || value == "Rebel")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    this.faction = "Reggie";
-                }
+                this.faction = value;
             }
         }
         public int Strength
@@ -356,7 +362,7 @@
             }
         }
 
-        public Muse(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
+        public Muse(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck, PartyDress armor, Oil weapon,
           int damage, int defense, int speed, int magick)
         {
@@ -382,30 +388,32 @@
             Speed = (level * speed) + (level * agility);
             Magick = (level * intelligence) + (level * perception);
         }
-
-        public Muse(string name, int level, string faction)
+        
+        private readonly PartyDress DEFAULT_ARMOR = new PartyDress("Red Dress", 5, 5, 1, 10);
+        private readonly Oil DEFAULT_WEAPON = new Oil("Frankincense", 5, 2, 5, 0, 10, 5, 10, 7);
+        public Muse(string name, int level, Factions faction)
         {
             this.Level = level;
             this.Name = name;
-            this.HealthPoints = (level * 50);
-            this.ChiPoints = (level * 50);
+            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
+            this.ChiPoints = (level * DEFAULT_CHI_POINTS);
             this.Faction = faction;
 
-            this.Strength = level * 4;
-            this.Perception = level * 7;
-            this.Endurance = level * 3;
-            this.Charisma = level * 7;
-            this.Intelligence = level * 7;
-            this.Agility = level * 3;
-            this.Luck = level * 7;
+            this.Strength = level * DEFAULT_STRENGTH;
+            this.Perception = level * DEFAULT_PERCEPTION;
+            this.Endurance = level * DEFAULT_ENDURANCE;
+            this.Charisma = level * DEFAULT_CHARISMA;
+            this.Intelligence = level * DEFAULT_INTELLIGENCE;
+            this.Agility = level * DEFAULT_AGILITY;
+            this.Luck = level * DEFAULT_LUCK;
 
-            this.Armor = new PartyDress("Red Dress", 5, 5, 1, 10);
-            this.Weapon = new Oil("Frankincense", 5, 2, 5, 0, 10, 5, 10, 7);
+            this.Armor = DEFAULT_ARMOR;
+            this.Weapon = DEFAULT_WEAPON;
 
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            this.Magick = (level * intelligence) + (level * perception);
+            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
+            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
+            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * DEFAULT_PERCEPTION);
         }
 
 

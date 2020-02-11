@@ -3,6 +3,7 @@
 namespace ThiefAndMuses2020Code.Characters.Body
 {
     using System;
+    using ThiefAndMuse2020Code.Enumerations;
     using ThiefAndMuses2020Code.Apparel.Heavy;
     using ThiefAndMuses2020Code.Weapons.Modern;
     public class BodyGuard
@@ -25,7 +26,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
         private int level;
         private int healthPoints;
         private int chiPoints;
-        private string faction;
+        private Factions faction;
 
         private int strength;
         private int perception;
@@ -119,24 +120,15 @@ namespace ThiefAndMuses2020Code.Characters.Body
                 }
             }
         }
-        public string Faction
+        public Factions Faction
         {
             get
             {
                 return this.faction;
             }
             set
-            {
-
-                if (value == "Reggie" || value == "Coder" || value == "Sage" || value == "unRealistic" || value == "Rebel")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    this.faction = "Reggie";
-                }
+            { 
+                this.faction = value;
             }
         }
         public int Strength
@@ -374,7 +366,7 @@ namespace ThiefAndMuses2020Code.Characters.Body
 
 
 
-        public BodyGuard(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
+        public BodyGuard(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
             int perception, int endurance, int charisma, int intelligence, int agility, int luck, HeavyJacket armor, TwentyShot weapon,
             int damage, int defense, int speed, int magick)
         {
@@ -405,13 +397,13 @@ namespace ThiefAndMuses2020Code.Characters.Body
 
         private readonly HeavyJacket DEFAULT_ARMOR = new HeavyJacket("Flak Jacket", 5, 10, 0);
         private readonly TwentyShot DEFAULT_WEAPON = new TwentyShot("Hand Cannon", 5, 1, 7, 3, 10);
-        public BodyGuard(string name, int level, string faction)
+        public BodyGuard(string name, int level, Factions faction)
         {
-            this.Level = DEFAULT_LEVEL;
-            this.Name = DEFAULT_NAME;
+            this.Level = level;
+            this.Name = name;
             this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
             this.ChiPoints = (level * DEFAULT_CHI_POINTS);
-            this.Faction = DEFAULT_FACTION;
+            this.Faction = faction;
 
             this.Strength = level * DEFAULT_STRENGTH;
             this.Perception = level * DEFAULT_PERCEPTION;

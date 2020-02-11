@@ -1,6 +1,7 @@
 ﻿namespace ThiefAndMuses2020Code.Characters.Body
 {
     using System;
+    using ThiefAndMuse2020Code.Enumerations;
     using ThiefAndMuses2020Code.Apparel.Medium;
     using ThiefAndMuses2020Code.Weapons.Renaissance;
     public class Thief
@@ -26,7 +27,7 @@
         private int level;
         private int healthPoints;
         private int chiPoints;
-        private string faction;
+        private Factions faction;
 
         private int strength;
         private int perception;
@@ -119,24 +120,15 @@
                 }
             }
         }
-        public string Faction
+        public Factions Faction
         {
             get
             {
                 return this.faction;
             }
             set
-            {
-                
-                if (value == "Reggie" || value == "Coder" || value == "Sage" || value == "unRealistic" || value == "Rebel")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    this.faction = "Reggie";
-                }
+            {              
+                this.faction = value;
             }
         }
         public int Strength
@@ -372,7 +364,7 @@
             }
         }
 
-        public Thief(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
+        public Thief(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck)
         {
             this.Level = level;
@@ -398,23 +390,23 @@
             this.Magick = (level * intelligence) + (level * perception);
         }
        
-        public Thief(string name, int level, string faction)
+        public Thief(string name, int level, Factions faction)
         {
-            this.Level = DEFAULT_LEVEL;
-            this.Name = DEFAULT_NAME;
+            this.Level = level;
+            this.Name = name;
             this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
             this.ChiPoints = (level * DEFAULT_CHI_POINTS);
-            this.Faction = DEFAULT_FACTION;
+            this.Faction = faction;
 
-            this.Strength = level * DEFAULT_STRENGTH;
+            this.Strength =   level * DEFAULT_STRENGTH;
             this.Perception = level * DEFAULT_PERCEPTION;
-            this.Endurance = level * DEFAULT_ENDURANCE;
-            this.Charisma = level * DEFAULT_CHARISMA;
+            this.Endurance =  level * DEFAULT_ENDURANCE;
+            this.Charisma =   level * DEFAULT_CHARISMA;
             this.Intelligence = level * DEFAULT_INTELLIGENCE;
-            this.Agility = level * DEFAULT_AGILITY;
-            this.Luck = level * DEFAULT_LUCK;
+            this.Agility =    level * DEFAULT_AGILITY;
+            this.Luck =       level * DEFAULT_LUCK;
 
-            this.Armor = DEFAULT_ARMOR;
+            this.Armor =  DEFAULT_ARMOR;
             this.Weapon = DEFAULT_WEAPON;
 
             this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);

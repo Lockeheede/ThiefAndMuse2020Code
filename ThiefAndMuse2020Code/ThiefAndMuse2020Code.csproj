@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apparel\Light\CottonRobe.cs" />
+    <Compile Include="Enumerations\Factions.cs" />
+    <Compile Include="InfoHandler.cs" />
     <Compile Include="Weapons\Technology\Padlocke.cs" />
     <Compile Include="Weapons\Technology\CPU.cs" />
     <Compile Include="Weapons\Renaissance\Club.cs" />

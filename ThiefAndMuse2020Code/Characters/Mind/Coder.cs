@@ -1,16 +1,34 @@
 ﻿namespace ThiefAndMuses2020Code.Characters.Mind
 {
     using System;
+    using ThiefAndMuse2020Code.Enumerations;
     using ThiefAndMuses2020Code.Apparel.Medium;
     using ThiefAndMuses2020Code.Weapons.Technology;
 
     public class Coder
     {
+        private const int DEFAULT_LEVEL = 5;
+        private const string DEFAULT_NAME = "Coder";
+        private const int DEFAULT_HEALTH_POINTS = 25;
+        private const int DEFAULT_CHI_POINTS = 0;
+        private const string DEFAULT_FACTION = "Coder";
+
+        private const int DEFAULT_STRENGTH = 1;
+        private const int DEFAULT_PERCEPTION = 7;
+        private const int DEFAULT_ENDURANCE = 1;
+        private const int DEFAULT_CHARISMA = 3;
+        private const int DEFAULT_INTELLIGENCE = 7;
+        private const int DEFAULT_AGILITY = 1;
+        private const int DEFAULT_LUCK = 7;
+
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Hack-It Jacket", 3, 8, 10);
+        private readonly CPU DEFAULT_WEAPON = new CPU("Intent I-9", 5, 3, 10, 5, 10);
+
         private string name;
         private int level;
         private int healthPoints;
         private int chiPoints;
-        private string faction;
+        private Factions faction;
 
         private int strength;
         private int perception;
@@ -104,7 +122,7 @@
                 }
             }
         }
-        public string Faction
+        public Factions Faction
         {
             get
             {
@@ -112,18 +130,10 @@
             }
             set
             {
-
-                if (value == "Reggie" || value == "Coder" || value == "Sage" || value == "unRealistic" || value == "Rebel")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    Console.WriteLine("There are only 5 factions. Default set to Reggie!");
-                    this.faction = "Reggie";
-                }
+                this.faction = value;
             }
         }
+    
         public int Strength
         {
             get
@@ -339,7 +349,7 @@
 
 
 
-        public Coder(string name, int level, int healthPoints, int chiPoints, string faction, int strength,
+        public Coder(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck, LeatherVest armor, CPU weapon,
           int damage, int defense, int speed, int magick)
         {
@@ -365,39 +375,21 @@
             Speed = (level * speed) + (level * agility);
             Magick = (level * intelligence) + (level * perception);
         }
-
-        private const int DEFAULT_LEVEL = 5;
-        private const string DEFAULT_NAME = "Coder";
-        private const int DEFAULT_HEALTH_POINTS = 25;
-        private const int DEFAULT_CHI_POINTS = 0;
-        private const string DEFAULT_FACTION = "Coder";
-
-        private const int DEFAULT_STRENGTH = 1;
-        private const int DEFAULT_PERCEPTION = 7;
-        private const int DEFAULT_ENDURANCE = 1;
-        private const int DEFAULT_CHARISMA = 3;
-        private const int DEFAULT_INTELLIGENCE = 7;
-        private const int DEFAULT_AGILITY = 1;
-        private const int DEFAULT_LUCK = 7;
-
-        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Hack-It Jacket", 3, 8, 10);
-        private readonly CPU DEFAULT_WEAPON = new CPU("Intent I-9", 5, 3, 10, 5, 10);
-
-        public Coder(string name, int level, string faction)
+        public Coder(string name, int level, Factions faction)
         {
-            this.Level = DEFAULT_LEVEL;
-            this.Name = DEFAULT_NAME;
+            this.Level = level;
+            this.Name = name;
             this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
             this.ChiPoints = (level * DEFAULT_CHI_POINTS);
-            this.Faction = DEFAULT_FACTION;
+            this.Faction = faction;
 
             this.Strength = level * DEFAULT_STRENGTH;
-            this.Perception = level * DEFAULT_PERCEPTION;
-            this.Endurance = level * DEFAULT_ENDURANCE;
-            this.Charisma = level * DEFAULT_CHARISMA;
+            this.Perception =   level * DEFAULT_PERCEPTION;
+            this.Endurance =    level * DEFAULT_ENDURANCE;
+            this.Charisma =     level * DEFAULT_CHARISMA;
             this.Intelligence = level * DEFAULT_INTELLIGENCE;
-            this.Agility = level * DEFAULT_AGILITY;
-            this.Luck = level * DEFAULT_LUCK;
+            this.Agility =      level * DEFAULT_AGILITY;
+            this.Luck =         level * DEFAULT_LUCK;
 
             this.Armor = DEFAULT_ARMOR;
             this.Weapon = DEFAULT_WEAPON;
