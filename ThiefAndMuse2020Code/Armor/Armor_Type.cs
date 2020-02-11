@@ -1,40 +1,19 @@
 ﻿using System;
 
-namespace ThiefAndMuses2020Code.Apparel.Heavy
+namespace ThiefAndMuse2020Code.Armor
 {
-    public class HeavyJacket
+    public class Armor_Type
     {
-        private string armorName;
-        private int armorRating;      
+        private int armorRating;
         private int weaponDefense;
         private int magickRating;
         private int magickDefense;
-        
 
-        public string ArmorName
+        public int ArmorRating
         {
             get
             {
-                return this.armorName;
-            }
-            set
-            {
-                if (value.Length < 2)
-                {
-                    this.armorName = "Heavy Jacket";
-                    Console.WriteLine($"Invalid value! Weapon name default to: " + this.armorName);
-                }
-                else
-                {
-                    this.armorName = value;
-                }
-            }
-        }
-        public int ArmorRating 
-        {
-            get 
-            {
-                return this.armorRating;   
+                return this.armorRating;
             }
             set
             {
@@ -72,13 +51,13 @@ namespace ThiefAndMuses2020Code.Apparel.Heavy
         }
         public int MagickRating
         {
-            get 
+            get
             {
                 return this.magickRating;
             }
             set
             {
-                if(value >= 0 && value <= 10)
+                if (value >= 0 && value <= 10)
                 {
                     this.magickRating = value;
                 }
@@ -108,20 +87,6 @@ namespace ThiefAndMuses2020Code.Apparel.Heavy
                 }
             }
         }
-        
 
-        public HeavyJacket(string armorName, int armorRating, int weaponDefense, int magickDefense)
-        {
-            this.ArmorName = armorName;
-            this.ArmorRating = armorRating;
-            this.WeaponDefense = armorRating * weaponDefense;
-            this.MagickDefense = magickDefense;
-        }
-
-        public void Constitution()
-        {
-            throw new NotImplementedException();
-
-        }
     }
 }

@@ -44,7 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apparel\Light\CottonRobe.cs" />
+    <Compile Include="Armor\Armor_Type.cs" />
+    <Compile Include="Armor\Heavy\Heavy_Armor.cs" />
+    <Compile Include="Armor\Light\CottonRobe.cs" />
+    <Compile Include="Armor\Light\Light_Armor.cs" />
+    <Compile Include="Armor\Medium\Medium_Armor.cs" />
+    <Compile Include="Characters\Body_Characters\Body.cs" />
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Mind_Characters\Mind.cs" />
+    <Compile Include="Characters\Spirit_Characters\Spirit.cs" />
     <Compile Include="Enumerations\Factions.cs" />
     <Compile Include="InfoHandler.cs" />
     <Compile Include="Weapons\Technology\Padlocke.cs" />
@@ -56,17 +64,17 @@
     <Compile Include="Weapons\Modern\TwentyShot.cs" />
     <Compile Include="Weapons\Renaissance\Dagger.cs" />
     <Compile Include="Weapons\Renaissance\Sword.cs" />
-    <Compile Include="Apparel\Light\PartyDress.cs" />
-    <Compile Include="Apparel\Medium\LeatherVest.cs" />
-    <Compile Include="Characters\Body\BodyGuard.cs" />
-    <Compile Include="Apparel\Heavy\HeavyJacket.cs" />
-    <Compile Include="Characters\Body\Rebel.cs" />
-    <Compile Include="Characters\Spirit\Sage.cs" />
+    <Compile Include="Armor\Light\PartyDress.cs" />
+    <Compile Include="Armor\Medium\LeatherVest.cs" />
+    <Compile Include="Characters\Body_Characters\BodyGuard.cs" />
+    <Compile Include="Armor\Heavy\HeavyJacket.cs" />
+    <Compile Include="Characters\Body_Characters\Rebel.cs" />
+    <Compile Include="Characters\Spirit_Characters\Sage.cs" />
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="Characters\Mind\Coder.cs" />
+    <Compile Include="Characters\Mind_Characters\Coder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Characters\Spirit\Muse.cs" />
-    <Compile Include="Characters\Body\Thief.cs" />
+    <Compile Include="Characters\Spirit_Characters\Muse.cs" />
+    <Compile Include="Characters\Body_Characters\Thief.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

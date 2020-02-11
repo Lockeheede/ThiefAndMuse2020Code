@@ -2,7 +2,10 @@
 //More than likely you should know how things work anyway, but if you ever get lost, 
 //that is the project to look for (Class.sln)
 using System;
-using ThiefAndMuses2020Code.Characters.Body;
+using ThiefAndMuses2020Code.Characters.Body_Characters;
+using ThiefAndMuse2020Code.Characters.Mind_Characters;
+using ThiefAndMuse2020Code.Characters.Spirit_Characters;
+using ThiefAndMuse2020Code.Enumerations;
 
 class EntryPoint
     {
@@ -53,8 +56,8 @@ class EntryPoint
 
         //To calcuate action stats, I will need to make some stats for the weapons and apparel
         //The action stats are damage, speed, magick and defense. Effected by normal stats, items and character level
-        Thief playerOne = new Thief("Lockes The Thief", 1, 50, 0, "Reggie", 3, 5, 2, 7, 5, 5, 6);
+        Thief playerOne = new Thief("Lockes The Thief", 1, 50, 50, Factions.Physical, 3, 5, 2, 7, 5, 5, 6);
         Console.WriteLine(playerOne.Faction);
         }
     }
-//TODO: Make the constants for the rest of the classes to make the default variables. 
+//Make inheritance for the weapons

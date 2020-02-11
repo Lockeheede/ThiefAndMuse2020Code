@@ -1,32 +1,13 @@
-﻿namespace ThiefAndMuses2020Code.Characters.Body
+﻿using System;
+using ThiefAndMuse2020Code.Enumerations;
+
+namespace ThiefAndMuse2020Code.Characters
 {
-    using System;
-    using ThiefAndMuse2020Code.Enumerations;
-    using ThiefAndMuses2020Code.Apparel.Medium;
-    using ThiefAndMuses2020Code.Weapons.Renaissance;
-    public class Thief
+    public class Character
     {
-        private const int DEFAULT_LEVEL = 5;
-        private const string DEFAULT_NAME = "Thief";
-        private const int DEFAULT_HEALTH_POINTS = 50;
-        private const int DEFAULT_CHI_POINTS = 0;
-        private const string DEFAULT_FACTION = "Reggie";
-
-        private const int DEFAULT_STRENGTH = 2;
-        private const int DEFAULT_PERCEPTION = 5;
-        private const int DEFAULT_ENDURANCE = 6;
-        private const int DEFAULT_CHARISMA = 5;
-        private const int DEFAULT_INTELLIGENCE = 4;
-        private const int DEFAULT_AGILITY = 7;
-        private const int DEFAULT_LUCK = 7;
-
-        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Night Jacket", 1, 5, 5);
-        private readonly Dagger DEFAULT_WEAPON = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
-
         private string name;
         private int level;
         private int healthPoints;
-        private int chiPoints;
         private Factions faction;
 
         private int strength;
@@ -37,13 +18,11 @@
         private int agility;
         private int luck;
 
-        private LeatherVest armor;
-        private Dagger weapon;
-
         private int damage;
         private int defense;
         private int speed;
         private int magick;
+
         public string Name
         {
             get
@@ -101,25 +80,6 @@
                 }
             }
         }
-        public int ChiPoints
-        {
-            get
-            {
-                return this.chiPoints;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Chi Points cannot be negative. Default set to 0");
-                    this.chiPoints = 0;
-                }
-                else
-                {
-                    this.chiPoints = value;
-                }
-            }
-        }
         public Factions Faction
         {
             get
@@ -127,7 +87,7 @@
                 return this.faction;
             }
             set
-            {              
+            {
                 this.faction = value;
             }
         }
@@ -264,28 +224,6 @@
                 }
             }
         }
-        public LeatherVest Armor
-        {
-            get
-            {
-                return this.armor;
-            }
-            set
-            {
-                this.armor = value;
-            }
-        }
-        public Dagger Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
 
         public int Damage
         {
@@ -363,74 +301,5 @@
                 }
             }
         }
-
-        public Thief(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck)
-        {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * healthPoints);
-            this.ChiPoints = (level * chiPoints);
-            this.Faction = faction;
-
-            this.Strength = level * strength;
-            this.Perception = level * perception;
-            this.Endurance = level * endurance;
-            this.Charisma = level * charisma;
-            this.Intelligence = level * intelligence;
-            this.Agility = level * agility;
-            this.Luck = level * luck;
-
-            this.Armor = new LeatherVest("Night Jacket", 1, 5, 5);
-            this.Weapon = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
-
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            this.Magick = (level * intelligence) + (level * perception);
-        }
-       
-        public Thief(string name, int level, Factions faction)
-        {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
-            this.ChiPoints = (level * DEFAULT_CHI_POINTS);
-            this.Faction = faction;
-
-            this.Strength =   level * DEFAULT_STRENGTH;
-            this.Perception = level * DEFAULT_PERCEPTION;
-            this.Endurance =  level * DEFAULT_ENDURANCE;
-            this.Charisma =   level * DEFAULT_CHARISMA;
-            this.Intelligence = level * DEFAULT_INTELLIGENCE;
-            this.Agility =    level * DEFAULT_AGILITY;
-            this.Luck =       level * DEFAULT_LUCK;
-
-            this.Armor =  DEFAULT_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
-
-            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
-            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
-            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
-            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * perception);
-        }
-
-        public void Steal()
-        {
-            throw new NotImplementedException();
-
-        }
-        public void Attack()
-        {
-            throw new NotImplementedException();
-
-        }
-        public void Dodge()
-        {
-            throw new NotImplementedException();
-
-        }
-
     }
 }
-
