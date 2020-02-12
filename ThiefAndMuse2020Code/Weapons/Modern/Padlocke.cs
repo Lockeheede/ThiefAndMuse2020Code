@@ -1,16 +1,17 @@
-﻿using System;
+﻿
+using System;
 
-namespace ThiefAndMuses2020Code.Weapons.Technology
+namespace ThiefAndMuses2020Code.Weapons.Modern
 {
-    public class CPU
-    {
+
+    public class Padlocke
+    { 
         private string weaponName;
         private int weaponRating;
         private int magickRating;
         private int weaponDamage;
         private int magickDamage;
         private int weaponSpeed;
-
 
         public string WeaponName
         {
@@ -22,7 +23,7 @@ namespace ThiefAndMuses2020Code.Weapons.Technology
             {
                 if (value.Length < 2)
                 {
-                    this.weaponName = "CPU";
+                    this.weaponName = "The Padlocke";
                     Console.WriteLine($"Invalid value! Weapon name default to: " + this.weaponName);
                 }
                 else
@@ -108,7 +109,6 @@ namespace ThiefAndMuses2020Code.Weapons.Technology
                 }
             }
         }
-
         public int WeaponSpeed
         {
             get
@@ -128,7 +128,8 @@ namespace ThiefAndMuses2020Code.Weapons.Technology
                 }
             }
         }
-        public CPU(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
+
+        public Padlocke(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
         {
             this.WeaponName = weaponName;
             this.WeaponRating = weaponRating;
@@ -137,15 +138,18 @@ namespace ThiefAndMuses2020Code.Weapons.Technology
             this.MagickDamage = magickRating * magickDamage;
             this.WeaponSpeed = weaponRating * weaponSpeed;
         }
-        public void Program()
+        public void Sensor()
         {
             throw new NotImplementedException();
         }
-
-        public void Hack()
+        public void Mapper()
+        {
+            throw new NotImplementedException();
+        }
+        public void Hacker()
         {
             throw new NotImplementedException();
         }
     }
-
 }
+

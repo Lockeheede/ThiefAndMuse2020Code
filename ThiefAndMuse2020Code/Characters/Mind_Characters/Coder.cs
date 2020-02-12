@@ -3,8 +3,8 @@
     using System;
     using ThiefAndMuse2020Code.Characters.Mind_Characters;
     using ThiefAndMuse2020Code.Enumerations;
-    using ThiefAndMuses2020Code.Apparel.Medium;
-    using ThiefAndMuses2020Code.Weapons.Technology;
+    using ThiefAndMuses2020Code.Armor.Medium;
+    using ThiefAndMuses2020Code.Weapons.Modern;
 
     public class Coder : Mind
     {

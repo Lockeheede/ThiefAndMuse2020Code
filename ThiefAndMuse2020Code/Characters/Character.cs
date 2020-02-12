@@ -301,5 +301,11 @@ namespace ThiefAndMuse2020Code.Characters
                 }
             }
         }
+
+        public Character(string name, int level)
+        {
+            this.Name = name;
+            this.Level = level;
+        }
     }
 }

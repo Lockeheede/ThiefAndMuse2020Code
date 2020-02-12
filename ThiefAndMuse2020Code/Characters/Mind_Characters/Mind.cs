@@ -25,6 +25,12 @@ using System;
                 }
             }
         }
-
+        public Mind(string name, int level, int brainPoints)
+        : base(name, level)
+        {
+            this.Name = name;
+            this.Level = level;
+            this.BrainPoints = brainPoints;
+        }
     }
 }

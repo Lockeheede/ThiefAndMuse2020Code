@@ -55,8 +55,8 @@
     <Compile Include="Characters\Spirit_Characters\Spirit.cs" />
     <Compile Include="Enumerations\Factions.cs" />
     <Compile Include="InfoHandler.cs" />
-    <Compile Include="Weapons\Technology\Padlocke.cs" />
-    <Compile Include="Weapons\Technology\CPU.cs" />
+    <Compile Include="Weapons\Modern\Padlocke.cs" />
+    <Compile Include="Weapons\Modern\CPU.cs" />
     <Compile Include="Weapons\Renaissance\Club.cs" />
     <Compile Include="Weapons\Renaissance\SpellBook.cs" />
     <Compile Include="Weapons\Modern\Oil.cs" />

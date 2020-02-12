@@ -3,7 +3,7 @@
     using System;
     using ThiefAndMuse2020Code.Characters.Spirit_Characters;
     using ThiefAndMuse2020Code.Enumerations;
-    using ThiefAndMuses2020Code.Apparel.Light;
+    using ThiefAndMuses2020Code.Armor.Light;
     using ThiefAndMuses2020Code.Weapons.Modern;
     public class Muse : Spirit
     {

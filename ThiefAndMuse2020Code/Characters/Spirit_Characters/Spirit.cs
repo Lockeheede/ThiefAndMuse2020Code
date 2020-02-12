@@ -24,6 +24,12 @@ using System;
                 }
             }
         }
-
+        public Spirit(string name, int level, int chiPoints)
+        : base(name, level)
+        {
+            this.Name = name;
+            this.Level = level;
+            this.ChiPoints = chiPoints;
+        }
     }
 }

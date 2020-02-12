@@ -5,7 +5,7 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
     using System;
     using ThiefAndMuse2020Code.Characters.Body_Characters;
     using ThiefAndMuse2020Code.Enumerations;
-    using ThiefAndMuses2020Code.Apparel.Medium;
+    using ThiefAndMuses2020Code.Armor.Medium;
     using ThiefAndMuses2020Code.Weapons.Renaissance;
     public class Rebel : Body
     {

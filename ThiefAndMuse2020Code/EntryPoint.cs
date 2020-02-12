@@ -60,4 +60,5 @@ class EntryPoint
         Console.WriteLine(playerOne.Faction);
         }
     }
-//Make inheritance for the weapons
+//Make inheritance for the weapons???
+//Re-do constructor inheritance
