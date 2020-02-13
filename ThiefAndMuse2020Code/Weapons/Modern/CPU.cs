@@ -11,6 +11,13 @@ namespace ThiefAndMuses2020Code.Weapons.Modern
         private int magickDamage;
         private int weaponSpeed;
 
+        private const string WEAPON_NAME = "Intent I-9";
+        private const int WEAPON_RATING = 5;
+        private const int MAGICK_RATING = 3;
+        private const int WEAPON_DAMAGE = 10;
+        private const int MAGICK_DAMAGE = 5;
+        private const int WEAPON_SPEED = 10;
+
 
         public string WeaponName
         {

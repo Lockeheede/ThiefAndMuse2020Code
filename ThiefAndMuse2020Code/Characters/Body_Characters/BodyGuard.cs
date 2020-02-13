@@ -51,6 +51,7 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
                      
         public BodyGuard(string name, int level, int healthPoints, int skillPoints, Factions faction, int strength,
             int perception, int endurance, int charisma, int intelligence, int agility, int luck)
+            : base (name, level, skillPoints)
         {
             this.Level = level;
             this.Name = name;
@@ -78,13 +79,14 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
 
         private readonly HeavyJacket DEFAULT_ARMOR = new HeavyJacket("Flak Jacket", 5, 10, 0);
         private readonly TwentyShot DEFAULT_WEAPON = new TwentyShot("Hand Cannon", 5, 1, 7, 3, 10);
-        public BodyGuard(string name, int level, Factions faction)
+        public BodyGuard(string name, int level, int skillPoints)
+            :base (name, level, skillPoints)
         {
             this.Level = level;
             this.Name = name;
             this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
             this.SkillPoints = (level * DEFAULT_SKILL_POINTS);
-            this.Faction = faction;
+            this.Faction = Factions.Physical;
 
             this.Strength = level * DEFAULT_STRENGTH;
             this.Perception = level * DEFAULT_PERCEPTION;

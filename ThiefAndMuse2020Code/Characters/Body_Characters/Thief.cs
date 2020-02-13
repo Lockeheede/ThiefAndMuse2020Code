@@ -52,6 +52,7 @@
 
         public Thief(string name, int level, int healthPoints, int skillPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck)
+            :base(name, level, skillPoints)
         {
             this.Level = level;
             this.Name = name;
@@ -75,13 +76,14 @@
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
         }
        
-        public Thief(string name, int level, Factions faction)
+        public Thief(string name, int level, int skillPoints)
+            :base(name, level, skillPoints)
         {
             this.Level = level;
             this.Name = name;
             this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
             this.SkillPoints = (level * DEFAULT_SKILL_POINTS);
-            this.Faction = faction;
+            this.Faction = Factions.Physical;
 
             this.Strength =   level * DEFAULT_STRENGTH;
             this.Perception = level * DEFAULT_PERCEPTION;

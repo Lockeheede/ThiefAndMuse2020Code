@@ -35,6 +35,7 @@
 
         public Coder(string name, int level, int healthPoints, int brainPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck)
+            : base(name, level, brainPoints)
         {
             Level = level;
             Name = name;
@@ -58,13 +59,14 @@
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
             Magick = (level * intelligence) + (level * perception);
         }
-        public Coder(string name, int level, Factions faction)
+        public Coder(string name, int level, int brainPoints)
+            :base (name, level, brainPoints)
         {
             this.Level = level;
             this.Name = name;
             this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
             this.BrainPoints = (level * DEFAULT_BRAIN_POINTS);
-            this.Faction = faction;
+            this.Faction = Factions.Mental;
 
             this.Strength = level * DEFAULT_STRENGTH;
             this.Perception =   level * DEFAULT_PERCEPTION;

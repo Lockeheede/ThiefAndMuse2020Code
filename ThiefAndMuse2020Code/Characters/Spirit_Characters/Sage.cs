@@ -52,6 +52,7 @@
 
         public Sage(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck)
+            :base(name, level, chiPoints)
         {
             this.Level = level;
             this.Name = name;
@@ -78,13 +79,14 @@
 
 
 
-        public Sage(string name, int level, Factions faction)
+        public Sage(string name, int level, int chiPoints)
+            :base(name, level, chiPoints)
         {
             this.Level = level;
             this.Name = name;
             this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
             this.ChiPoints = (level * DEFAULT_CHI_POINTS);
-            this.Faction = faction;
+            this.Faction = Factions.Spiritual;
 
             this.Strength = level * DEFAULT_STRENGTH;
             this.Perception = level * DEFAULT_PERCEPTION;

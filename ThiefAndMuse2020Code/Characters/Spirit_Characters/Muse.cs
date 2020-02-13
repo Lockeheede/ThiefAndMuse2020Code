@@ -49,6 +49,7 @@
 
         public Muse(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck)
+            :base(name, level, chiPoints)
         {
             this.Level = level;
             this.Name = name;
@@ -75,13 +76,14 @@
         
         private readonly PartyDress DEFAULT_ARMOR = new PartyDress("Red Dress", 5, 5, 1, 10);
         private readonly Oil DEFAULT_WEAPON = new Oil("Frankincense", 5, 2, 5, 0, 10, 5, 10, 7);
-        public Muse(string name, int level, Factions faction)
+        public Muse(string name, int level, int chiPoints)
+            :base(name, level, chiPoints)
         {
             this.Level = level;
             this.Name = name;
             this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
             this.ChiPoints = (level * DEFAULT_CHI_POINTS);
-            this.Faction = faction;
+            this.Faction = Factions.Spiritual;
 
             this.Strength = level * DEFAULT_STRENGTH;
             this.Perception = level * DEFAULT_PERCEPTION;
