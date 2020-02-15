@@ -21,7 +21,7 @@
         private const int DEFAULT_AGILITY = 7;
         private const int DEFAULT_LUCK = 7;
 
-        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Night Jacket", 1, 5, 5);
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Night Jacket", 1, 5, 1, 5);
         private readonly Dagger DEFAULT_WEAPON = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
 
         private LeatherVest armor;
@@ -68,7 +68,7 @@
             this.Agility = level * agility;
             this.Luck = level * luck;
 
-            this.Armor = new LeatherVest("Night Jacket", 1, 5, 5);
+            this.Armor = new LeatherVest("Night Jacket", 1, 5, 1, 5);
             this.Weapon = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
 
             this.Damage = (level * strength * this.Weapon.WeaponDamage);

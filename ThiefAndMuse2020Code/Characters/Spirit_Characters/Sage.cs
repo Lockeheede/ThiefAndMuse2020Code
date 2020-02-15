@@ -24,7 +24,7 @@
         private CottonRobe armor;
         private Staff weapon;
 
-        private readonly CottonRobe DEFAULT_ARMOR = new CottonRobe("Silky Shirt", 1, 5, 0, 10);
+        private readonly CottonRobe DEFAULT_ARMOR = new CottonRobe("Silky Shirt", 1, 5, 7, 10);
         private readonly Staff DEFAULT_WEAPON = new Staff("Oak Staff", 1, 2, 5, 4, 2, 6, 6, 3);
         
         public CottonRobe Armor

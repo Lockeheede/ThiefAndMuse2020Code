@@ -24,7 +24,7 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
         private const int DEFAULT_LUCK = 4;
 
         private HeavyJacket armor;
-        private TwentyShot weapon;
+        private Gun weapon;
             
         public HeavyJacket Armor
         {
@@ -37,7 +37,7 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
                 this.armor = value;
             }
         }
-        public TwentyShot Weapon
+        public Gun Weapon
         {
             get
             {
@@ -77,8 +77,8 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
 
        
 
-        private readonly HeavyJacket DEFAULT_ARMOR = new HeavyJacket("Flak Jacket", 5, 10, 0);
-        private readonly TwentyShot DEFAULT_WEAPON = new TwentyShot("Hand Cannon", 5, 1, 7, 3, 10);
+        private readonly HeavyJacket DEFAULT_ARMOR = new HeavyJacket("Flak Jacket", 5, 10, 0, 0);
+        private readonly Gun DEFAULT_WEAPON = new Gun("Hand Cannon", 5, 1, 7, 3, 10);
         public BodyGuard(string name, int level, int skillPoints)
             :base (name, level, skillPoints)
         {

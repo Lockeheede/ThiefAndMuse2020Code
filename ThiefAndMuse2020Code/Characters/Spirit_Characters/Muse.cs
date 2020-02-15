@@ -22,7 +22,7 @@
         private const int DEFAULT_LUCK = 7;
 
         private PartyDress armor;
-        private Oil weapon;    
+        private EssentialOil weapon;    
 
         public PartyDress Armor
         {
@@ -35,7 +35,7 @@
                 this.armor = value;
             }
         }
-        public Oil Weapon
+        public EssentialOil Weapon
         {
             get
             {
@@ -75,7 +75,7 @@
         }
         
         private readonly PartyDress DEFAULT_ARMOR = new PartyDress("Red Dress", 5, 5, 1, 10);
-        private readonly Oil DEFAULT_WEAPON = new Oil("Frankincense", 5, 2, 5, 0, 10, 5, 10, 7);
+        private readonly EssentialOil DEFAULT_WEAPON = new EssentialOil("Frankincense", 5, 2, 5, 0, 10, 5, 10, 7);
         public Muse(string name, int level, int chiPoints)
             :base(name, level, chiPoints)
         {

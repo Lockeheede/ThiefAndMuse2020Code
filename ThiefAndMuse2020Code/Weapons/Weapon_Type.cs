@@ -1,18 +1,21 @@
 ﻿using System;
 
-namespace ThiefAndMuses2020Code.Weapons.Modern
+namespace ThiefAndMuse2020Code.Weapons
 {
-    public class TwentyShot
+    public class Weapon_Type
     {
         private string weaponName;
+        private int armorRating;
         private int weaponRating;
         private int magickRating;
         private int weaponDamage;
+        private int weaponDefense;
         private int magickDamage;
+        private int magickDefense;
         private int weaponSpeed;
 
         public string WeaponName
-        { 
+        {
             get
             {
                 return this.weaponName;
@@ -21,12 +24,33 @@ namespace ThiefAndMuses2020Code.Weapons.Modern
             {
                 if (value.Length < 2)
                 {
-                    this.weaponName = "Twenty Shot";
+                    this.weaponName = "CPU";
                     Console.WriteLine($"Invalid value! Weapon name default to: " + this.weaponName);
                 }
                 else
                 {
                     this.weaponName = value;
+                }
+            }
+        }
+        public int ArmorRating
+        {
+            get
+            {
+                return this.armorRating;
+            }
+            set
+            {
+                {
+                    if (value < 0)
+                    {
+                        Console.WriteLine("Inappropriate value! Armor Rating cannot be less than 0. Default set to 0.");
+                        this.armorRating = 0;
+                    }
+                    else
+                    {
+                        this.armorRating = value;
+                    }
                 }
             }
         }
@@ -88,6 +112,25 @@ namespace ThiefAndMuses2020Code.Weapons.Modern
                 }
             }
         }
+        public int WeaponDefense
+        {
+            get
+            {
+                return this.weaponDefense;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("Inappropriate value! Weapon Defense cannot be less than 0. Default set to 0.");
+                    this.weaponDefense = 0;
+                }
+                else
+                {
+                    this.weaponDefense = value;
+                }
+            }
+        }
         public int MagickDamage
         {
             get
@@ -107,6 +150,26 @@ namespace ThiefAndMuses2020Code.Weapons.Modern
                 }
             }
         }
+        public int MagickDefense
+        {
+            get
+            {
+                return this.magickDefense;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("Inappropriate value! Magick Defense cannot be less than 0. Default set to 0.");
+                    this.magickDefense = 0;
+                }
+                else
+                {
+                    this.magickDefense = value;
+                }
+            }
+        }
+
         public int WeaponSpeed
         {
             get
@@ -126,25 +189,9 @@ namespace ThiefAndMuses2020Code.Weapons.Modern
                 }
             }
         }
-
-
-        public TwentyShot(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
+        public Weapon_Type(string weaponName)
         {
             this.WeaponName = weaponName;
-            this.WeaponRating = weaponRating;
-            this.MagickRating = magickRating;
-            this.WeaponDamage = weaponRating * weaponDamage;
-            this.MagickDamage = magickRating * magickDamage;
-            this.WeaponSpeed = weaponRating * weaponSpeed;
-        }
-        public void Shoot()
-        {
-            throw new NotImplementedException();
-        }
-        public void Reload()
-        {
-            throw new NotImplementedException();
         }
     }
-
 }

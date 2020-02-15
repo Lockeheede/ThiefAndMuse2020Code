@@ -23,7 +23,7 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
         private const int DEFAULT_AGILITY = 3;
         private const int DEFAULT_LUCK = 3;
 
-        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Rebellion Coat", 5, 10, 10);
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Rebellion Coat", 5, 10, 5, 5);
         private readonly Sword DEFAULT_WEAPON = new Sword("Steel Sword", 5, 1, 7, 3, 10);
 
         private LeatherVest armor;

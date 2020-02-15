@@ -4,11 +4,31 @@ namespace ThiefAndMuse2020Code.Armor
 {
     public class Armor_Type
     {
+        private string armorName;
         private int armorRating;
         private int weaponDefense;
         private int magickRating;
         private int magickDefense;
 
+        public string ArmorName
+        {
+            get
+            {
+                return this.armorName;
+            }
+            set
+            {
+                if (value.Length < 2)
+                {
+                    this.armorName = "Armor";
+                    Console.WriteLine($"Invalid value! Weapon name default to: " + this.armorName);
+                }
+                else
+                {
+                    this.armorName = value;
+                }
+            }
+        }
         public int ArmorRating
         {
             get
@@ -86,6 +106,11 @@ namespace ThiefAndMuse2020Code.Armor
                     this.magickDefense = value;
                 }
             }
+        }
+
+        public Armor_Type(string armorName)
+        {
+            this.ArmorName = armorName;
         }
 
     }

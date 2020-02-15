@@ -80,6 +80,7 @@ namespace ThiefAndMuse2020Code.Characters
                 }
             }
         }
+
         public Factions Faction
         {
             get

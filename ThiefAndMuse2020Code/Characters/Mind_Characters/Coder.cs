@@ -22,7 +22,7 @@
         private const int DEFAULT_AGILITY = 1;
         private const int DEFAULT_LUCK = 7;
 
-        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Hack-It Jacket", 3, 8, 10);
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Hack-It Jacket", 3, 8, 10, 8);
         private readonly CPU DEFAULT_WEAPON = new CPU("Intent I-9", 5, 3, 10, 5, 10);
 
         private LeatherVest armor;

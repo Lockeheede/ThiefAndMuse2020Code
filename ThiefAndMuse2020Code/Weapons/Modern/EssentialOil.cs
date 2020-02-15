@@ -1,34 +1,34 @@
-﻿
-using System;
+﻿using System;
 using ThiefAndMuse2020Code.Weapons.Modern;
 
 namespace ThiefAndMuses2020Code.Weapons.Modern
 {
-
-    public class Padlocke : NewAge
+    public class EssentialOil : NewAge
     {
-
-        public Padlocke(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
-            :base(weaponName)
+        public EssentialOil(string weaponName, int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
+        :base(weaponName)
         {
+            
+            this.ArmorRating = armorRating;
             this.WeaponRating = weaponRating;
             this.MagickRating = magickRating;
             this.WeaponDamage = weaponRating * weaponDamage;
+            this.WeaponDefense = armorRating * weaponDefense;
             this.MagickDamage = magickRating * magickDamage;
+            this.MagickDefense = magickRating * magickDefense;
             this.WeaponSpeed = weaponRating * weaponSpeed;
         }
-        public void Sensor()
+        public void StatBooster()
         {
             throw new NotImplementedException();
         }
-        public void Mapper()
+        public void ChiBooster()
         {
             throw new NotImplementedException();
         }
-        public void Hacker()
+        public void TemporaryBooster()
         {
             throw new NotImplementedException();
         }
     }
 }
-

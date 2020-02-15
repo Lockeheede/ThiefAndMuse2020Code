@@ -1,11 +1,12 @@
 ﻿using System;
-using ThiefAndMuse2020Code.Weapons.Renaissance;
+using ThiefAndMuse2020Code.Weapons.Modern;
 
-namespace ThiefAndMuses2020Code.Weapons.Renaissance
+namespace ThiefAndMuses2020Code.Weapons.Modern
 {
-    public class Dagger : DarkAge
+    public class Gun : NewAge
     {
-        public Dagger(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
+
+        public Gun(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
             :base(weaponName)
         {
             this.WeaponRating = weaponRating;
@@ -14,9 +15,14 @@ namespace ThiefAndMuses2020Code.Weapons.Renaissance
             this.MagickDamage = magickRating * magickDamage;
             this.WeaponSpeed = weaponRating * weaponSpeed;
         }
-        public void BackStab()
+        public void Shoot()
+        {
+            throw new NotImplementedException();
+        }
+        public void Reload()
         {
             throw new NotImplementedException();
         }
     }
+
 }
