@@ -2,7 +2,7 @@
 namespace ThiefAndMuse2020Code.Characters.Body_Characters
 {
 using System;
-    public class Body : Character
+    public abstract class Body : Character
     {
         private int skillPoints;
 

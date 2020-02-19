@@ -115,7 +115,7 @@
             throw new NotImplementedException();
         }
 
-        public void ChiBolt()
+        public void ChiShot()
         {
             throw new NotImplementedException();
         }

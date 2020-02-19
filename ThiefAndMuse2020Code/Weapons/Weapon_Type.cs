@@ -2,7 +2,7 @@
 
 namespace ThiefAndMuse2020Code.Weapons
 {
-    public class Weapon_Type
+    public abstract class Weapon_Type
     {
         private string weaponName;
         private int armorRating;

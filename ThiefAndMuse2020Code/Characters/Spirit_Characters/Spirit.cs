@@ -2,7 +2,7 @@
 namespace ThiefAndMuse2020Code.Characters.Spirit_Characters
 {
 using System;
-    public class Spirit : Character
+    public abstract class Spirit : Character
     {
         private int chiPoints;
         public int ChiPoints

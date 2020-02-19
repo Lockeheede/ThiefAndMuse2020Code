@@ -1,9 +1,10 @@
 ﻿using System;
+using ThiefAndMuse2020Code.Characters.Interfaces;
 using ThiefAndMuse2020Code.Enumerations;
 
 namespace ThiefAndMuse2020Code.Characters
 {
-    public class Character
+    public abstract class Character : IAttack, IDefend
     {
         private string name;
         private int level;
@@ -307,6 +308,21 @@ namespace ThiefAndMuse2020Code.Characters
         {
             this.Name = name;
             this.Level = level;
+        }
+
+        public void Attack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SpecialAttack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Defend()
+        {
+            throw new NotImplementedException();
         }
     }
 }

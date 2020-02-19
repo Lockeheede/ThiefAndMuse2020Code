@@ -2,7 +2,7 @@
 namespace ThiefAndMuse2020Code.Characters.Mind_Characters
 {
 using System;
-    public class Mind : Character
+    public abstract class Mind : Character
     {
         private int brainPoints;
 
