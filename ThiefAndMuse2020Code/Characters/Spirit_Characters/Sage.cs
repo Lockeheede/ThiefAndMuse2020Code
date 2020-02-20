@@ -26,7 +26,7 @@
 
         private readonly CottonRobe DEFAULT_ARMOR = new CottonRobe("Silky Shirt", 1, 5, 7, 10);
         private readonly Staff DEFAULT_WEAPON = new Staff("Oak Staff", 1, 2, 5, 4, 2, 6, 6, 3);
-        
+
         public CottonRobe Armor
         {
             get
@@ -52,7 +52,7 @@
 
         public Sage(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck)
-            :base(name, level, chiPoints)
+            : base(name, level, chiPoints)
         {
             this.Level = level;
             this.Name = name;
@@ -79,31 +79,30 @@
 
 
 
-        public Sage(string name, int level, int chiPoints)
-            :base(name, level, chiPoints)
+        public Sage()
         {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
-            this.ChiPoints = (level * DEFAULT_CHI_POINTS);
-            this.Faction = Factions.Spiritual;
+            this.Level = DEFAULT_LUCK;
+            this.Name = DEFAULT_NAME;
+            this.HealthPoints = (DEFAULT_LUCK * DEFAULT_HEALTH_POINTS);
+            this.ChiPoints = (DEFAULT_LUCK * DEFAULT_CHI_POINTS);
+            this.Faction = DEFAULT_FACTION;
 
-            this.Strength = level * DEFAULT_STRENGTH;
-            this.Perception = level * DEFAULT_PERCEPTION;
-            this.Endurance = level * DEFAULT_ENDURANCE;
-            this.Charisma = level * DEFAULT_CHARISMA;
-            this.Intelligence = level * DEFAULT_INTELLIGENCE;
-            this.Agility = level * DEFAULT_AGILITY;
-            this.Luck = level * DEFAULT_LUCK;
+            this.Strength = DEFAULT_LEVEL * DEFAULT_STRENGTH;
+            this.Perception = DEFAULT_LEVEL * DEFAULT_PERCEPTION;
+            this.Endurance = DEFAULT_LEVEL * DEFAULT_ENDURANCE;
+            this.Charisma = DEFAULT_LEVEL * DEFAULT_CHARISMA;
+            this.Intelligence = DEFAULT_LEVEL * DEFAULT_INTELLIGENCE;
+            this.Agility = DEFAULT_LEVEL * DEFAULT_AGILITY;
+            this.Luck = DEFAULT_LEVEL * DEFAULT_LUCK;
 
             this.Armor = DEFAULT_ARMOR;
             this.Weapon = DEFAULT_WEAPON;
 
-            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
-            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
-            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
-            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * DEFAULT_PERCEPTION);
+            this.Damage = (DEFAULT_LEVEL * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
+            this.Defense = (DEFAULT_LEVEL * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
+            this.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
         }
+    
 
 
         public void ChiHeal()
@@ -118,6 +117,19 @@
         public void ChiShot()
         {
             throw new NotImplementedException();
+        }
+
+        public override void Attack()
+        {
+            this.ChiShot();
+        }
+        public override void SpecialAttack()
+        {
+            this.ChiHeal();
+        }
+        public override void Defend()
+        {
+            this.ChiBooster();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
+using ThiefAndMuse2020Code.Armor;
 using ThiefAndMuse2020Code.Characters.Interfaces;
 using ThiefAndMuse2020Code.Enumerations;
+using ThiefAndMuse2020Code.Weapons;
 
 namespace ThiefAndMuse2020Code.Characters
 {
@@ -10,6 +12,9 @@ namespace ThiefAndMuse2020Code.Characters
         private int level;
         private int healthPoints;
         private Factions faction;
+
+        private Armor_Type bodyArmor;
+        private Weapon_Type weapon;
 
         private int strength;
         private int perception;
@@ -304,25 +309,21 @@ namespace ThiefAndMuse2020Code.Characters
             }
         }
 
-        public Character(string name, int level)
+        public Armor_Type BodyArmor { get => bodyArmor; set => bodyArmor = value; }
+        public Weapon_Type Weapon { get => weapon; set => weapon = value; }
+
+        public Character()
         {
-            this.Name = name;
-            this.Level = level;
+           
         }
 
-        public void Attack()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Attack();
+   
 
-        public void SpecialAttack()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void SpecialAttack();
 
-        public void Defend()
-        {
-            throw new NotImplementedException();
-        }
+
+        public abstract void Defend();
+      
     }
 }

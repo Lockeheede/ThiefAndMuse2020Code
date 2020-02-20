@@ -77,33 +77,33 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
         }
       
-        public Rebel(string name, int level, int brainPoints)
-            :base(name, level, brainPoints)
+        public Rebel()
         {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
-            this.SkillPoints = (level * DEFAULT_SKILL_POINTS);
-            this.Faction = Factions.Physical;
+            {
+                this.Level = DEFAULT_LUCK;
+                this.Name = DEFAULT_NAME;
+                this.HealthPoints = (DEFAULT_LUCK * DEFAULT_HEALTH_POINTS);
+                this.SkillPoints = (DEFAULT_LUCK * DEFAULT_SKILL_POINTS);
+                this.Faction = DEFAULT_FACTION;
 
-            this.Strength = level * DEFAULT_STRENGTH;
-            this.Perception = level * DEFAULT_PERCEPTION;
-            this.Endurance = level * DEFAULT_ENDURANCE;
-            this.Charisma = level * DEFAULT_CHARISMA;
-            this.Intelligence = level * DEFAULT_INTELLIGENCE;
-            this.Agility = level * DEFAULT_AGILITY;
-            this.Luck = level * DEFAULT_LUCK;
+                this.Strength = DEFAULT_LEVEL * DEFAULT_STRENGTH;
+                this.Perception = DEFAULT_LEVEL * DEFAULT_PERCEPTION;
+                this.Endurance = DEFAULT_LEVEL * DEFAULT_ENDURANCE;
+                this.Charisma = DEFAULT_LEVEL * DEFAULT_CHARISMA;
+                this.Intelligence = DEFAULT_LEVEL * DEFAULT_INTELLIGENCE;
+                this.Agility = DEFAULT_LEVEL * DEFAULT_AGILITY;
+                this.Luck = DEFAULT_LEVEL * DEFAULT_LUCK;
 
-            this.Armor = DEFAULT_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+                this.Armor = DEFAULT_ARMOR;
+                this.Weapon = DEFAULT_WEAPON;
 
-            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
-            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
-            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
-            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * DEFAULT_PERCEPTION);
+                this.Damage = (DEFAULT_LEVEL * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
+                this.Defense = (DEFAULT_LEVEL * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
+                this.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            }
         }
 
-        public void Attack()
+        public void Headbutt()
         {
             throw new NotImplementedException();
 
@@ -113,10 +113,23 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
             throw new NotImplementedException();
 
         }
-        public void Kamakaze()
+        public void Kamikaze()
         {
             throw new NotImplementedException();
 
+        }
+
+        public override void Attack()
+        {
+            this.Headbutt();
+        }
+        public override void SpecialAttack()
+        {
+            this.Kamikaze();
+        }
+        public override void Defend()
+        {
+            this.BoostInjection();
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\Interfaces\IAttack.cs" />
     <Compile Include="Characters\Interfaces\IDefend.cs" />
+    <Compile Include="Characters\Interfaces\ISpellcaster.cs" />
     <Compile Include="Characters\Mind_Characters\Mind.cs" />
     <Compile Include="Characters\Spirit_Characters\Spirit.cs" />
     <Compile Include="Enumerations\Factions.cs" />

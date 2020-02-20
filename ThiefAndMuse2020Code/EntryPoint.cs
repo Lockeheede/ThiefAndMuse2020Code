@@ -6,6 +6,10 @@ using ThiefAndMuses2020Code.Characters.Body_Characters;
 using ThiefAndMuse2020Code.Characters.Mind_Characters;
 using ThiefAndMuse2020Code.Characters.Spirit_Characters;
 using ThiefAndMuse2020Code.Enumerations;
+using ThiefAndMuse2020Code.Characters;
+using ThiefAndMuses2020Code.Characters.Mind_Characters;
+using ThiefAndMuses2020Code.Characters.Spirit_Characters;
+using System.Collections.Generic;
 
 class EntryPoint
     {
@@ -56,8 +60,22 @@ class EntryPoint
 
         //To calcuate action stats, I will need to make some stats for the weapons and apparel
         //The action stats are damage, speed, magick and defense. Effected by normal stats, items and character level
-        Thief playerOne = new Thief("Lockes The Thief", 5, 50, 50, Factions.Physical, 3, 5, 2, 7, 5, 5, 6);
-        Console.WriteLine(playerOne.Agility);
+        Character lockes = new Thief();
+        Character luke = new BodyGuard();
+        Character lick = new Rebel();
+
+        Character curly = new Coder();
+
+        Character reflex = new Muse();
+        Character sonya = new Sage();
+
+        List<Character> ThiefAndMuse = new List<Character>();
+        List<Character> Ogre = new List<Character>();
+        List<Character> CodersAndSages = new List<Character>();
+
+        ThiefAndMuse.Add(lockes); ThiefAndMuse.Add(reflex);
+        Ogre.Add(luke); Ogre.Add(lick);
+        CodersAndSages.Add(curly); CodersAndSages.Add(sonya);
         }
     }
 //Make inheritance for the weapons???

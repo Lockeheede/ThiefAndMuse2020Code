@@ -59,48 +59,52 @@
             this.Speed = (level * agility * this.Weapon.WeaponSpeed);
             Magick = (level * intelligence) + (level * perception);
         }
-        public Coder(string name, int level, int brainPoints)
-            :base (name, level, brainPoints)
+        public Coder()
         {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
-            this.BrainPoints = (level * DEFAULT_BRAIN_POINTS);
-            this.Faction = Factions.Mental;
+            this.Level = DEFAULT_LUCK;
+            this.Name = DEFAULT_NAME;
+            this.HealthPoints = (DEFAULT_LUCK * DEFAULT_HEALTH_POINTS);
+            this.BrainPoints = (DEFAULT_LUCK * DEFAULT_BRAIN_POINTS);
+            this.Faction = DEFAULT_FACTION;
 
-            this.Strength = level * DEFAULT_STRENGTH;
-            this.Perception =   level * DEFAULT_PERCEPTION;
-            this.Endurance =    level * DEFAULT_ENDURANCE;
-            this.Charisma =     level * DEFAULT_CHARISMA;
-            this.Intelligence = level * DEFAULT_INTELLIGENCE;
-            this.Agility =      level * DEFAULT_AGILITY;
-            this.Luck =         level * DEFAULT_LUCK;
+            this.Strength = DEFAULT_LEVEL * DEFAULT_STRENGTH;
+            this.Perception = DEFAULT_LEVEL * DEFAULT_PERCEPTION;
+            this.Endurance = DEFAULT_LEVEL * DEFAULT_ENDURANCE;
+            this.Charisma = DEFAULT_LEVEL * DEFAULT_CHARISMA;
+            this.Intelligence = DEFAULT_LEVEL * DEFAULT_INTELLIGENCE;
+            this.Agility = DEFAULT_LEVEL * DEFAULT_AGILITY;
+            this.Luck = DEFAULT_LEVEL * DEFAULT_LUCK;
 
             this.Armor = DEFAULT_ARMOR;
             this.Weapon = DEFAULT_WEAPON;
 
-            this.Damage = (level * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
-            this.Defense = (level * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
-            this.Speed = (level * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
-            this.Magick = (level * DEFAULT_INTELLIGENCE) + (level * DEFAULT_PERCEPTION);
+            this.Damage = (DEFAULT_LEVEL * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
+            this.Defense = (DEFAULT_LEVEL * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
+            this.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
         }
-
-
-
         public void Hack()
         {
             throw new NotImplementedException();
-
         }
         public void Program()
         {
             throw new NotImplementedException();
-
         }
         public void Virus()
         {
             throw new NotImplementedException();
-
+        }
+        public override void Attack()
+        {
+            this.Hack();
+        }
+        public override void SpecialAttack()
+        {
+            this.Virus();
+        }
+        public override void Defend()
+        {
+            this.Program();
         }
     }
 

@@ -26,8 +26,11 @@ using System;
             }
         }
 
+        public Body()
+        {
+
+        }
         public Body(string name, int level, int skillPoints)
-        : base(name, level)
         {
             this.Name = name;
             this.Level = level;
