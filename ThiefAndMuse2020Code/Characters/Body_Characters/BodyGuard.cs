@@ -104,34 +104,32 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
                 this.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
             }
         }
-        public void HeavyAttack()
+        public int HeavyAttack()
         {
-            throw new NotImplementedException();
-
+            return base.Weapon.WeaponDamage + 5;
         }
-        public void StunAttack()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void ShockArmor()
+        public int StunAttack()
         {
             throw new NotImplementedException();
 
         }
 
-        public override void Attack()
+        public int HarderArmor()
         {
-            this.HeavyAttack();
+            return base.BodyArmor.WeaponDefense + 5;
         }
-        public override void SpecialAttack()
+
+        public override int Attack()
         {
-            this.StunAttack();
+            return this.HeavyAttack();
         }
-        public override void Defend()
+        public override int SpecialAttack()
         {
-            this.ShockArmor();
+            return this.StunAttack();
+        }
+        public override int Defend()
+        {
+            return this.HarderArmor();
         }
     }
 }

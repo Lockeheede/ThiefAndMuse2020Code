@@ -30,6 +30,13 @@ using System;
         {
 
         }
+        public Body(string name, int level)
+            :base(name, level)
+        {
+            base.Name = name;
+            base.Level = level;
+        }
+
         public Body(string name, int level, int skillPoints)
         {
             this.Name = name;

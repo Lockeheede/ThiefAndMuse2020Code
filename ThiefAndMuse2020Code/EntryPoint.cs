@@ -5,16 +5,17 @@ using System;
 using ThiefAndMuses2020Code.Characters.Body_Characters;
 using ThiefAndMuse2020Code.Characters.Mind_Characters;
 using ThiefAndMuse2020Code.Characters.Spirit_Characters;
-using ThiefAndMuse2020Code.Enumerations;
 using ThiefAndMuse2020Code.Characters;
 using ThiefAndMuses2020Code.Characters.Mind_Characters;
 using ThiefAndMuses2020Code.Characters.Spirit_Characters;
 using System.Collections.Generic;
+using ThiefAndMuse2020Code.Characters.Body_Characters;
 
 class EntryPoint
     {
-        static void Main()
-        {
+    static void Main()
+    {
+
         //Classes to make
         //Characters - Thief, Muse, Coder, BodyGuard, Sage, Rebel
         //Apparel - HeavyJacket, LeatherVest, PartyDress, CottonRobe
@@ -60,24 +61,106 @@ class EntryPoint
 
         //To calcuate action stats, I will need to make some stats for the weapons and apparel
         //The action stats are damage, speed, magick and defense. Effected by normal stats, items and character level
-        Character lockes = new Thief();
-        Character luke = new BodyGuard();
-        Character lick = new Rebel();
+        bool gameOver = false;
 
-        Character curly = new Coder();
+        Random rng = new Random();
 
-        Character reflex = new Muse();
-        Character sonya = new Sage();
+        int currentBodyCharacter = 0;
+        int currentMindCharacter = 0;
+        int currentSpiritCharacter = 0;
 
-        List<Character> ThiefAndMuse = new List<Character>();
-        List<Character> Ogre = new List<Character>();
-        List<Character> CodersAndSages = new List<Character>();
+        List<Character> characters = new List<Character>()
+        {
+            new BodyGuard(),
+            new Rebel(),
+            new Thief(),
+            new Coder(),
+            new Sage(),
+            new Muse()
+        };
 
-        ThiefAndMuse.Add(lockes); ThiefAndMuse.Add(reflex);
-        Ogre.Add(luke); Ogre.Add(lick);
-        CodersAndSages.Add(curly); CodersAndSages.Add(sonya);
+        List<Body> bodyCharacters = new List<Body>();
+        List<Mind> mindCharacters = new List<Mind>();
+        List<Spirit> spiritCharacters = new List<Spirit>();
+
+        foreach (var character in characters)
+        {
+            if(character is Body)
+            {
+                bodyCharacters.Add((Body)character);
+            }
+            else if(character is Mind)
+            {
+                mindCharacters.Add((Mind)character);
+            }
+            else if(character is Spirit)
+            {
+                spiritCharacters.Add((Spirit)character);
+            }
+        }
+
+        while(!gameOver)
+        {
+            /*Psuedo Game Logic
+             * 1. Select a random bodyCharacter
+             * 2. Select a random spiritCharacter
+             */
+            currentBodyCharacter = rng.Next(0, bodyCharacters.Count);
+            currentSpiritCharacter = rng.Next(0, spiritCharacters.Count);
+            // 3. body attacks spirit
+             
+            spiritCharacters[currentSpiritCharacter].TakeDamage(bodyCharacters[currentBodyCharacter].Attack(), bodyCharacters[currentBodyCharacter].Name);
+            /* 3.1 Check to see if the character is dead
+             */
+             if(!spiritCharacters[currentSpiritCharacter].IsAlive)
+            {
+                spiritCharacters.Remove(spiritCharacters[currentSpiritCharacter]);
+
+                if (spiritCharacters.Count == 0)
+                {
+                    Console.WriteLine("Body over Spirit...Body team wins!");
+                    break;
+                }
+                else
+                {
+                    currentSpiritCharacter = rng.Next(0, spiritCharacters.Count);
+                }
+            }
+            /* 3.2 If dead, remove the character and replace with another random one
+            * 
+            * 4. spirit attacks body
+            */
+            bodyCharacters[currentBodyCharacter].TakeDamage(spiritCharacters[currentSpiritCharacter].Attack(), spiritCharacters[currentSpiritCharacter].Name);
+            /*4.1 Check to see if the character is dead
+            * 4.2 If dead, remove the character and replace with another random one
+            */
+            if (!bodyCharacters[currentBodyCharacter].IsAlive)
+            {
+                bodyCharacters.Remove(bodyCharacters[currentBodyCharacter]);
+
+                if (bodyCharacters.Count == 0)
+                {
+                    Console.WriteLine("Spirit over Body...Spirit team wins!");
+                    break;
+                }
+                else
+                {
+                    currentBodyCharacter = rng.Next(0, bodyCharacters.Count);
+                }
+            }
+
+            /* 
+            * 5. Using this logic
+            * bodyCharacters[0].TakeDamage(spiritCharacters[0].Attack());
+            * You can determine which character is attacking (spiritCharacters[0]) and which character
+            * Is taking damage bodyCharacters[0]. The TakeDamage and Attack methods are coming from the base
+            * Character class
+            * 
+            * 5. If there are no characters alive from either team, gameOver = true.
+            * 
+            * 6. (Bonus) Try to have the mindCharacter interact with a random character from either team. 
+            */
         }
     }
-//Make inheritance for the weapons???
-//Come up with a way to use the :this(DEFAULT_ETC) constructor for multiple types of classes
+    }
 

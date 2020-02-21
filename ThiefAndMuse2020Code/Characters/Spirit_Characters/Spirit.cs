@@ -28,6 +28,13 @@ using System;
         {
 
         }
+
+        public Spirit(string name, int level)
+            :base(name, level)
+        {
+            base.Name = name;
+            base.Level = level;
+        }
         public Spirit(string name, int level, int chiPoints)
         {
             this.Name = name;

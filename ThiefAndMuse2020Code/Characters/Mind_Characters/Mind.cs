@@ -29,6 +29,13 @@ using System;
         {
            
         }
+
+        public Mind(string name, int level)
+            :base(name, level)
+        {
+            base.Name = name;
+            base.Level = level;
+        }
         public Mind(string name, int level, int brainPoints)
         {
             this.Name = name;

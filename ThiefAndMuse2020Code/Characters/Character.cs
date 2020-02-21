@@ -29,6 +29,9 @@ namespace ThiefAndMuse2020Code.Characters
         private int speed;
         private int magick;
 
+        private bool isAlive;
+        private int scores;
+
         public string Name
         {
             get
@@ -311,19 +314,71 @@ namespace ThiefAndMuse2020Code.Characters
 
         public Armor_Type BodyArmor { get => bodyArmor; set => bodyArmor = value; }
         public Weapon_Type Weapon { get => weapon; set => weapon = value; }
-
+        public bool IsAlive
+        {
+            get
+            {
+                return this.isAlive;
+            }
+            private set
+            {
+                this.isAlive = value;
+            }
+        }
+        public int Scores
+        {
+            get
+            {
+                return this.scores;
+            }
+            private set
+            {
+                this.scores = value;
+            }
+        }
         public Character()
         {
            
         }
 
-        public abstract void Attack();
+        public Character(string name, int level)
+        {
+            this.name = Name;
+            this.level = Level;
+        }
+
+        public abstract int Attack();
    
 
-        public abstract void SpecialAttack();
+        public abstract int SpecialAttack();
 
 
-        public abstract void Defend();
+        public abstract int Defend();
       
+        public void TakeDamage(int damage, string attackerName)
+        {
+            if (defense < damage)
+            {
+                this.healthPoints = this.healthPoints - damage + defense;
+
+                if(this.healthPoints <= 0)
+                {
+                    this.isAlive = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("No damage!");
+            }
+
+            if(!this.isAlive)
+            {
+                Console.WriteLine($"{ this.name} received {damage} from {attackerName} and is now dead!");
+            }
+            else
+            {
+                Console.WriteLine($"{ this.name} received {damage} from {attackerName} and now has {this.healthPoints} HP!");
+            }
+        }
     }
 }

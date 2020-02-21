@@ -43,11 +43,11 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
         {
             get
             {
-                return weapon;
+                return this.weapon;
             }
             set
             {
-                weapon = value;
+                this.weapon = value;
             }
         }
 

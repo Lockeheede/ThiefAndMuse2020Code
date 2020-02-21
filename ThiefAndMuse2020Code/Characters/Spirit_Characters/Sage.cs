@@ -105,31 +105,31 @@
     
 
 
-        public void ChiHeal()
+        public int ChiBlock()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.MagickDefense + 5;
         }
-        public void ChiBooster()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ChiShot()
+        public int ChiBooster()
         {
             throw new NotImplementedException();
         }
 
-        public override void Attack()
+        public int ChiShot()
         {
-            this.ChiShot();
+            return base.Weapon.MagickDamage + 5;
         }
-        public override void SpecialAttack()
+
+        public override int Attack()
         {
-            this.ChiHeal();
+            return this.ChiShot();
         }
-        public override void Defend()
+        public override int SpecialAttack()
         {
-            this.ChiBooster();
+            return this.ChiBlock();
+        }
+        public override int Defend()
+        {
+            return this.ChiBooster();
         }
     }
 }
