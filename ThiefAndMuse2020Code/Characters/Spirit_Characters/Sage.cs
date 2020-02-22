@@ -129,11 +129,11 @@
 
         public int ChiBlock()
         {
-            return base.BodyArmor.WeaponDefense;
+            return base.BodyArmor.MagickDefense;
         }
         public int ChiBooster()
         {
-            return base.WeaponType.WeaponDamage;
+            return base.WeaponType.MagickDamage;
 
         }
 
@@ -148,11 +148,11 @@
         }
         public override int SpecialAttack()
         {
-            return this.ChiBlock();
+            return this.ChiBooster();
         }
         public override int Defend()
         {
-            return this.ChiBooster();
+            return this.ChiBlock();
         }
     }
 }

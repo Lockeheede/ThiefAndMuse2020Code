@@ -170,5 +170,5 @@ class EntryPoint
     }
     }
 
-//Going to have to review base and this keywords again...
+//Fix constructors for weapons and bodyarmor to properly calculate. (Think of making a new constructor and maybe don't multiply the numbers!)
 
