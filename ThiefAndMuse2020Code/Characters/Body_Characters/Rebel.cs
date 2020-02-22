@@ -1,4 +1,4 @@
-﻿
+﻿/*
 
 namespace ThiefAndMuses2020Code.Characters.Body_Characters
 {
@@ -132,4 +132,4 @@ namespace ThiefAndMuses2020Code.Characters.Body_Characters
             this.BoostInjection();
         }
     }
-}
+}*/

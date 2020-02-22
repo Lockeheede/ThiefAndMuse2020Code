@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using ThiefAndMuse2020Code.Armor;
 using ThiefAndMuse2020Code.Characters.Interfaces;
 using ThiefAndMuse2020Code.Enumerations;
@@ -14,7 +15,7 @@ namespace ThiefAndMuse2020Code.Characters
         private Factions faction;
 
         private Armor_Type bodyArmor;
-        private Weapon_Type weapon;
+        private Weapon_Type weaponType;
 
         private int strength;
         private int perception;
@@ -29,8 +30,9 @@ namespace ThiefAndMuse2020Code.Characters
         private int speed;
         private int magick;
 
-        private bool isAlive;
+        private bool isAlive = true;
         private int scores;
+        private int damageCalculator;
 
         public string Name
         {
@@ -78,9 +80,9 @@ namespace ThiefAndMuse2020Code.Characters
             }
             set
             {
-                if (value <= 0)
+                if (value <= 0 || value >= 10000)
                 {
-                    Console.WriteLine("Health Points cannot be 0 or less! Default set to 100.");
+                    Console.WriteLine("Inappropriate value! Default HP has been set to 100.");
                     this.healthPoints = 100;
                 }
                 else
@@ -312,8 +314,8 @@ namespace ThiefAndMuse2020Code.Characters
             }
         }
 
-        public Armor_Type BodyArmor { get => bodyArmor; set => bodyArmor = value; }
-        public Weapon_Type Weapon { get => weapon; set => weapon = value; }
+        public Armor_Type BodyArmor { get => this.bodyArmor; set => this.bodyArmor = value; }
+        public Weapon_Type WeaponType { get => this.weaponType; set => this.weaponType = value; }
         public bool IsAlive
         {
             get
@@ -336,6 +338,9 @@ namespace ThiefAndMuse2020Code.Characters
                 this.scores = value;
             }
         }
+
+        public int DamageCalculator { get => damageCalculator; set => damageCalculator = value; }
+
         public Character()
         {
            
@@ -343,8 +348,8 @@ namespace ThiefAndMuse2020Code.Characters
 
         public Character(string name, int level)
         {
-            this.name = Name;
-            this.level = Level;
+            this.name = name;
+            this.level = level;
         }
 
         public abstract int Attack();
@@ -357,9 +362,10 @@ namespace ThiefAndMuse2020Code.Characters
       
         public void TakeDamage(int damage, string attackerName)
         {
-            if (defense < damage)
+            if (Defend() <= damage)
             {
                 this.healthPoints = this.healthPoints - damage + defense;
+                this.damageCalculator = this.healthPoints - damage + defense;
 
                 if(this.healthPoints <= 0)
                 {
@@ -368,16 +374,29 @@ namespace ThiefAndMuse2020Code.Characters
             }
             else
             {
-                Console.WriteLine("No damage!");
+                Console.WriteLine($"{this.name} Took no damage from {attackerName}!");
+                Thread.Sleep(3000);
             }
 
-            if(!this.isAlive)
+            if (!this.isAlive)
             {
-                Console.WriteLine($"{ this.name} received {damage} from {attackerName} and is now dead!");
+                Console.WriteLine($"{ this.name} received {this.damageCalculator} damage from {attackerName} and is now dead!");
+                Thread.Sleep(3000);
             }
             else
             {
-                Console.WriteLine($"{ this.name} received {damage} from {attackerName} and now has {this.healthPoints} HP!");
+                Console.WriteLine($"{ this.name} received {this.damageCalculator} damage from {attackerName} and now has {this.healthPoints} HP!");
+                Thread.Sleep(3000);
+            }
+        }
+
+        public void WonBattle()
+        {
+            this.scores++;
+
+            if(this.scores % 10 == 0)
+            {
+                this.level++;//Every ten levels, the character levels up
             }
         }
     }

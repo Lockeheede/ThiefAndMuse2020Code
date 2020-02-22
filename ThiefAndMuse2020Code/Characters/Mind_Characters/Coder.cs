@@ -1,4 +1,5 @@
-﻿namespace ThiefAndMuses2020Code.Characters.Mind_Characters
+﻿/*
+namespace ThiefAndMuses2020Code.Characters.Mind_Characters
 {
     using System;
     using ThiefAndMuse2020Code.Characters.Mind_Characters;
@@ -108,4 +109,4 @@
         }
     }
 
-}
+}*/

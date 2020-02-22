@@ -1,4 +1,5 @@
-﻿namespace ThiefAndMuses2020Code.Characters.Spirit_Characters
+﻿/*
+namespace ThiefAndMuses2020Code.Characters.Spirit_Characters
 {
     using System;
     using ThiefAndMuse2020Code.Characters.Spirit_Characters;
@@ -128,3 +129,4 @@
     }
 }
 
+*/

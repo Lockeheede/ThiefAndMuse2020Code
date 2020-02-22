@@ -9,8 +9,8 @@
     {
         private const int DEFAULT_LEVEL = 5;
         private const string DEFAULT_NAME = "Sage";
-        private const int DEFAULT_HEALTH_POINTS = 25;
-        private const int DEFAULT_CHI_POINTS = 10;
+        private const int DEFAULT_HEALTH_POINTS = 250;
+        private const int DEFAULT_ENERGY_POINTS = 10;
         private const Factions DEFAULT_FACTION = Factions.Spiritual;
 
         private const int DEFAULT_STRENGTH = 2;
@@ -50,73 +50,96 @@
             }
         }
 
-        public Sage(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
+        public Sage(string name, int level, int healthPoints, int energyPoints, Factions faction, int strength,
           int perception, int endurance, int charisma, int intelligence, int agility, int luck)
-            : base(name, level, chiPoints)
+            : base(name, level, energyPoints)
         {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * healthPoints) + (level * endurance);
-            this.ChiPoints = (level * chiPoints) + (level * intelligence);
-            this.Faction = faction;
+            base.Level = level;
+            base.Name = name;
+            base.HealthPoints = (level * healthPoints) + (level * endurance);
+            base.EnergyPoints = (level * energyPoints) + (level * intelligence);
+            base.Faction = faction;
 
-            this.Strength = level * strength;
-            this.Perception = level * perception;
-            this.Endurance = level * endurance;
-            this.Charisma = level * charisma;
-            this.Intelligence = level * intelligence;
-            this.Agility = level * agility;
-            this.Luck = level * luck;
+            base.Strength = level * strength;
+            base.Perception = level * perception;
+            base.Endurance = level * endurance;
+            base.Charisma = level * charisma;
+            base.Intelligence = level * intelligence;
+            base.Agility = level * agility;
+            base.Luck = level * luck;
 
-            this.Armor = armor;
-            this.Weapon = weapon;
+            base.BodyArmor = armor;
+            base.WeaponType = weapon;
 
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            this.Magick = (level * intelligence) + (level * perception);
+            base.Damage = (level * strength * this.WeaponType.WeaponDamage);
+            base.Defense = (level * endurance * this.BodyArmor.ArmorRating);
+            base.Speed = (level * agility * this.WeaponType.WeaponSpeed);
+            base.Magick = (level * intelligence) + (level * perception);
         }
 
 
 
         public Sage()
         {
-            this.Level = DEFAULT_LUCK;
-            this.Name = DEFAULT_NAME;
-            this.HealthPoints = (DEFAULT_LUCK * DEFAULT_HEALTH_POINTS);
-            this.ChiPoints = (DEFAULT_LUCK * DEFAULT_CHI_POINTS);
-            this.Faction = DEFAULT_FACTION;
+            base.Level = DEFAULT_LUCK;
+            base.Name = DEFAULT_NAME;
+            base.HealthPoints = (DEFAULT_LEVEL * DEFAULT_HEALTH_POINTS);
+            base.EnergyPoints = (DEFAULT_LEVEL * DEFAULT_ENERGY_POINTS);
+            base.Faction = DEFAULT_FACTION;
 
-            this.Strength = DEFAULT_LEVEL * DEFAULT_STRENGTH;
-            this.Perception = DEFAULT_LEVEL * DEFAULT_PERCEPTION;
-            this.Endurance = DEFAULT_LEVEL * DEFAULT_ENDURANCE;
-            this.Charisma = DEFAULT_LEVEL * DEFAULT_CHARISMA;
-            this.Intelligence = DEFAULT_LEVEL * DEFAULT_INTELLIGENCE;
-            this.Agility = DEFAULT_LEVEL * DEFAULT_AGILITY;
-            this.Luck = DEFAULT_LEVEL * DEFAULT_LUCK;
+            base.Strength = DEFAULT_LEVEL * DEFAULT_STRENGTH;
+            base.Perception = DEFAULT_LEVEL * DEFAULT_PERCEPTION;
+            base.Endurance = DEFAULT_LEVEL * DEFAULT_ENDURANCE;
+            base.Charisma = DEFAULT_LEVEL * DEFAULT_CHARISMA;
+            base.Intelligence = DEFAULT_LEVEL * DEFAULT_INTELLIGENCE;
+            base.Agility = DEFAULT_LEVEL * DEFAULT_AGILITY;
+            base.Luck = DEFAULT_LEVEL * DEFAULT_LUCK;
 
-            this.Armor = DEFAULT_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            this.BodyArmor = DEFAULT_ARMOR;
+            this.WeaponType = DEFAULT_WEAPON;
 
-            this.Damage = (DEFAULT_LEVEL * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
-            this.Defense = (DEFAULT_LEVEL * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
-            this.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            base.Damage = (DEFAULT_LEVEL * DEFAULT_STRENGTH * this.DEFAULT_WEAPON.MagickDamage);
+            base.Defense = (DEFAULT_LEVEL * DEFAULT_ENDURANCE * this.DEFAULT_ARMOR.ArmorRating);
+            base.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.DEFAULT_WEAPON.WeaponSpeed);
         }
-    
 
+        public Sage(string name, int level, Factions faction)
+        {
+            base.Level = level;
+            base.Name = name;
+            base.HealthPoints = (level * DEFAULT_HEALTH_POINTS);
+            base.EnergyPoints = (level * DEFAULT_ENERGY_POINTS);
+            base.Faction = faction;
+
+            base.Strength = level * DEFAULT_STRENGTH;
+            base.Perception = level * DEFAULT_PERCEPTION;
+            base.Endurance = level * DEFAULT_ENDURANCE;
+            base.Charisma = level * DEFAULT_CHARISMA;
+            base.Intelligence = level * DEFAULT_INTELLIGENCE;
+            base.Agility = level * DEFAULT_AGILITY;
+            base.Luck = level * DEFAULT_LUCK;
+
+            base.BodyArmor = DEFAULT_ARMOR;
+            base.WeaponType = DEFAULT_WEAPON;
+
+            base.Damage = (base.Intelligence + this.DEFAULT_WEAPON.MagickDamage);
+            base.Defense = (base.Endurance + this.DEFAULT_ARMOR.ArmorRating);
+            base.Speed = (level * DEFAULT_AGILITY * this.DEFAULT_WEAPON.WeaponSpeed);
+        }
 
         public int ChiBlock()
         {
-            return base.BodyArmor.MagickDefense + 5;
+            return base.BodyArmor.WeaponDefense;
         }
         public int ChiBooster()
         {
-            throw new NotImplementedException();
+            return base.WeaponType.WeaponDamage;
+
         }
 
         public int ChiShot()
         {
-            return base.Weapon.MagickDamage + 5;
+            return base.WeaponType.MagickDamage;
         }
 
         public override int Attack()

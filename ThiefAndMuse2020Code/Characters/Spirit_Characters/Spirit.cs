@@ -2,25 +2,26 @@
 namespace ThiefAndMuse2020Code.Characters.Spirit_Characters
 {
 using System;
+
     public abstract class Spirit : Character
     {
-        private int chiPoints;
-        public int ChiPoints
+        private int energyPoints;
+        public int EnergyPoints
         {
             get
             {
-                return this.chiPoints;
+                return this.energyPoints;
             }
             set
             {
                 if (value < 0)
                 {
                     Console.WriteLine("Chi Points cannot be negative. Default set to 0");
-                    this.chiPoints = 0;
+                    this.energyPoints = 0;
                 }
                 else
                 {
-                    this.chiPoints = value;
+                    this.energyPoints = value;
                 }
             }
         }
@@ -35,11 +36,11 @@ using System;
             base.Name = name;
             base.Level = level;
         }
-        public Spirit(string name, int level, int chiPoints)
+        public Spirit(string name, int level, int energyPoints)
         {
             this.Name = name;
             this.Level = level;
-            this.ChiPoints = chiPoints;
+            this.EnergyPoints = energyPoints;
         }
     }
 }

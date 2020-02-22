@@ -1,15 +1,17 @@
 ﻿//Important note: See the classes.sln in order to see the notes made for this project. 
 //More than likely you should know how things work anyway, but if you ever get lost, 
 //that is the project to look for (Class.sln)
+
+
 using System;
 using ThiefAndMuses2020Code.Characters.Body_Characters;
 using ThiefAndMuse2020Code.Characters.Mind_Characters;
 using ThiefAndMuse2020Code.Characters.Spirit_Characters;
 using ThiefAndMuse2020Code.Characters;
-using ThiefAndMuses2020Code.Characters.Mind_Characters;
-using ThiefAndMuses2020Code.Characters.Spirit_Characters;
 using System.Collections.Generic;
+using ThiefAndMuses2020Code.Characters.Spirit_Characters;
 using ThiefAndMuse2020Code.Characters.Body_Characters;
+using ThiefAndMuse2020Code.Enumerations;
 
 class EntryPoint
     {
@@ -66,17 +68,17 @@ class EntryPoint
         Random rng = new Random();
 
         int currentBodyCharacter = 0;
-        int currentMindCharacter = 0;
+        //int currentMindCharacter = 0;
         int currentSpiritCharacter = 0;
 
         List<Character> characters = new List<Character>()
         {
-            new BodyGuard(),
-            new Rebel(),
-            new Thief(),
-            new Coder(),
-            new Sage(),
-            new Muse()
+            new BodyGuard("Rufus", 5, Factions.Physical),
+            new BodyGuard("FJ", 7, Factions.Physical),
+            new BodyGuard("John", 1, Factions.Physical),
+            new Sage("Sonya", 5, Factions.Spiritual),
+            new Sage("Ryan", 6, Factions.Spiritual),
+            new Sage("Jaime", 10, Factions.Spiritual)
         };
 
         List<Body> bodyCharacters = new List<Body>();
@@ -109,11 +111,13 @@ class EntryPoint
             currentSpiritCharacter = rng.Next(0, spiritCharacters.Count);
             // 3. body attacks spirit
              
-            spiritCharacters[currentSpiritCharacter].TakeDamage(bodyCharacters[currentBodyCharacter].Attack(), bodyCharacters[currentBodyCharacter].Name);
+            spiritCharacters[currentSpiritCharacter].TakeDamage(bodyCharacters[currentBodyCharacter].Attack(), 
+                bodyCharacters[currentBodyCharacter].Name);
             /* 3.1 Check to see if the character is dead
              */
              if(!spiritCharacters[currentSpiritCharacter].IsAlive)
             {
+                bodyCharacters[currentBodyCharacter].WonBattle();
                 spiritCharacters.Remove(spiritCharacters[currentSpiritCharacter]);
 
                 if (spiritCharacters.Count == 0)
@@ -130,12 +134,14 @@ class EntryPoint
             * 
             * 4. spirit attacks body
             */
-            bodyCharacters[currentBodyCharacter].TakeDamage(spiritCharacters[currentSpiritCharacter].Attack(), spiritCharacters[currentSpiritCharacter].Name);
+            bodyCharacters[currentBodyCharacter].TakeDamage(spiritCharacters[currentSpiritCharacter].Attack(),
+                spiritCharacters[currentSpiritCharacter].Name);
             /*4.1 Check to see if the character is dead
             * 4.2 If dead, remove the character and replace with another random one
             */
             if (!bodyCharacters[currentBodyCharacter].IsAlive)
             {
+                spiritCharacters[currentSpiritCharacter].WonBattle();
                 bodyCharacters.Remove(bodyCharacters[currentBodyCharacter]);
 
                 if (bodyCharacters.Count == 0)
@@ -163,4 +169,6 @@ class EntryPoint
         }
     }
     }
+
+//Going to have to review base and this keywords again...
 
