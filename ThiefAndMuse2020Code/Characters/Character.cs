@@ -17,19 +17,9 @@ namespace ThiefAndMuse2020Code.Characters
         private Armor_Type bodyArmor;
         private Weapon_Type weaponType;
 
-        private int strength;
-        private int perception;
-        private int endurance;
-        private int charisma;
-        private int intelligence;
-        private int agility;
-        private int luck;
-
         private int damage;
         private int defense;
-        private int speed;
-        private int magick;
-
+        
         private bool isAlive = true;
         private int scores;
         private int damageCalculator;
@@ -80,7 +70,7 @@ namespace ThiefAndMuse2020Code.Characters
             }
             set
             {
-                if (value <= 0 || value >= 10000)
+                if (value <= 0 || value >= 1000)
                 {
                     Console.WriteLine("Inappropriate value! Default HP has been set to 100.");
                     this.healthPoints = 100;
@@ -101,139 +91,6 @@ namespace ThiefAndMuse2020Code.Characters
             set
             {
                 this.faction = value;
-            }
-        }
-        public int Strength
-        {
-            get
-            {
-                return this.strength;
-            }
-            set
-            {
-                if (value < 1)
-                {
-                    Console.WriteLine("Strength must be at least 1. Default set to 1.");
-                    this.strength = 1;
-                }
-                else
-                {
-                    this.strength = value;
-                }
-            }
-        }
-        public int Perception
-        {
-            get
-            {
-                return this.perception;
-            }
-            set
-            {
-                if (value < 1)
-                {
-                    Console.WriteLine("Perception must be at least 1. Default set to 1.");
-                    this.perception = 1;
-                }
-                else
-                {
-                    this.perception = value;
-                }
-            }
-        }
-        public int Endurance
-        {
-            get
-            {
-                return this.endurance;
-            }
-            set
-            {
-                if (value < 1)
-                {
-                    Console.WriteLine("Endurance must be at least 1. Default set to 1.");
-                    this.endurance = 1;
-                }
-                else
-                {
-                    this.endurance = value;
-                }
-            }
-        }
-        public int Charisma
-        {
-            get
-            {
-                return this.charisma;
-            }
-            set
-            {
-                if (value < 1)
-                {
-                    Console.WriteLine("Charisma must be at least 1. Default set to 1.");
-                    this.charisma = 1;
-                }
-                else
-                {
-                    this.charisma = value;
-                }
-            }
-        }
-        public int Intelligence
-        {
-            get
-            {
-                return this.intelligence;
-            }
-            set
-            {
-                if (value < 1)
-                {
-                    Console.WriteLine("Intelligence must be at least 1. Default set to 1.");
-                    this.intelligence = 1;
-                }
-                else
-                {
-                    this.intelligence = value;
-                }
-            }
-        }
-        public int Agility
-        {
-            get
-            {
-                return this.agility;
-            }
-            set
-            {
-                if (value < 1)
-                {
-                    Console.WriteLine("Agility must be at least 1. Default set to 1.");
-                    this.agility = 1;
-                }
-                else
-                {
-                    this.agility = value;
-                }
-            }
-        }
-        public int Luck
-        {
-            get
-            {
-                return this.luck;
-            }
-            set
-            {
-                if (value < 1)
-                {
-                    Console.WriteLine("Luck must be at least 1. Default set to 1.");
-                    this.luck = 1;
-                }
-                else
-                {
-                    this.luck = value;
-                }
             }
         }
 
@@ -275,44 +132,6 @@ namespace ThiefAndMuse2020Code.Characters
                 }
             }
         }
-        public int Speed
-        {
-            get
-            {
-                return this.speed;
-            }
-            set
-            {
-                if (value < 1)
-                {
-                    Console.WriteLine("Speed must be at least 1. Default set to 1.");
-                    this.speed = 1;
-                }
-                else
-                {
-                    this.speed = value;
-                }
-            }
-        }
-        public int Magick
-        {
-            get
-            {
-                return this.magick;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Magick must be at least 0. Default set to 0.");
-                    this.magick = 0;
-                }
-                else
-                {
-                    this.magick = value;
-                }
-            }
-        }
 
         public Armor_Type BodyArmor { get => this.bodyArmor; set => this.bodyArmor = value; }
         public Weapon_Type WeaponType { get => this.weaponType; set => this.weaponType = value; }
@@ -322,7 +141,7 @@ namespace ThiefAndMuse2020Code.Characters
             {
                 return this.isAlive;
             }
-            private set
+            set
             {
                 this.isAlive = value;
             }
@@ -333,7 +152,7 @@ namespace ThiefAndMuse2020Code.Characters
             {
                 return this.scores;
             }
-            private set
+            set
             {
                 this.scores = value;
             }
@@ -359,33 +178,30 @@ namespace ThiefAndMuse2020Code.Characters
 
 
         public abstract int Defend();
-      
+
         public void TakeDamage(int damage, string attackerName)
         {
-            if (Defend() <= damage)
-            {
-                this.healthPoints = this.healthPoints - damage + defense;
-                this.damageCalculator = this.healthPoints - damage + defense;
+            healthPoints = healthPoints - damage + defense;
 
-                if(this.healthPoints <= 0)
-                {
-                    this.isAlive = false;
-                }
+            if (healthPoints <= 0)
+            {
+                this.isAlive = false;
             }
-            else
+        
+            /*else if (defense >= damage)
             {
                 Console.WriteLine($"{this.name} Took no damage from {attackerName}!");
                 Thread.Sleep(3000);
-            }
+            }*/
 
             if (!this.isAlive)
             {
-                Console.WriteLine($"{ this.name} received {this.damageCalculator} damage from {attackerName} and is now dead!");
+                Console.WriteLine($"{ this.name} received {damage} damage from {attackerName} and is now dead!");
                 Thread.Sleep(3000);
             }
             else
             {
-                Console.WriteLine($"{ this.name} received {this.damageCalculator} damage from {attackerName} and now has {this.healthPoints} HP!");
+                Console.WriteLine($"{ this.name} received {damage} damage from {attackerName} and now has {healthPoints} HP!");
                 Thread.Sleep(3000);
             }
         }
@@ -394,9 +210,9 @@ namespace ThiefAndMuse2020Code.Characters
         {
             this.scores++;
 
-            if(this.scores % 10 == 0)
+            if(this.scores % 3 == 0)
             {
-                this.level++;//Every ten levels, the character levels up
+                this.level++;//Every three scores, the character levels up
             }
         }
     }

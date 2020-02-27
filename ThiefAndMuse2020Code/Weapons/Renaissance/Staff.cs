@@ -5,17 +5,11 @@ namespace ThiefAndMuses2020Code.Weapons.Renaissance
 {
     public class Staff : DarkAge
     {
-        public Staff(string weaponName, int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
+        public Staff(string weaponName, int weaponRating, int weaponDamage)
             :base(weaponName)
         {
-            this.ArmorRating = armorRating;
             this.WeaponRating = weaponRating;
-            this.MagickRating = magickRating;
-            this.WeaponDamage = weaponRating * weaponDamage;
-            this.WeaponDefense = armorRating * weaponDefense;
-            this.MagickDamage = magickRating * magickDamage;
-            this.MagickDefense = magickRating * magickDefense;
-            this.WeaponSpeed = weaponRating * weaponSpeed;
+            this.WeaponDamage = weaponDamage;
         }
         public void HealTeam()
         {

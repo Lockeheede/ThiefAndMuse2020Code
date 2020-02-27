@@ -73,16 +73,34 @@ class EntryPoint
 
         List<Character> characters = new List<Character>()
         {
-            new BodyGuard("Rufus", 5, Factions.Physical),
+            new BodyGuard("Rufus", 2, Factions.Physical),
+            new Sage("Sonya", 10, Factions.Spiritual),
+            new BodyGuard(),
+            
+            new BodyGuard(),
+            
+            new BodyGuard(),
+            
+            new BodyGuard(),
+            
+            new BodyGuard(),
+            
+            new BodyGuard(),
+            
+            new BodyGuard(),
+           
+            new BodyGuard(),
+            
+            /*new BodyGuard("Rufus", 7, Factions.Physical),
             new BodyGuard("FJ", 7, Factions.Physical),
-            new BodyGuard("John", 1, Factions.Physical),
-            new Sage("Sonya", 5, Factions.Spiritual),
-            new Sage("Ryan", 6, Factions.Spiritual),
-            new Sage("Jaime", 10, Factions.Spiritual)
+            new BodyGuard("John", 7, Factions.Physical),
+            new Sage("Sonya", 7, Factions.Spiritual),
+            new Sage("Ryan", 7, Factions.Spiritual),
+            new Sage("Jaime", 7, Factions.Spiritual)*/
         };
 
         List<Body> bodyCharacters = new List<Body>();
-        List<Mind> mindCharacters = new List<Mind>();
+        //List<Mind> mindCharacters = new List<Mind>();
         List<Spirit> spiritCharacters = new List<Spirit>();
 
         foreach (var character in characters)
@@ -91,10 +109,10 @@ class EntryPoint
             {
                 bodyCharacters.Add((Body)character);
             }
-            else if(character is Mind)
+            /*else if(character is Mind)
             {
                 mindCharacters.Add((Mind)character);
-            }
+            }*/
             else if(character is Spirit)
             {
                 spiritCharacters.Add((Spirit)character);
@@ -170,5 +188,6 @@ class EntryPoint
     }
     }
 
-//Going to have to review base and this keywords again...
+//TODO: Simplify the statistics. Maybe use healthpoints, damage and defense and get rid of the other things...
+//Can make more advanced once I get all the numbers right. 
 

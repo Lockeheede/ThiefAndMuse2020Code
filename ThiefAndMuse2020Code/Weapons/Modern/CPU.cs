@@ -1,12 +1,10 @@
-﻿using System;
+﻿/*using System;
 using ThiefAndMuse2020Code.Weapons.Modern;
 
 namespace ThiefAndMuses2020Code.Weapons.Modern
 {
     public class CPU : NewAge
     {
-        
-
         private const string WEAPON_NAME = "Intent I-9";
         private const int WEAPON_RATING = 5;
         private const int MAGICK_RATING = 3;
@@ -33,4 +31,4 @@ namespace ThiefAndMuses2020Code.Weapons.Modern
         }
     }
 
-}
+}*/

@@ -16,7 +16,7 @@ using System;
             {
                 if (value < 0)
                 {
-                    Console.WriteLine("Chi Points cannot be negative. Default set to 0");
+                    Console.WriteLine("Energy Points cannot be negative. Default set to 0");
                     this.energyPoints = 0;
                 }
                 else

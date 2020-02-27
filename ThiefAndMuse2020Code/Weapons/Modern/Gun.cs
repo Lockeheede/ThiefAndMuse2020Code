@@ -5,15 +5,11 @@ namespace ThiefAndMuses2020Code.Weapons.Modern
 {
     public class Gun : NewAge
     {
-
-        public Gun(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
+        public Gun(string weaponName, int weaponRating, int weaponDamage)
             :base(weaponName)
         {
             this.WeaponRating = weaponRating;
-            this.MagickRating = magickRating;
-            this.WeaponDamage = weaponRating * weaponDamage;
-            this.MagickDamage = magickRating * magickDamage;
-            this.WeaponSpeed = weaponRating * weaponSpeed;
+            this.WeaponDamage = weaponDamage;
         }
         public void Shoot()
         {

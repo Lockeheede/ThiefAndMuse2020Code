@@ -5,13 +5,11 @@ namespace ThiefAndMuses2020Code.Armor.Medium
 {
     public class LeatherVest : Medium_Armor
     {
-        public LeatherVest(string armorName, int armorRating, int weaponDefense, int magickRating, int magickDefense)
+        public LeatherVest(string armorName, int armorRating, int weaponDefense)
             :base(armorName)
         {
             this.ArmorRating = armorRating;
-            this.MagickRating = magickRating;
             this.WeaponDefense = armorRating * weaponDefense;
-            this.MagickDefense = magickRating * magickDefense;
         }
         public void Quickness()
         {

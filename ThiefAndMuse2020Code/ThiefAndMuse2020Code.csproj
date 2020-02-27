@@ -56,6 +56,7 @@
     <Compile Include="Characters\Interfaces\ISpellcaster.cs" />
     <Compile Include="Characters\Mind_Characters\Mind.cs" />
     <Compile Include="Characters\Spirit_Characters\Spirit.cs" />
+    <Compile Include="Consts.cs" />
     <Compile Include="Enumerations\Factions.cs" />
     <Compile Include="InfoHandler.cs" />
     <Compile Include="Weapons\Modern\NewAge.cs" />

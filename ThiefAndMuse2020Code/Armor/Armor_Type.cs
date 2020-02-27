@@ -7,8 +7,6 @@ namespace ThiefAndMuse2020Code.Armor
         private string armorName;
         private int armorRating;
         private int weaponDefense;
-        private int magickRating;
-        private int magickDefense;
 
         public string ArmorName
         {
@@ -66,44 +64,6 @@ namespace ThiefAndMuse2020Code.Armor
                 else
                 {
                     this.weaponDefense = value;
-                }
-            }
-        }
-        public int MagickRating
-        {
-            get
-            {
-                return this.magickRating;
-            }
-            set
-            {
-                if (value >= 0 && value <= 10)
-                {
-                    this.magickRating = value;
-                }
-                else
-                {
-                    this.magickRating = 0;
-                    Console.WriteLine("Invalid Magick Rating! Default set to 0!");
-                }
-            }
-        }
-        public int MagickDefense
-        {
-            get
-            {
-                return this.magickDefense;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("Inappropriate value! Magick Defense cannot be less than 0. Default set to 0.");
-                    this.magickDefense = 0;
-                }
-                else
-                {
-                    this.magickDefense = value;
                 }
             }
         }

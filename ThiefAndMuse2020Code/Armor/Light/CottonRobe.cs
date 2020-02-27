@@ -5,13 +5,11 @@ namespace ThiefAndMuses2020Code.Armor.Light
 {
     public class CottonRobe : Light_Armor
     {
-        public CottonRobe(string armorName, int armorRating, int weaponDefense, int magickRating, int magickDefense)
+        public CottonRobe(string armorName, int armorRating, int weaponDefense)
             :base(armorName)
         {
             this.ArmorRating = armorRating;           
-            this.MagickRating = magickRating;
-            this.WeaponDefense = armorRating * weaponDefense;
-            this.MagickDefense = magickRating * magickDefense;
+            this.WeaponDefense = weaponDefense;
         }
         public void ChiBoost()
         {

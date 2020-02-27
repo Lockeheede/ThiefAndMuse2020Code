@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using System;
 using ThiefAndMuse2020Code.Weapons.Modern;
 
@@ -32,3 +32,4 @@ namespace ThiefAndMuses2020Code.Weapons.Modern
     }
 }
 
+*/
