@@ -1,7 +1,7 @@
 ﻿using System;
 using ThiefAndMuse2020Code.Armor.Heavy;
 
-namespace ThiefAndMuses2020Code.Armor.Heavy
+namespace ThiefAndMuse2020Code.Armor.Heavy
 {
     public class HeavyJacket : Heavy_Armor
     {

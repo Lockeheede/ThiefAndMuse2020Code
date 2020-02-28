@@ -4,14 +4,13 @@
 
 
 using System;
-using ThiefAndMuses2020Code.Characters.Body_Characters;
 using ThiefAndMuse2020Code.Characters.Mind_Characters;
 using ThiefAndMuse2020Code.Characters.Spirit_Characters;
 using ThiefAndMuse2020Code.Characters;
 using System.Collections.Generic;
-using ThiefAndMuses2020Code.Characters.Spirit_Characters;
 using ThiefAndMuse2020Code.Characters.Body_Characters;
 using ThiefAndMuse2020Code.Enumerations;
+using ThiefAndMuse2020Code;
 
 class EntryPoint
     {
@@ -67,28 +66,20 @@ class EntryPoint
 
         Random rng = new Random();
 
-        int currentBodyCharacter = 0;
-        //int currentMindCharacter = 0;
-        int currentSpiritCharacter = 0;
+        Body currentBodyCharacter;
+        Spirit currentSpiritCharacter;
 
         List<Character> characters = new List<Character>()
         {
             new BodyGuard("Rufus", 2, Factions.Physical),
             new Sage("Sonya", 10, Factions.Spiritual),
             new BodyGuard(),
-            
             new BodyGuard(),
-            
             new BodyGuard(),
-            
             new BodyGuard(),
-            
             new BodyGuard(),
-            
             new BodyGuard(),
-            
             new BodyGuard(),
-           
             new BodyGuard(),
             
             /*new BodyGuard("Rufus", 7, Factions.Physical),
@@ -125,51 +116,53 @@ class EntryPoint
              * 1. Select a random bodyCharacter
              * 2. Select a random spiritCharacter
              */
-            currentBodyCharacter = rng.Next(0, bodyCharacters.Count);
-            currentSpiritCharacter = rng.Next(0, spiritCharacters.Count);
+            currentBodyCharacter = bodyCharacters[rng.Next(0, bodyCharacters.Count)];
+            currentSpiritCharacter = spiritCharacters[rng.Next(0, spiritCharacters.Count)];
             // 3. body attacks spirit
              
-            spiritCharacters[currentSpiritCharacter].TakeDamage(bodyCharacters[currentBodyCharacter].Attack(), 
-                bodyCharacters[currentBodyCharacter].Name);
+            currentSpiritCharacter.TakeDamage(currentBodyCharacter.Attack(), 
+                currentBodyCharacter.Name);
+            //Eventually use a currentCharacter.GetType().ToString(); for the Tools
             /* 3.1 Check to see if the character is dead
              */
-             if(!spiritCharacters[currentSpiritCharacter].IsAlive)
+             if(!currentSpiritCharacter.IsAlive)
             {
-                bodyCharacters[currentBodyCharacter].WonBattle();
-                spiritCharacters.Remove(spiritCharacters[currentSpiritCharacter]);
+                currentBodyCharacter.WonBattle();
+                spiritCharacters.Remove(currentSpiritCharacter);
 
                 if (spiritCharacters.Count == 0)
                 {
-                    Console.WriteLine("Body over Spirit...Body team wins!");
+                    Tools.ColorfulWriteLine("\nBody over Spirit...Body team wins!", ConsoleColor.Red);
                     break;
                 }
                 else
                 {
-                    currentSpiritCharacter = rng.Next(0, spiritCharacters.Count);
+                    currentSpiritCharacter = spiritCharacters[rng.Next(0, spiritCharacters.Count)];
                 }
             }
             /* 3.2 If dead, remove the character and replace with another random one
             * 
             * 4. spirit attacks body
             */
-            bodyCharacters[currentBodyCharacter].TakeDamage(spiritCharacters[currentSpiritCharacter].Attack(),
-                spiritCharacters[currentSpiritCharacter].Name);
+            currentBodyCharacter.TakeDamage(currentSpiritCharacter.Attack(),
+                currentSpiritCharacter.Name);
+            //Eventually use the ColorfulCW Tools
             /*4.1 Check to see if the character is dead
             * 4.2 If dead, remove the character and replace with another random one
             */
-            if (!bodyCharacters[currentBodyCharacter].IsAlive)
+            if (!currentBodyCharacter.IsAlive)
             {
-                spiritCharacters[currentSpiritCharacter].WonBattle();
-                bodyCharacters.Remove(bodyCharacters[currentBodyCharacter]);
+                currentSpiritCharacter.WonBattle();
+                bodyCharacters.Remove(currentBodyCharacter);
 
                 if (bodyCharacters.Count == 0)
                 {
-                    Console.WriteLine("Spirit over Body...Spirit team wins!");
+                    Tools.ColorfulWriteLine("\nSpirit over Body...Spirit team wins!", ConsoleColor.Yellow);
                     break;
                 }
                 else
                 {
-                    currentBodyCharacter = rng.Next(0, bodyCharacters.Count);
+                    currentBodyCharacter = bodyCharacters[rng.Next(0, bodyCharacters.Count)];
                 }
             }
 

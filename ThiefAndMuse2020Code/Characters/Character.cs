@@ -180,10 +180,11 @@ namespace ThiefAndMuse2020Code.Characters
         public abstract int Defend();
 
         public void TakeDamage(int damage, string attackerName)
+            //Remember to eventually use string type for Tools.TypeSpecificColorfulCW when you FIGURE IT OUT!!!
         {
-            healthPoints = healthPoints - damage + defense;
+            this.healthPoints = this.healthPoints - damage;
 
-            if (healthPoints <= 0)
+            if (this.healthPoints <= 0)
             {
                 this.isAlive = false;
             }
@@ -201,7 +202,7 @@ namespace ThiefAndMuse2020Code.Characters
             }
             else
             {
-                Console.WriteLine($"{ this.name} received {damage} damage from {attackerName} and now has {healthPoints} HP!");
+                Console.WriteLine($"{ this.name} received {damage} damage from {attackerName} and now has {this.healthPoints} HP!");
                 Thread.Sleep(3000);
             }
         }
@@ -213,6 +214,8 @@ namespace ThiefAndMuse2020Code.Characters
             if(this.scores % 3 == 0)
             {
                 this.level++;//Every three scores, the character levels up
+                Console.WriteLine($"{this.name} leveled up to {this.level}!");
+                Thread.Sleep(3000);
             }
         }
     }

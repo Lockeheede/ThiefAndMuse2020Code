@@ -1,11 +1,11 @@
-﻿namespace ThiefAndMuses2020Code.Characters.Spirit_Characters
+﻿namespace ThiefAndMuse2020Code.Characters.Spirit_Characters
 {
     using System;
     using ThiefAndMuse2020Code;
     using ThiefAndMuse2020Code.Characters.Spirit_Characters;
     using ThiefAndMuse2020Code.Enumerations;
-    using ThiefAndMuses2020Code.Armor.Light;
-    using ThiefAndMuses2020Code.Weapons.Renaissance;
+    using ThiefAndMuse2020Code.Armor.Light;
+    using ThiefAndMuse2020Code.Weapons.Renaissance;
     public class Sage : Spirit
     {
         private CottonRobe armor;

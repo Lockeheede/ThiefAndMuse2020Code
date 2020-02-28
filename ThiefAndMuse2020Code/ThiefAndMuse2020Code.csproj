@@ -59,6 +59,7 @@
     <Compile Include="Consts.cs" />
     <Compile Include="Enumerations\Factions.cs" />
     <Compile Include="InfoHandler.cs" />
+    <Compile Include="Tools.cs" />
     <Compile Include="Weapons\Modern\NewAge.cs" />
     <Compile Include="Weapons\Modern\Padlocke.cs" />
     <Compile Include="Weapons\Modern\CPU.cs" />

@@ -1,7 +1,7 @@
 ﻿/*using System;
 using ThiefAndMuse2020Code.Weapons.Renaissance;
 
-namespace ThiefAndMuses2020Code.Weapons.Renaissance
+namespace ThiefAndMuse2020Code.Weapons.Renaissance
 {
 
     public class SpellBook : DarkAge

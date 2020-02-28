@@ -1,7 +1,7 @@
 ﻿using System;
 using ThiefAndMuse2020Code.Armor.Light;
 
-namespace ThiefAndMuses2020Code.Armor.Light
+namespace ThiefAndMuse2020Code.Armor.Light
 {
     public class CottonRobe : Light_Armor
     {

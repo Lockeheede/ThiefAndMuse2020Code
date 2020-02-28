@@ -1,11 +1,11 @@
 ﻿/*
-namespace ThiefAndMuses2020Code.Characters.Spirit_Characters
+namespace ThiefAndMuse2020Code.Characters.Spirit_Characters
 {
     using System;
     using ThiefAndMuse2020Code.Characters.Spirit_Characters;
     using ThiefAndMuse2020Code.Enumerations;
-    using ThiefAndMuses2020Code.Armor.Light;
-    using ThiefAndMuses2020Code.Weapons.Modern;
+    using ThiefAndMuse2020Code.Armor.Light;
+    using ThiefAndMuse2020Code.Weapons.Modern;
     public class Muse : Spirit
     {
         private const int DEFAULT_LEVEL = 10;

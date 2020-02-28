@@ -1,7 +1,7 @@
 ﻿/*using System;
 using ThiefAndMuse2020Code.Weapons.Modern;
 
-namespace ThiefAndMuses2020Code.Weapons.Modern
+namespace ThiefAndMuse2020Code.Weapons.Modern
 {
     public class CPU : NewAge
     {

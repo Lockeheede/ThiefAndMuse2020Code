@@ -1,13 +1,13 @@
 ﻿
 
-namespace ThiefAndMuses2020Code.Characters.Body_Characters
+namespace ThiefAndMuse2020Code.Characters.Body_Characters
 {
     using System;
     using ThiefAndMuse2020Code;
     using ThiefAndMuse2020Code.Characters.Body_Characters;
     using ThiefAndMuse2020Code.Enumerations;
-    using ThiefAndMuses2020Code.Armor.Heavy;
-    using ThiefAndMuses2020Code.Weapons.Modern;
+    using ThiefAndMuse2020Code.Armor.Heavy;
+    using ThiefAndMuse2020Code.Weapons.Modern;
     public class BodyGuard : Body
     { 
 
