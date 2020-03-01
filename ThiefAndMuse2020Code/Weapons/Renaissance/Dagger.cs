@@ -1,18 +1,14 @@
-﻿/*using System;
-using ThiefAndMuse2020Code.Weapons.Renaissance;
+﻿using System;
 
 namespace ThiefAndMuse2020Code.Weapons.Renaissance
 {
     public class Dagger : DarkAge
     {
-        public Dagger(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
+        public Dagger(string weaponName, int weaponRating, int weaponDamage)
             :base(weaponName)
         {
             this.WeaponRating = weaponRating;
-            this.MagickRating = magickRating;
-            this.WeaponDamage = weaponRating * weaponDamage;
-            this.MagickDamage = magickRating * magickDamage;
-            this.WeaponSpeed = weaponRating * weaponSpeed;
+            this.WeaponDamage = weaponDamage;
         }
         public void BackStab()
         {
@@ -20,4 +16,3 @@ namespace ThiefAndMuse2020Code.Weapons.Renaissance
         }
     }
 }
-*/

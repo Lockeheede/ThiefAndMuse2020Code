@@ -1,29 +1,16 @@
-﻿/*
-namespace ThiefAndMuse2020Code.Characters.Spirit_Characters
+﻿namespace ThiefAndMuse2020Code.Characters.Spirit_Characters
 {
     using System;
-    using ThiefAndMuse2020Code.Characters.Spirit_Characters;
     using ThiefAndMuse2020Code.Enumerations;
     using ThiefAndMuse2020Code.Armor.Light;
     using ThiefAndMuse2020Code.Weapons.Modern;
     public class Muse : Spirit
     {
-        private const int DEFAULT_LEVEL = 10;
-        private const string DEFAULT_NAME = "Muse";
-        private const int DEFAULT_HEALTH_POINTS = 50;
-        private const int DEFAULT_CHI_POINTS = 50;
-        private const Factions DEFAULT_FACTION = Factions.Spiritual;
-
-        private const int DEFAULT_STRENGTH = 4;
-        private const int DEFAULT_PERCEPTION = 7;
-        private const int DEFAULT_ENDURANCE = 3;
-        private const int DEFAULT_CHARISMA = 7;
-        private const int DEFAULT_INTELLIGENCE = 7;
-        private const int DEFAULT_AGILITY = 4;
-        private const int DEFAULT_LUCK = 7;
+        private readonly PartyDress DEFAULT_ARMOR = new PartyDress("Red Silk", 5, 5);
+        private readonly EssentialOil DEFAULT_WEAPON = new EssentialOil("Lavender", 3, 10);
 
         private PartyDress armor;
-        private EssentialOil weapon;    
+        private EssentialOil weapon;
 
         public PartyDress Armor
         {
@@ -48,85 +35,86 @@ namespace ThiefAndMuse2020Code.Characters.Spirit_Characters
             }
         }
 
-        public Muse(string name, int level, int healthPoints, int chiPoints, Factions faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck)
-            :base(name, level, chiPoints)
-        {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * healthPoints) + (level * endurance);
-            this.ChiPoints = (level * chiPoints) + (level * intelligence);
-            this.Faction = faction;
-
-            this.Strength = level * strength;
-            this.Perception = level * perception;
-            this.Endurance = level * endurance;
-            this.Charisma = level * charisma;
-            this.Intelligence = level * intelligence;
-            this.Agility = level * agility;
-            this.Luck = level * luck;
-
-            this.Armor = armor;
-            this.Weapon = weapon;
-
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            this.Magick = (level * intelligence) + (level * perception);
-        }
-        
-        private readonly PartyDress DEFAULT_ARMOR = new PartyDress("Red Dress", 5, 5, 1, 10);
-        private readonly EssentialOil DEFAULT_WEAPON = new EssentialOil("Frankincense", 5, 2, 5, 0, 10, 5, 10, 7);
         public Muse()
         {
-            this.Level = DEFAULT_LUCK;
-            this.Name = DEFAULT_NAME;
-            this.HealthPoints = (DEFAULT_LUCK * DEFAULT_HEALTH_POINTS);
-            this.ChiPoints = (DEFAULT_LUCK * DEFAULT_CHI_POINTS);
-            this.Faction = DEFAULT_FACTION;
+            base.Level = Consts.Muse.LEVEL;
+            base.Name = Consts.Muse.NAME;
+            base.HealthPoints = (Consts.Muse.LEVEL * Consts.Muse.HEALTH_POINTS);
+            base.EnergyPoints = (Consts.Muse.LEVEL * Consts.Muse.ENERGY_POINTS);
+            base.Faction = Consts.Muse.FACTION;
 
-            this.Strength = DEFAULT_LEVEL * DEFAULT_STRENGTH;
-            this.Perception = DEFAULT_LEVEL * DEFAULT_PERCEPTION;
-            this.Endurance = DEFAULT_LEVEL * DEFAULT_ENDURANCE;
-            this.Charisma = DEFAULT_LEVEL * DEFAULT_CHARISMA;
-            this.Intelligence = DEFAULT_LEVEL * DEFAULT_INTELLIGENCE;
-            this.Agility = DEFAULT_LEVEL * DEFAULT_AGILITY;
-            this.Luck = DEFAULT_LEVEL * DEFAULT_LUCK;
+            base.BodyArmor = DEFAULT_ARMOR;
+            base.WeaponType = DEFAULT_WEAPON;
 
-            this.Armor = DEFAULT_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.Damage = (Consts.Muse.LEVEL * this.DEFAULT_WEAPON.WeaponDamage);
+            base.Defense = (Consts.Muse.LEVEL * this.DEFAULT_ARMOR.ArmorRating);
 
-            this.Damage = (DEFAULT_LEVEL * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
-            this.Defense = (DEFAULT_LEVEL * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
-            this.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            base.IsAlive = true;
+            base.Scores = 0;
+        }
+        //Custom Class
+        public Muse(string name, int level, int healthPoints, int energyPoints, Factions faction)
+            : base(name, level, energyPoints)
+        {
+            base.Level = level;
+            base.Name = name;
+            base.HealthPoints = (level * healthPoints);
+            base.EnergyPoints = (level * energyPoints);
+            base.Faction = faction;
+
+            base.BodyArmor = armor;
+            base.WeaponType = weapon;
+
+            base.Damage = (level * base.WeaponType.WeaponDamage);
+            base.Defense = (level * base.BodyArmor.ArmorRating);
+
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void ChiBlast()
+        //Semi-Custom Class
+        public Muse(string name, int level, Factions faction)
         {
-            throw new NotImplementedException();
-        }
-        public void ChiShield()
-        {
-            throw new NotImplementedException();
-        }
-        public void ConsumeOil()
-        {
-            throw new NotImplementedException();
+            base.Level = level;
+            base.Name = name;
+            base.HealthPoints = (level * Consts.Muse.HEALTH_POINTS);
+            base.EnergyPoints = (level * Consts.Muse.ENERGY_POINTS);
+            base.Faction = faction;
+
+            base.BodyArmor = DEFAULT_ARMOR;
+            base.WeaponType = DEFAULT_WEAPON;
+
+            base.Damage = (level + this.DEFAULT_WEAPON.WeaponDamage);
+            base.Defense = (level + this.DEFAULT_ARMOR.WeaponDefense);
+
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public override void Attack()
+        public int ChiBlast()
         {
-            this.ChiBlast();
+            return base.WeaponType.WeaponDamage + 5;
         }
-        public override void SpecialAttack()
+        public int ChiShield()
         {
-            this.ConsumeOil();
+            return base.BodyArmor.ArmorRating + 5;
         }
-        public override void Defend()
+        public int ConsumeOil()
         {
-            this.ChiShield();
+            return base.BodyArmor.ArmorRating + 10;
+        }
+
+        public override int Attack()
+        {
+            return this.ChiBlast();
+        }
+        public override int SpecialAttack()
+        {
+            return this.ConsumeOil();
+        }
+        public override int Defend()
+        {
+            return this.ChiShield();
         }
     }
 }
-
-*/

@@ -1,22 +1,14 @@
-﻿/*using System;
-using ThiefAndMuse2020Code.Weapons.Modern;
+﻿using System;
 
 namespace ThiefAndMuse2020Code.Weapons.Modern
 {
     public class EssentialOil : NewAge
     {
-        public EssentialOil(string weaponName, int armorRating, int weaponRating, int magickRating, int weaponDamage, int weaponDefense, int magickDamage, int magickDefense, int weaponSpeed)
-        :base(weaponName)
+        public EssentialOil(string weaponName, int weaponRating, int weaponDamage)
+        : base(weaponName)
         {
-            
-            this.ArmorRating = armorRating;
             this.WeaponRating = weaponRating;
-            this.MagickRating = magickRating;
-            this.WeaponDamage = weaponRating * weaponDamage;
-            this.WeaponDefense = armorRating * weaponDefense;
-            this.MagickDamage = magickRating * magickDamage;
-            this.MagickDefense = magickRating * magickDefense;
-            this.WeaponSpeed = weaponRating * weaponSpeed;
+            this.WeaponDamage = weaponDamage;
         }
         public void StatBooster()
         {
@@ -32,4 +24,3 @@ namespace ThiefAndMuse2020Code.Weapons.Modern
         }
     }
 }
-*/

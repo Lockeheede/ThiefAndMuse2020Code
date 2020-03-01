@@ -28,7 +28,51 @@ namespace ThiefAndMuse2020Code
             public const int ENERGY_POINTS = 10;
             public const Factions FACTION = Factions.Spiritual;
             public const int DAMAGE = 10;
-            public const int DEFENSE = 7;
+            public const int DEFENSE = 3;
+        }
+
+        public static class Rebel
+        {
+            public const int LEVEL = 3;
+            public const string NAME = "Rebel";
+            public const int HEALTH_POINTS = 30;
+            public const int SKILL_POINTS = 10;
+            public const Factions FACTION = Factions.Physical;
+            public const int DAMAGE = 5;
+            public const int DEFENSE = 5;
+        }
+
+        public static class Thief
+        {
+            public const int LEVEL = 5;
+            public const string NAME = "Thief";
+            public const int HEALTH_POINTS = 40;
+            public const int SKILL_POINTS = 30;
+            public const Factions FACTION = Factions.Physical;
+            public const int DAMAGE = 3;
+            public const int DEFENSE = 6;
+        }
+
+        public static class Coder
+        {
+            public const int LEVEL = 5;
+            public const string NAME = "Coder";
+            public const int HEALTH_POINTS = 25;
+            public const int BRAIN_POINTS = 300;
+            public const Factions FACTION = Factions.Mental;
+            public const int DAMAGE = 1;
+            public const int DEFENSE = 1;
+        }
+
+        public static class Muse
+        {
+            public const int LEVEL = 10;
+            public const string NAME = "Muse";
+            public const int HEALTH_POINTS = 50;
+            public const int ENERGY_POINTS = 50;
+            public const Factions FACTION = Factions.Spiritual;
+            public const int DAMAGE = 5;
+            public const int DEFENSE = 5;
         }
     }
     

@@ -109,7 +109,6 @@ namespace ThiefAndMuse2020Code.Characters.Body_Characters
         public int StunAttack()
         {
             return base.WeaponType.WeaponDamage + Damage;
-
         }
 
         public int HarderArmor()

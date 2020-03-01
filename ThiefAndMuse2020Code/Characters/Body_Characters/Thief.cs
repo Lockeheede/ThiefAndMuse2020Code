@@ -1,29 +1,13 @@
-﻿/*
-namespace ThiefAndMuse2020Code.Characters.Body_Characters
+﻿namespace ThiefAndMuse2020Code.Characters.Body_Characters
 {
     using System;
-    using ThiefAndMuse2020Code.Characters.Body_Characters;
     using ThiefAndMuse2020Code.Enumerations;
     using ThiefAndMuse2020Code.Armor.Medium;
     using ThiefAndMuse2020Code.Weapons.Renaissance;
     public class Thief : Body
     {
-        private const int DEFAULT_LEVEL = 5;
-        private const string DEFAULT_NAME = "Thief";
-        private const int DEFAULT_HEALTH_POINTS = 50;
-        private const int DEFAULT_SKILL_POINTS = 30;
-        private const Factions DEFAULT_FACTION = Factions.Physical;
-
-        private const int DEFAULT_STRENGTH = 2;
-        private const int DEFAULT_PERCEPTION = 5;
-        private const int DEFAULT_ENDURANCE = 6;
-        private const int DEFAULT_CHARISMA = 5;
-        private const int DEFAULT_INTELLIGENCE = 4;
-        private const int DEFAULT_AGILITY = 7;
-        private const int DEFAULT_LUCK = 7;
-
-        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Night Jacket", 1, 5, 1, 5);
-        private readonly Dagger DEFAULT_WEAPON = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Night Jacket", 1, 5);
+        private readonly Dagger DEFAULT_WEAPON = new Dagger("Iron Dagger", 1, 2);
 
         private LeatherVest armor;
         private Dagger weapon;
@@ -51,86 +35,89 @@ namespace ThiefAndMuse2020Code.Characters.Body_Characters
             }
         }
 
-       
-        public Thief(string name, int level, int healthPoints, int skillPoints, Factions faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck)
-            : base(name, level, skillPoints)
-        {
-            this.Level = level;
-            this.Name = name;
-            this.HealthPoints = (level * healthPoints);
-            this.SkillPoints = (level * skillPoints);
-            this.Faction = faction;
-
-            this.Strength = level * strength;
-            this.Perception = level * perception;
-            this.Endurance = level * endurance;
-            this.Charisma = level * charisma;
-            this.Intelligence = level * intelligence;
-            this.Agility = level * agility;
-            this.Luck = level * luck;
-
-            this.Armor = new LeatherVest("Night Jacket", 1, 5, 1, 5);
-            this.Weapon = new Dagger("Iron Dagger", 1, 0, 5, 0, 10);
-
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-        }
-       
+        //Default Class
         public Thief()
         {
-            this.Level = DEFAULT_LUCK;
-            this.Name = DEFAULT_NAME;
-            this.HealthPoints = (DEFAULT_LUCK * DEFAULT_HEALTH_POINTS);
-            this.SkillPoints = (DEFAULT_LUCK * DEFAULT_SKILL_POINTS);
-            this.Faction = DEFAULT_FACTION;
+            base.Level = Consts.Thief.LEVEL;
+            base.Name = Consts.Thief.NAME;
+            base.HealthPoints = (Consts.Thief.LEVEL * Consts.Thief.HEALTH_POINTS);
+            base.SkillPoints = (Consts.Thief.LEVEL * Consts.Thief.SKILL_POINTS);
+            base.Faction = Consts.Thief.FACTION;
 
-            this.Strength =   DEFAULT_LEVEL * DEFAULT_STRENGTH;
-            this.Perception = DEFAULT_LEVEL * DEFAULT_PERCEPTION;
-            this.Endurance =  DEFAULT_LEVEL * DEFAULT_ENDURANCE;
-            this.Charisma =   DEFAULT_LEVEL * DEFAULT_CHARISMA;
-            this.Intelligence = DEFAULT_LEVEL * DEFAULT_INTELLIGENCE;
-            this.Agility =    DEFAULT_LEVEL * DEFAULT_AGILITY;
-            this.Luck =       DEFAULT_LEVEL * DEFAULT_LUCK;
+            base.BodyArmor = DEFAULT_ARMOR;
+            base.WeaponType = DEFAULT_WEAPON;
 
-            this.Armor =  DEFAULT_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.Damage = (Consts.Thief.LEVEL * this.DEFAULT_WEAPON.WeaponDamage);
+            base.Defense = (Consts.Thief.LEVEL * this.DEFAULT_ARMOR.ArmorRating);
 
-            this.Damage = (DEFAULT_LEVEL * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
-            this.Defense = (DEFAULT_LEVEL * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
-            this.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void Steal()
+        //Custom Class
+        public Thief(string name, int level, int healthPoints, int skillPoints, Factions faction)
+            : base(name, level, skillPoints)
         {
-            throw new NotImplementedException();
+            base.Level = level;
+            base.Name = name;
+            base.HealthPoints = (level * healthPoints);
+            base.SkillPoints = (level * skillPoints);
+            base.Faction = faction;
+
+            base.BodyArmor = armor;
+            base.WeaponType = weapon;
+
+            base.Damage = (level * base.WeaponType.WeaponDamage);
+            base.Defense = (level * base.BodyArmor.ArmorRating);
+
+            base.IsAlive = true;
+            base.Scores = 0;
+        }
+
+        //Semi-Custom Class
+        public Thief(string name, int level, Factions faction)
+        {
+            base.Level = level;
+            base.Name = name;
+            base.HealthPoints = (level * Consts.Thief.HEALTH_POINTS);
+            base.SkillPoints = (level * Consts.Thief.SKILL_POINTS);
+            base.Faction = faction;
+
+            base.BodyArmor = DEFAULT_ARMOR;
+            base.WeaponType = DEFAULT_WEAPON;
+
+            base.Damage = (level + this.DEFAULT_WEAPON.WeaponDamage);
+            base.Defense = (level + this.DEFAULT_ARMOR.WeaponDefense);
+
+            base.IsAlive = true;
+            base.Scores = 0;
+        }
+
+        public int Steal()
+        {
+            return base.WeaponType.WeaponDamage + Damage + 2;
+        }
+        public int Sneak()
+        {
+            return base.WeaponType.WeaponDamage + Damage;
+        }
+        public int Dodge()
+        {
+            return base.BodyArmor.WeaponDefense + Defense + 2;
 
         }
-        public void Sneak()
-        {
-            throw new NotImplementedException();
 
-        }
-        public void Dodge()
+        public override int Attack()
         {
-            throw new NotImplementedException();
-
+            return this.Sneak();
         }
-
-        public override void Attack()
+        public override int SpecialAttack()
         {
-            this.Sneak();
+            return this.Steal();
         }
-        public override void SpecialAttack()
+        public override int Defend()
         {
-            this.Steal();
-        }
-        public override void Defend()
-        {
-            this.Dodge();
+            return this.Dodge();
         }
     }
 }
-
-*/

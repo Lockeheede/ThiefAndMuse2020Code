@@ -16,7 +16,7 @@ namespace ThiefAndMuse2020Code
             Console.ResetColor();
         }
 
-        /*public static void TypeSpecificColorfulCW(string message, string type)
+        public static void TypeSpecificColorfulCW(string message, string type)
         {
             ConsoleColor color = ConsoleColor.White;
 
@@ -44,7 +44,7 @@ namespace ThiefAndMuse2020Code
                     color = ConsoleColor.White;
                     break;
 
-            }*/
+            }
 
 
         }
@@ -52,3 +52,4 @@ namespace ThiefAndMuse2020Code
 
     }
 
+}

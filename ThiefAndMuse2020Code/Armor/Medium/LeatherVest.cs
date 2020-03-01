@@ -9,7 +9,7 @@ namespace ThiefAndMuse2020Code.Armor.Medium
             :base(armorName)
         {
             this.ArmorRating = armorRating;
-            this.WeaponDefense = armorRating * weaponDefense;
+            this.WeaponDefense = weaponDefense;
         }
         public void Quickness()
         {

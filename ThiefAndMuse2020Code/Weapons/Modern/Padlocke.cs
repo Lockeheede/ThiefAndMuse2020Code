@@ -1,6 +1,4 @@
-﻿/*
-using System;
-using ThiefAndMuse2020Code.Weapons.Modern;
+﻿using System;
 
 namespace ThiefAndMuse2020Code.Weapons.Modern
 {
@@ -8,14 +6,11 @@ namespace ThiefAndMuse2020Code.Weapons.Modern
     public class Padlocke : NewAge
     {
 
-        public Padlocke(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
-            :base(weaponName)
+        public Padlocke(string weaponName, int weaponRating, int weaponDamage)
+            : base(weaponName)
         {
             this.WeaponRating = weaponRating;
-            this.MagickRating = magickRating;
             this.WeaponDamage = weaponRating * weaponDamage;
-            this.MagickDamage = magickRating * magickDamage;
-            this.WeaponSpeed = weaponRating * weaponSpeed;
         }
         public void Sensor()
         {
@@ -25,7 +20,7 @@ namespace ThiefAndMuse2020Code.Weapons.Modern
         {
             throw new NotImplementedException();
         }
-        public void Hacker()
+        public void Reader()
         {
             throw new NotImplementedException();
         }

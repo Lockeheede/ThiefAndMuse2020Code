@@ -1,18 +1,14 @@
-﻿/*using System;
-using ThiefAndMuse2020Code.Weapons.Renaissance;
+﻿using System;
 
 namespace ThiefAndMuse2020Code.Weapons.Renaissance
 {
     public class Sword : DarkAge
     {
-        public Sword(string weaponName, int weaponRating, int magickRating, int weaponDamage, int magickDamage, int weaponSpeed)
+        public Sword(string weaponName, int weaponRating, int weaponDamage)
             :base(weaponName)
         {
             this.WeaponRating = weaponRating;
-            this.MagickRating = magickRating;
-            this.WeaponDamage = weaponRating * weaponDamage;
-            this.MagickDamage = magickRating * magickDamage;
-            this.WeaponSpeed = weaponRating * weaponSpeed;
+            this.WeaponDamage = weaponDamage;
         }
         public void VerticalSlash()
         {
@@ -36,4 +32,3 @@ namespace ThiefAndMuse2020Code.Weapons.Renaissance
     }
 }
 
-*/

@@ -1,30 +1,14 @@
-﻿/*
-namespace ThiefAndMuse2020Code.Characters.Mind_Characters
+﻿namespace ThiefAndMuse2020Code.Characters.Mind_Characters
 {
     using System;
-    using ThiefAndMuse2020Code.Characters.Mind_Characters;
-    using ThiefAndMuse2020Code.Enumerations;
     using ThiefAndMuse2020Code.Armor.Medium;
+    using ThiefAndMuse2020Code.Enumerations;
     using ThiefAndMuse2020Code.Weapons.Modern;
 
     public class Coder : Mind
     {
-        private const int DEFAULT_LEVEL = 5;
-        private const string DEFAULT_NAME = "Coder";
-        private const int DEFAULT_HEALTH_POINTS = 25;
-        private const int DEFAULT_BRAIN_POINTS = 300;
-        private const Factions DEFAULT_FACTION = Factions.Mental;
-
-        private const int DEFAULT_STRENGTH = 1;
-        private const int DEFAULT_PERCEPTION = 7;
-        private const int DEFAULT_ENDURANCE = 1;
-        private const int DEFAULT_CHARISMA = 3;
-        private const int DEFAULT_INTELLIGENCE = 7;
-        private const int DEFAULT_AGILITY = 1;
-        private const int DEFAULT_LUCK = 7;
-
-        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Hack-It Jacket", 3, 8, 10, 8);
-        private readonly CPU DEFAULT_WEAPON = new CPU("Intent I-9", 5, 3, 10, 5, 10);
+        private readonly LeatherVest DEFAULT_ARMOR = new LeatherVest("Hack-It Jacket", 5, 10);
+        private readonly CPU DEFAULT_WEAPON = new CPU("Intent I-9", 5, 10);
 
         private LeatherVest armor;
         private CPU weapon;
@@ -32,81 +16,87 @@ namespace ThiefAndMuse2020Code.Characters.Mind_Characters
         public LeatherVest Armor { get => this.armor; set => this.armor = value; }
         public CPU Weapon { get => this.weapon; set => this.weapon = value; }
 
-
-
-        public Coder(string name, int level, int healthPoints, int brainPoints, Factions faction, int strength,
-          int perception, int endurance, int charisma, int intelligence, int agility, int luck)
-            : base(name, level, brainPoints)
-        {
-            Level = level;
-            Name = name;
-            HealthPoints = (level * healthPoints);
-            BrainPoints = (level * brainPoints);
-            Faction = faction;
-
-            Strength = level * strength;
-            Perception = level * perception;
-            Endurance = level * endurance;
-            Charisma = level * charisma;
-            Intelligence = level * intelligence;
-            Agility = level * agility;
-            Luck = level * luck;
-
-            Armor = armor;
-            Weapon = weapon;
-
-            this.Damage = (level * strength * this.Weapon.WeaponDamage);
-            this.Defense = (level * endurance * this.Armor.ArmorRating);
-            this.Speed = (level * agility * this.Weapon.WeaponSpeed);
-            Magick = (level * intelligence) + (level * perception);
-        }
+        //Default Class
         public Coder()
         {
-            this.Level = DEFAULT_LUCK;
-            this.Name = DEFAULT_NAME;
-            this.HealthPoints = (DEFAULT_LUCK * DEFAULT_HEALTH_POINTS);
-            this.BrainPoints = (DEFAULT_LUCK * DEFAULT_BRAIN_POINTS);
-            this.Faction = DEFAULT_FACTION;
+            base.Level = Consts.Coder.LEVEL;
+            base.Name = Consts.Coder.NAME;
+            base.HealthPoints = (Consts.Coder.LEVEL * Consts.Coder.HEALTH_POINTS);
+            base.BrainPoints = (Consts.Coder.LEVEL * Consts.Coder.BRAIN_POINTS);
+            base.Faction = Consts.Coder.FACTION;
 
-            this.Strength = DEFAULT_LEVEL * DEFAULT_STRENGTH;
-            this.Perception = DEFAULT_LEVEL * DEFAULT_PERCEPTION;
-            this.Endurance = DEFAULT_LEVEL * DEFAULT_ENDURANCE;
-            this.Charisma = DEFAULT_LEVEL * DEFAULT_CHARISMA;
-            this.Intelligence = DEFAULT_LEVEL * DEFAULT_INTELLIGENCE;
-            this.Agility = DEFAULT_LEVEL * DEFAULT_AGILITY;
-            this.Luck = DEFAULT_LEVEL * DEFAULT_LUCK;
+            base.BodyArmor = DEFAULT_ARMOR;
+            base.WeaponType = DEFAULT_WEAPON;
 
-            this.Armor = DEFAULT_ARMOR;
-            this.Weapon = DEFAULT_WEAPON;
+            base.Damage = (Consts.Coder.LEVEL * this.DEFAULT_WEAPON.WeaponDamage);
+            base.Defense = (Consts.Coder.LEVEL * this.DEFAULT_ARMOR.ArmorRating);
 
-            this.Damage = (DEFAULT_LEVEL * DEFAULT_STRENGTH * this.Weapon.WeaponDamage);
-            this.Defense = (DEFAULT_LEVEL * DEFAULT_ENDURANCE * this.Armor.ArmorRating);
-            this.Speed = (DEFAULT_LEVEL * DEFAULT_AGILITY * this.Weapon.WeaponSpeed);
+            base.IsAlive = true;
+            base.Scores = 0;
         }
-        public void Hack()
+
+        //Custom Class
+        public Coder(string name, int level, int healthPoints, int brainPoints, Factions faction)
+            : base(name, level, brainPoints)
         {
-            throw new NotImplementedException();
+            base.Level = level;
+            base.Name = name;
+            base.HealthPoints = (level * healthPoints);
+            base.BrainPoints = (level * brainPoints);
+            base.Faction = faction;
+
+            base.BodyArmor = armor;
+            base.WeaponType = weapon;
+
+            base.Damage = (level * base.WeaponType.WeaponDamage);
+            base.Defense = (level * base.BodyArmor.ArmorRating);
+
+            base.IsAlive = true;
+            base.Scores = 0;
         }
-        public void Program()
+
+        //Semi-Custom Class
+        public Coder(string name, int level, Factions faction)
         {
-            throw new NotImplementedException();
+            base.Level = level;
+            base.Name = name;
+            base.HealthPoints = (level * Consts.Coder.HEALTH_POINTS);
+            base.BrainPoints = (level * Consts.Coder.BRAIN_POINTS);
+            base.Faction = faction;
+
+            base.BodyArmor = DEFAULT_ARMOR;
+            base.WeaponType = DEFAULT_WEAPON;
+
+            base.Damage = (level + this.DEFAULT_WEAPON.WeaponDamage);
+            base.Defense = (level + this.DEFAULT_ARMOR.WeaponDefense);
+
+            base.IsAlive = true;
+            base.Scores = 0;
         }
-        public void Virus()
+
+        public int Hack()
         {
-            throw new NotImplementedException();
+            return base.WeaponType.WeaponDamage + 3;
         }
-        public override void Attack()
+        public int Program()
         {
-            this.Hack();
+            return base.BodyArmor.WeaponDefense + 3;
         }
-        public override void SpecialAttack()
+        public int Virus()
         {
-            this.Virus();
+            return base.WeaponType.WeaponRating + base.WeaponType.WeaponDamage;
         }
-        public override void Defend()
+        public override int Attack()
         {
-            this.Program();
+            return this.Hack();
+        }
+        public override int SpecialAttack()
+        {
+            return this.Virus();
+        }
+        public override int Defend()
+        {
+            return this.Program();
         }
     }
-
-}*/
+}
