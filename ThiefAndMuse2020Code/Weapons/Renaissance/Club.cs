@@ -17,4 +17,3 @@ namespace ThiefAndMuse2020Code.Weapons.Renaissance
         }
     }
 }
-*/

@@ -4,6 +4,7 @@
 
 
 using System;
+using System.Threading;
 using ThiefAndMuse2020Code.Characters.Mind_Characters;
 using ThiefAndMuse2020Code.Characters.Spirit_Characters;
 using ThiefAndMuse2020Code.Characters;
@@ -73,14 +74,14 @@ class EntryPoint
         {
             new BodyGuard("Rufus", 2, Factions.Physical),
             new Sage("Sonya", 10, Factions.Spiritual),
-            new BodyGuard(),
-            new BodyGuard(),
-            new BodyGuard(),
-            new BodyGuard(),
-            new BodyGuard(),
-            new BodyGuard(),
-            new BodyGuard(),
-            new BodyGuard(),
+            new BodyGuard("Brandon", 3, Factions.Spiritual),
+            new Muse("Muriel", 7, Factions.Spiritual),
+            new Thief("Lockes", 15, Factions.Physical),
+            new Rebel("Rat", 5, Factions.Physical),
+            //new BodyGuard(),
+            //new BodyGuard(),
+            //new BodyGuard(),
+            //new BodyGuard(),
             
             /*new BodyGuard("Rufus", 7, Factions.Physical),
             new BodyGuard("FJ", 7, Factions.Physical),
@@ -133,6 +134,7 @@ class EntryPoint
                 if (spiritCharacters.Count == 0)
                 {
                     Tools.ColorfulWriteLine("\nBody over Spirit...Body team wins!", ConsoleColor.Red);
+                    Thread.Sleep(3000);
                     break;
                 }
                 else
@@ -158,6 +160,7 @@ class EntryPoint
                 if (bodyCharacters.Count == 0)
                 {
                     Tools.ColorfulWriteLine("\nSpirit over Body...Spirit team wins!", ConsoleColor.Yellow);
+                    Thread.Sleep(3000);
                     break;
                 }
                 else

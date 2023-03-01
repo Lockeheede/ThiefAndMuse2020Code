@@ -27,4 +27,3 @@ namespace ThiefAndMuse2020Code.Weapons.Modern
     }
 }
 
-*/
